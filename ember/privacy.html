@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Ember</title>
+    <meta name="description" content="Privacy Policy for Ember: Streak & Habit Tracker. Your data stays on your device. No tracking, no analytics, no accounts required.">
+    <meta name="theme-color" content="#08080c">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #08080c;
+            --bg-card: rgba(255,255,255,0.03);
+            --text: #f0f0f5;
+            --text-secondary: rgba(255,255,255,0.5);
+            --text-muted: rgba(255,255,255,0.3);
+            --border: rgba(255,255,255,0.06);
+            --accent: #FF6B35;
+            --accent-light: #FFB347;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .noise {
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-top {
+            position: fixed;
+            top: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 60%;
+            background: radial-gradient(ellipse at center, rgba(255,107,53,0.05) 0%, transparent 65%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Nav */
+        nav {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            z-index: 10;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #FF6B35 0%, #FFB347 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        /* Page header */
+        .page-header {
+            padding: 64px 0 48px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        .back-link svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+
+        .page-header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            background: linear-gradient(135deg, #FF6B35 0%, #FFB347 60%, #fff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .page-header .meta {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Privacy badge row */
+        .privacy-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        .privacy-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255,107,53,0.08);
+            border: 1px solid rgba(255,107,53,0.16);
+            border-radius: 100px;
+            padding: 7px 14px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .privacy-badge::before {
+            content: '✓';
+            font-weight: 700;
+        }
+
+        /* Content layout */
+        .content {
+            padding-bottom: 100px;
+        }
+
+        .content-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        /* Sidebar TOC */
+        .toc {
+            position: sticky;
+            top: 32px;
+        }
+
+        .toc-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .toc-list a {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 8px;
+            transition: all 0.2s;
+            line-height: 1.4;
+        }
+
+        .toc-list a:hover {
+            color: var(--accent);
+            background: rgba(255,107,53,0.06);
+        }
+
+        /* Policy card */
+        .policy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .policy-section {
+            padding: 36px 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .policy-section:last-child {
+            border-bottom: none;
+        }
+
+        .policy-section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .policy-section h2 .sec-icon {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .policy-section p {
+            font-size: 0.925rem;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            line-height: 1.75;
+        }
+
+        .policy-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-section ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .policy-section ul li {
+            font-size: 0.925rem;
+            color: var(--text-secondary);
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.65;
+        }
+
+        .policy-section ul li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
+        }
+
+        .policy-section strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .policy-section a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .policy-section a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight-box {
+            background: rgba(255,107,53,0.06);
+            border: 1px solid rgba(255,107,53,0.14);
+            border-radius: 12px;
+            padding: 18px 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-top: 4px;
+        }
+
+        .highlight-box strong {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        /* Responsive */
+        @media (max-width: 760px) {
+            .content-layout {
+                grid-template-columns: 1fr;
+            }
+            .toc {
+                display: none;
+            }
+            .policy-section {
+                padding: 28px 24px;
+            }
+            .nav-links { gap: 20px; }
+        }
+
+        @media (max-width: 500px) {
+            .nav-links { gap: 14px; }
+            .privacy-badges { gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="glow-top"></div>
+
+    <!-- Nav -->
+    <nav>
+        <div class="container">
+            <div class="nav-inner">
+                <a href="index.html" class="nav-logo">Ember</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="index.html#support">Support</a></li>
+                    <li><a href="privacy.html" style="color: var(--text);">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <a href="index.html" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                Back to Ember
+            </a>
+            <h1>Privacy Policy</h1>
+            <p class="meta">Last updated: February 17, 2026</p>
+            <div class="privacy-badges">
+                <span class="privacy-badge">No data collection</span>
+                <span class="privacy-badge">No account required</span>
+                <span class="privacy-badge">No third-party tracking</span>
+                <span class="privacy-badge">Your data stays on-device</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+        <div class="container">
+            <div class="content-layout">
+
+                <!-- TOC Sidebar -->
+                <aside class="toc" aria-label="Table of contents">
+                    <p class="toc-label">On this page</p>
+                    <ul class="toc-list">
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#information">Information We Collect</a></li>
+                        <li><a href="#storage">Data Storage</a></li>
+                        <li><a href="#third-party">Third-Party Services</a></li>
+                        <li><a href="#purchases">In-App Purchases</a></li>
+                        <li><a href="#security">Data Security</a></li>
+                        <li><a href="#rights">Your Rights</a></li>
+                        <li><a href="#children">Children's Privacy</a></li>
+                        <li><a href="#changes">Changes to Policy</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Policy card -->
+                <div class="policy-card">
+
+                    <div class="policy-section" id="overview">
+                        <h2><span class="sec-icon">📋</span> Overview</h2>
+                        <p>Ember ("we", "our", or "the app") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our habit tracking application.</p>
+                        <div class="highlight-box">
+                            <strong>The short version:</strong> Ember stores your habit data locally on your device. We don't have servers. We don't collect analytics. We don't know who you are. Your data belongs entirely to you.
+                        </div>
+                    </div>
+
+                    <div class="policy-section" id="information">
+                        <h2><span class="sec-icon">🗄️</span> Information We Collect</h2>
+                        <p><strong>Habit Data:</strong> Ember stores your habit information, including habit names, completion records, streaks, and reminder settings. This data is stored locally on your device and, if you enable iCloud sync, in your personal iCloud account.</p>
+                        <p><strong>We do NOT collect:</strong></p>
+                        <ul>
+                            <li>Personal identification information (name, email address, or similar)</li>
+                            <li>Location data</li>
+                            <li>Device identifiers for tracking purposes</li>
+                            <li>Usage analytics or behavioral data</li>
+                            <li>Any data for advertising purposes</li>
+                        </ul>
+                    </div>
+
+                    <div class="policy-section" id="storage">
+                        <h2><span class="sec-icon">💾</span> Data Storage</h2>
+                        <p><strong>Local Storage:</strong> All your habit data is stored locally on your device using secure storage mechanisms provided by iOS.</p>
+                        <p><strong>iCloud Sync:</strong> If you enable iCloud sync, your data is stored in your personal iCloud account using Apple's CloudKit technology. This data is encrypted and only accessible by you through devices signed into your Apple ID.</p>
+                        <p><strong>Backups:</strong> You can create manual backups that are stored locally or in your iCloud Drive. These backups are entirely under your control.</p>
+                    </div>
+
+                    <div class="policy-section" id="third-party">
+                        <h2><span class="sec-icon">🔗</span> Third-Party Services</h2>
+                        <p>Ember uses the following Apple-provided services only:</p>
+                        <ul>
+                            <li><strong>iCloud / CloudKit</strong> - for syncing data across your devices (optional, user-controlled)</li>
+                            <li><strong>StoreKit</strong> - for processing in-app purchases through Apple's App Store</li>
+                            <li><strong>UserNotifications</strong> - for sending habit reminders (optional, requires your permission)</li>
+                            <li><strong>HealthKit</strong> - for reading health metrics you choose to track (optional, requires your permission)</li>
+                        </ul>
+                        <p>We do not use any third-party analytics, advertising, crash reporting, or tracking services. There are no SDKs from Facebook, Google, Mixpanel, Amplitude, or any similar provider embedded in Ember.</p>
+                    </div>
+
+                    <div class="policy-section" id="purchases">
+                        <h2><span class="sec-icon">💳</span> In-App Purchases</h2>
+                        <p>Purchases are processed entirely through Apple's App Store using StoreKit. We do not have access to your payment information at any point. Apple handles all payment processing according to their own privacy policy and terms of service.</p>
+                        <p>Ember offers a <strong>one-time lifetime purchase</strong> - there is no recurring subscription. Your purchase is tied to your Apple ID and can be restored on any device signed in with the same account.</p>
+                    </div>
+
+                    <div class="policy-section" id="security">
+                        <h2><span class="sec-icon">🔒</span> Data Security</h2>
+                        <p>We implement appropriate security measures to protect your data:</p>
+                        <ul>
+                            <li>All iCloud data is encrypted in transit and at rest by Apple</li>
+                            <li>Local data is stored using iOS secure storage mechanisms</li>
+                            <li>We do not transmit your data to any external servers - there are none to transmit to</li>
+                            <li>Backup files are only shared when you explicitly initiate an export</li>
+                        </ul>
+                    </div>
+
+                    <div class="policy-section" id="rights">
+                        <h2><span class="sec-icon">⚖️</span> Your Rights</h2>
+                        <p>You have complete control over your data at all times:</p>
+                        <ul>
+                            <li><strong>Access</strong> - view all your data within the app at any time</li>
+                            <li><strong>Export</strong> - create a portable backup of your data via Settings &rarr; Data &rarr; Export Backup</li>
+                            <li><strong>Delete</strong> - delete individual habits, habit history, or all app data</li>
+                            <li><strong>Portability</strong> - your exported backup is in a standard format you can keep indefinitely</li>
+                            <li><strong>iCloud removal</strong> - disable iCloud sync at any time; your data remains local on your device</li>
+                        </ul>
+                        <p>Because we collect no personal data on our end, there is nothing for us to look up, correct, or delete on your behalf. All data management happens directly through the app on your device.</p>
+                    </div>
+
+                    <div class="policy-section" id="children">
+                        <h2><span class="sec-icon">👶</span> Children's Privacy</h2>
+                        <p>Ember does not knowingly collect information from children under 13. The app is designed to be suitable for all ages and does not require any personal information to use. Because no data leaves your device (unless you explicitly enable iCloud sync), Ember is safe for use by people of all ages.</p>
+                    </div>
+
+                    <div class="policy-section" id="changes">
+                        <h2><span class="sec-icon">📝</span> Changes to This Policy</h2>
+                        <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by updating the "Last updated" date at the top of this policy. Continued use of the app after any changes constitutes your acceptance of the updated policy.</p>
+                        <p>We will never introduce data collection, analytics, or advertising without making this clearly visible to users through an updated policy and prominent in-app notification.</p>
+                    </div>
+
+                    <div class="policy-section" id="contact">
+                        <h2><span class="sec-icon">✉️</span> Contact</h2>
+                        <p>If you have any questions or concerns about this Privacy Policy or how Ember handles data, please contact us:</p>
+                        <p><a href="mailto:habitglassapp@gmail.com">habitglassapp@gmail.com</a></p>
+                        <p>We typically respond within 48 hours.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <span class="footer-copy">&copy; 2026 Ember. All rights reserved.</span>
+                <div class="footer-links">
+                    <a href="index.html">Support</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms of Use</a>
+                    <a href="mailto:habitglassapp@gmail.com">Contact</a>
+                    <a href="../index.html">All Apps</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

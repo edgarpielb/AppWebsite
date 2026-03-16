@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edgar Pielbusch - iOS Apps</title>
+    <meta name="description" content="Independent iOS apps by Edgar Pielbusch. Habit tracking, progress photos, nicotine reduction, ethical shopping. Privacy-first, no tracking, no subscriptions.">
+    <meta name="theme-color" content="#0a0a0f">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0f;
+            color: #e8e8ed;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a { color: inherit; }
+
+        .grid-wrap {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- Bento Grid --- */
+        .bento {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto auto;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .cell {
+            background: #0a0a0f;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            padding: 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .cell:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+            border-color: rgba(255,255,255,0.12);
+        }
+
+        /* --- Per-app hover border colors --- */
+        .cell--ember:hover {
+            border-color: rgba(255,107,53,0.4);
+            box-shadow: 0 12px 40px rgba(255,107,53,0.08);
+        }
+
+        .cell--progresspic:hover {
+            border-color: rgba(0,212,255,0.4);
+            box-shadow: 0 12px 40px rgba(0,212,255,0.08);
+        }
+
+        .cell--pouchless:hover {
+            border-color: rgba(45,212,191,0.4);
+            box-shadow: 0 12px 40px rgba(45,212,191,0.08);
+        }
+
+        .cell--boycottr:hover {
+            border-color: rgba(52,199,89,0.4);
+            box-shadow: 0 12px 40px rgba(52,199,89,0.08);
+        }
+
+        /* --- Intro cell: top-left, spans 2 columns --- */
+        .cell--intro {
+            grid-column: 1 / 3;
+            grid-row: 1;
+            border-color: rgba(255,255,255,0.04);
+            padding: 48px 44px;
+            justify-content: center;
+        }
+
+        .cell--intro:hover { border-color: rgba(255,255,255,0.08); }
+
+        .cell--intro h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.035em;
+            line-height: 1.12;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .cell--intro p {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.45);
+            max-width: 480px;
+        }
+
+        .cell--intro p strong {
+            color: rgba(255,255,255,0.7);
+            font-weight: 500;
+        }
+
+        /* --- App cells --- */
+        .cell--app {
+            text-decoration: none;
+            cursor: pointer;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .cell--app .app-top {
+            margin-bottom: 24px;
+        }
+
+        .cell--app .app-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 13px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+            margin-bottom: 20px;
+        }
+
+        .cell--app .app-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #fff;
+            margin-bottom: 3px;
+        }
+
+        .cell--app .app-subtitle {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .cell--app .app-desc {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.4);
+            line-height: 1.65;
+            margin-bottom: 20px;
+        }
+
+        .cell--app .app-links {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .cell--app .app-links a {
+            font-size: 0.82rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .cell--app .app-links .store-link,
+        .cell--app .app-links .support-link {
+            color: rgba(255,255,255,0.85);
+            padding: 6px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.12);
+            transition: all 0.15s;
+            position: relative;
+            z-index: 2;
+        }
+        .cell--app .app-links .store-link:hover,
+        .cell--app .app-links .support-link:hover {
+            color: #fff;
+            border-color: rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.06);
+        }
+
+        .arrow {
+            display: inline-block;
+            margin-left: 3px;
+            transition: transform 0.15s;
+        }
+        a:hover .arrow { transform: translateX(2px); }
+
+        /* --- Principles cell --- */
+        .cell--principles {
+            grid-column: 1 / 3;
+            border-color: rgba(255,255,255,0.04);
+            padding: 36px 44px;
+        }
+
+        .cell--principles:hover { border-color: rgba(255,255,255,0.08); }
+
+        .cell--principles h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.25);
+            margin-bottom: 24px;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px 40px;
+        }
+
+        .principle {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.35);
+        }
+
+        .principle strong {
+            display: block;
+            color: rgba(255,255,255,0.65);
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        /* --- Contact cell --- */
+        .cell--contact {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-color: rgba(255,255,255,0.04);
+        }
+
+        .cell--contact:hover { border-color: rgba(255,255,255,0.08); }
+
+        .cell--contact p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.25);
+            margin-bottom: 12px;
+        }
+
+        .cell--contact a {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.45);
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .cell--contact a:hover {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .cell--contact .copy {
+            margin-top: 16px;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.15);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 900px) {
+            .bento {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cell--intro {
+                grid-column: 1 / 3;
+            }
+
+            .cell--principles {
+                grid-column: 1 / 3;
+            }
+
+            .cell--contact {
+                grid-column: 1 / 3;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .grid-wrap { padding: 12px; }
+
+            .bento {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .cell--intro,
+            .cell--principles,
+            .cell--contact {
+                grid-column: 1;
+            }
+
+            .cell { padding: 28px 24px; border-radius: 16px; }
+            .cell--intro { padding: 36px 28px; }
+            .cell--intro h1 { font-size: 1.8rem; }
+            .cell--principles { padding: 28px 24px; }
+
+            .principles-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-wrap">
+        <div class="bento">
+
+            <!-- Intro: top-left, spans 2 cols -->
+            <div class="cell cell--intro">
+                <h1>I make iOS apps<br>for people who want<br>less noise.</h1>
+                <p>I'm Edgar. I build small, focused tools that respect your time and your data. <strong>No accounts, no tracking, no subscriptions</strong> -- just software that works and then gets out of your way.</p>
+            </div>
+
+            <!-- Ember: top-right -->
+            <div class="cell cell--app cell--ember">
+                <div class="app-top">
+                    <img src="assets/icons/ember.png" alt="Ember" class="app-icon">
+                    <div class="app-name">Ember</div>
+                    <div class="app-subtitle">Streak & Habit Tracker</div>
+                </div>
+                <p class="app-desc">Streak shields, vacation mode, 22 milestone icons. The habit tracker I wanted but couldn't find. One-time purchase.</p>
+                <div class="app-links">
+                    <a href="https://apps.apple.com/app/id6752352900" target="_blank" rel="noopener" class="store-link">App Store <span class="arrow">&rarr;</span></a>
+                    <a href="ember/index.html" class="support-link">Support</a>
+                </div>
+            </div>
+
+            <!-- ProgressPic -->
+            <div class="cell cell--app cell--progresspic">
+                <div class="app-top">
+                    <img src="assets/icons/progresspic.png" alt="ProgressPic" class="app-icon">
+                    <div class="app-name">ProgressPic</div>
+                    <div class="app-subtitle">Transformation Photos</div>
+                </div>
+                <p class="app-desc">Progress photos, body measurements, HealthKit, and timelapse export. Photos stay on your device.</p>
+                <div class="app-links">
+                    <a href="#" class="store-link">App Store <span class="arrow">&rarr;</span></a>
+                    <a href="progresspic/index.html" class="support-link">Support</a>
+                </div>
+            </div>
+
+            <!-- PouchLess -->
+            <div class="cell cell--app cell--pouchless">
+                <div class="app-top">
+                    <img src="assets/icons/pouchless.png" alt="PouchLess" class="app-icon">
+                    <div class="app-name">PouchLess</div>
+                    <div class="app-subtitle">Nicotine Reduction</div>
+                </div>
+                <p class="app-desc">A personal plan to cut back at your own pace. Track usage, see savings, get craving support.</p>
+                <div class="app-links">
+                    <a href="#" class="store-link">App Store <span class="arrow">&rarr;</span></a>
+                    <a href="pouchless/index.html" class="support-link">Support</a>
+                </div>
+            </div>
+
+            <!-- Boycottr -->
+            <div class="cell cell--app cell--boycottr">
+                <div class="app-top">
+                    <img src="assets/icons/boycottr.png" alt="Boycottr" class="app-icon">
+                    <div class="app-name">Boycottr</div>
+                    <div class="app-subtitle">Ethical Shopping</div>
+                </div>
+                <p class="app-desc">Scan a barcode to see who really makes it. Know the companies behind the brands you buy.</p>
+                <div class="app-links">
+                    <a href="#" class="store-link">App Store <span class="arrow">&rarr;</span></a>
+                    <a href="boycottr/index.html" class="support-link">Support</a>
+                </div>
+            </div>
+
+            <!-- Principles: bottom-left, spans 2 cols -->
+            <div class="cell cell--principles">
+                <h2>How I build</h2>
+                <div class="principles-grid">
+                    <div class="principle">
+                        <strong>Privacy by default</strong>
+                        No analytics, no tracking pixels, no data collection. Your information stays on your device.
+                    </div>
+                    <div class="principle">
+                        <strong>Pay once, keep it</strong>
+                        Lifetime purchases instead of subscriptions. I'd rather earn your money honestly than extract it monthly.
+                    </div>
+                    <div class="principle">
+                        <strong>No account required</strong>
+                        iCloud handles sync. You don't need to create yet another login to use an app.
+                    </div>
+                    <div class="principle">
+                        <strong>Small and focused</strong>
+                        Each app does one thing well. No feature bloat, no social feeds, no dark patterns.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact: bottom-right -->
+            <div class="cell cell--contact">
+                <p>Edgar Pielbusch</p>
+                <a href="mailto:habitglassapp@gmail.com">habitglassapp@gmail.com</a>
+                <div class="copy">&copy; 2026</div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.cell--app').forEach(card => {
+            const supportLink = card.querySelector('.support-link');
+            if (!supportLink) return;
+            card.addEventListener('click', (e) => {
+                if (e.target.closest('a')) return;
+                window.location.href = supportLink.href;
+            });
+        });
+    </script>
+</body>
+</html>

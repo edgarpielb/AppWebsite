@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PouchLess - Nicotine Reduction App</title>
+    <meta name="description" content="Take control of your nicotine consumption with personalized reduction plans, craving support tools, and savings tracking.">
+    <meta name="theme-color" content="#08080c">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #08080c;
+            --bg-card: rgba(255,255,255,0.03);
+            --bg-card-hover: rgba(255,255,255,0.06);
+            --text: #f0f0f5;
+            --text-secondary: rgba(255,255,255,0.5);
+            --text-muted: rgba(255,255,255,0.3);
+            --border: rgba(255,255,255,0.06);
+            --border-hover: rgba(255,255,255,0.12);
+            --accent: #2dd4bf;
+            --accent-green: #4ade80;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .noise {
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow {
+            position: fixed;
+            top: -40%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120%;
+            height: 60%;
+            background: radial-gradient(ellipse at center, rgba(45,212,191,0.04) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Nav */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 72px;
+            text-align: center;
+        }
+
+        .hero-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 48px rgba(45,212,191,0.12);
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-tagline {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            max-width: 440px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid var(--border);
+            padding: 12px 28px;
+            border-radius: 12px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.25s ease;
+        }
+
+        .app-store-btn:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        .app-store-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--text);
+        }
+
+        /* Section headers */
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        /* Features */
+        .features {
+            padding-bottom: 80px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 24px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            background: radial-gradient(ellipse at 20% 80%, rgba(45,212,191,0.06) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(45,212,191,0.15);
+            transform: translateY(-3px);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-emoji {
+            font-size: 1.6rem;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+            position: relative;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* Support */
+        .support {
+            padding-bottom: 80px;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, rgba(45,212,191,0.06), rgba(74,222,128,0.04));
+            border: 1px solid rgba(45,212,191,0.15);
+            border-radius: 16px;
+            padding: 36px;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .contact-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            padding: 12px 24px;
+            border-radius: 100px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: all 0.25s ease;
+        }
+
+        .contact-email:hover {
+            border-color: rgba(45,212,191,0.3);
+            box-shadow: 0 0 20px rgba(45,212,191,0.12);
+            transform: translateY(-2px);
+        }
+
+        .contact-email svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--accent);
+        }
+
+        .response-note {
+            display: block;
+            margin-top: 14px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* FAQ */
+        .faq {
+            padding-bottom: 80px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--border-hover);
+        }
+
+        .faq-item.active {
+            border-color: rgba(45,212,191,0.2);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 18px 22px;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: background 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(255,255,255,0.02);
+        }
+
+        .faq-chevron {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            fill: var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-chevron {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 400px;
+        }
+
+        .faq-answer-inner {
+            padding: 0 22px 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.75;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .hero { padding: 60px 0 56px; }
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            .footer-inner {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .nav-links { gap: 16px; }
+            .contact-card { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="glow"></div>
+
+    <div class="container">
+        <nav>
+            <a href="../index.html" class="nav-brand">PouchLess</a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="#support">Support</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <img src="../assets/icons/pouchless.png" alt="PouchLess" class="hero-icon">
+            <h1>PouchLess</h1>
+            <p class="hero-tagline">Take control of your nicotine consumption. Every small step leads to lasting change.</p>
+            <a href="https://apps.apple.com/app/pouchless" target="_blank" class="app-store-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                Download on the App Store
+            </a>
+        </section>
+
+        <section class="features">
+            <span class="section-label">Features</span>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-emoji">📉</span>
+                    <h3>Personalized Plan</h3>
+                    <p>Reduce gradually or quit completely with daily limits that adapt to your goals.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-emoji">💪</span>
+                    <h3>Craving Support</h3>
+                    <p>Breathing exercises, craving timer, color grounding, and health benefits timeline.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-emoji">📊</span>
+                    <h3>Smart Tracking</h3>
+                    <p>Log any brand and strength with one tap. See clear charts of your progress.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-emoji">💰</span>
+                    <h3>Money Saved</h3>
+                    <p>Track how much you've saved and see the health benefits you're gaining.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-emoji">🔒</span>
+                    <h3>Privacy First</h3>
+                    <p>No account required. Your data stays on your device. We don't track you.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-emoji">☁️</span>
+                    <h3>iCloud Sync</h3>
+                    <p>Optional sync across all your Apple devices with your private iCloud.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="support" id="support">
+            <span class="section-label">Support</span>
+            <div class="contact-card">
+                <h3>Need Help?</h3>
+                <p>We're here to support you on your journey. Check the FAQ below or reach out directly.</p>
+                <a href="mailto:zynlessapp@gmail.com" class="contact-email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    zynlessapp@gmail.com
+                </a>
+                <span class="response-note">We typically respond within 24-48 hours</span>
+            </div>
+        </section>
+
+        <section class="faq">
+            <span class="section-label">Frequently Asked Questions</span>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How does PouchLess help me reduce nicotine?
+                    <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        PouchLess creates a personalized reduction plan based on your current consumption and goals. Whether you want to quit completely or cut down to a target level, the app guides you with daily limits that gradually decrease over time. Track your progress with one-tap logging and see your journey visualized in clear charts.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What craving support tools are included?
+                    <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        PouchLess includes several tools to help you overcome cravings: a 4-7-8 breathing exercise proven to calm your nervous system, a craving timer that tracks how long each craving lasts (most fade within minutes!), a color grounding technique to stay present, and a health benefits timeline showing the positive changes happening in your body.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Does PouchLess sync across my devices?
+                    <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes! PouchLess offers optional iCloud sync to keep your data synchronized across all your Apple devices. Your consumption history, pouch types, and progress will be available on any device signed into the same iCloud account. You can enable or disable this feature in Settings.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How do I restore my purchase on a new device?
+                    <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Your PouchLess Premium subscription is linked to your Apple ID. Simply download the app on your new device and sign in with the same Apple ID. Go to Settings and your premium access should restore automatically. If not, you can manually restore purchases from the subscription options screen.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Can I track different pouch brands and strengths?
+                    <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Absolutely! PouchLess lets you add any nicotine pouch brand and strength. You can create custom pouch types with specific nicotine content (mg per pouch), choose colors for easy identification, and track how many pouches of each type you have remaining. Log your consumption with a single tap.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How is my money saved calculated?
+                    <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        PouchLess calculates your savings based on the difference between your baseline consumption (when you started) and your actual consumption. Enter your box price and pouches per box in Settings, and the app will track how much you've saved by reducing your nicotine intake over time.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How do I cancel my subscription?
+                    <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        PouchLess subscriptions are managed through your Apple ID. To cancel, go to your iPhone's Settings, tap your name, then Subscriptions, find PouchLess, and tap Cancel Subscription. You'll continue to have premium access until the end of your current billing period.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Is my data private and secure?
+                    <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes! Your privacy is our priority. PouchLess stores all your data locally on your device. If you enable iCloud sync, your data is encrypted and stored in your private iCloud account. We don't collect analytics, track your behavior, or share any information with third parties. No account required means no personal data to worry about.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <span class="footer-copy">&copy; 2025 PouchLess</span>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy</a>
+                    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">Terms</a>
+                    <a href="mailto:zynlessapp@gmail.com">Contact</a>
+                    <a href="../index.html">All Apps</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var item = btn.parentElement;
+                var wasActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(function(el) {
+                    el.classList.remove('active');
+                });
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
