@@ -3,24 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProgressPic - Track Your Transformation Journey</title>
-    <meta name="description" content="Document your fitness journey with organized progress photos, body measurements, HealthKit integration, and timelapse video export.">
-    <meta name="theme-color" content="#08080c">
+    <title>ProgressPic - Transformation Photos</title>
+    <meta name="description" content="Track your transformation journey with organized progress photos, body measurements, HealthKit integration, and timelapse video export.">
+    <meta name="theme-color" content="#f5f0e8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #08080c;
-            --bg-card: rgba(255,255,255,0.03);
-            --bg-card-hover: rgba(255,255,255,0.055);
-            --text: #f0f0f5;
-            --text-secondary: rgba(255,255,255,0.5);
-            --text-muted: rgba(255,255,255,0.3);
-            --border: rgba(255,255,255,0.06);
-            --border-hover: rgba(0,212,255,0.2);
-            --accent: #00d4ff;
-            --accent-dark: #0099cc;
+            --bg: #f5f0e8;
+            --bg-card: #faf7f2;
+            --text: #1a1a1e;
+            --text-secondary: rgba(0,0,0,0.5);
+            --text-muted: rgba(0,0,0,0.3);
+            --border: rgba(0,0,0,0.06);
+            --accent: #0088aa;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,35 +31,15 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Background layers */
-        .noise {
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .glow {
-            position: fixed;
-            top: -40%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120%;
-            height: 60%;
-            background: radial-gradient(ellipse at center, rgba(0,212,255,0.04) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
         /* Nav */
         nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(8,8,12,0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            padding: 16px 0;
             border-bottom: 1px solid var(--border);
         }
 
@@ -70,15 +47,14 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
-            height: 56px;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .nav-brand {
+        .nav-logo {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             letter-spacing: -0.01em;
             color: var(--text);
@@ -87,30 +63,20 @@
 
         .nav-links {
             display: flex;
-            gap: 28px;
             align-items: center;
+            gap: 28px;
+            list-style: none;
         }
 
         .nav-links a {
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             font-weight: 500;
             color: var(--text-secondary);
             text-decoration: none;
-            transition: color 0.2s;
+            transition: color 0.2s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            position: relative;
-            z-index: 1;
-        }
+        .nav-links a:hover { color: var(--text); }
 
         /* Hero */
         .hero {
@@ -121,55 +87,59 @@
         .hero-icon {
             width: 80px;
             height: 80px;
-            border-radius: 18px;
-            margin: 0 auto 28px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 32px;
             display: block;
-            box-shadow:
-                0 8px 32px rgba(0,212,255,0.15),
-                0 0 0 1px rgba(255,255,255,0.08);
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.4rem, 6vw, 3.8rem);
+            font-size: clamp(2.4rem, 6vw, 3.5rem);
             font-weight: 600;
             letter-spacing: -0.03em;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            line-height: 1.05;
+            margin-bottom: 12px;
+            color: var(--accent);
         }
 
         .hero-tagline {
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(0,0,0,0.35);
+            margin-bottom: 24px;
+        }
+
+        .hero-desc {
             color: var(--text-secondary);
-            font-size: 1.15rem;
-            max-width: 440px;
-            margin: 0 auto 36px;
-            line-height: 1.7;
+            font-size: 1.1rem;
+            max-width: 480px;
+            margin: 0 auto 40px;
+            line-height: 1.75;
         }
 
         .hero-cta {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
-            color: #08080c;
+            background: var(--accent);
+            color: #fff;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 600;
-            letter-spacing: 0.01em;
-            padding: 12px 24px;
-            border-radius: 12px;
+            padding: 14px 28px;
+            border-radius: 14px;
             text-decoration: none;
             transition: all 0.25s ease;
-            box-shadow: 0 4px 20px rgba(0,212,255,0.25);
         }
 
         .hero-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(0,212,255,0.35);
+            opacity: 0.9;
         }
 
         .hero-cta svg {
@@ -178,24 +148,45 @@
             flex-shrink: 0;
         }
 
-        /* Features */
-        .features-section {
-            padding-bottom: 80px;
+        /* Section labels */
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
         }
 
-        .section-label {
-            font-size: 0.78rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 40px;
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 500px;
+            line-height: 1.7;
+        }
+
+        /* Features */
+        .features-section {
+            padding: 40px 0 80px;
+        }
+
+        .features-header {
+            margin-bottom: 48px;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
+            gap: 12px;
         }
 
         .feature-card {
@@ -204,150 +195,160 @@
             border-radius: 16px;
             padding: 28px 24px;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 16px;
-            background: radial-gradient(ellipse at 20% 80%, rgba(0,212,255,0.06) 0%, transparent 60%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
 
         .feature-card:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--border-hover);
+            border-color: rgba(0,136,170,0.2);
             transform: translateY(-3px);
         }
 
-        .feature-card:hover::before {
-            opacity: 1;
-        }
-
-        .feature-icon {
+        .feature-emoji {
             font-size: 1.75rem;
             margin-bottom: 14px;
             display: block;
-            position: relative;
-            z-index: 1;
+            line-height: 1;
         }
 
-        .feature-card h3 {
+        .feature-name {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             letter-spacing: -0.01em;
             margin-bottom: 8px;
-            position: relative;
-            z-index: 1;
         }
 
-        .feature-card p {
+        .feature-desc {
             font-size: 0.875rem;
             color: var(--text-secondary);
             line-height: 1.6;
-            position: relative;
-            z-index: 1;
         }
 
-        /* Support / Contact */
+        /* Divider */
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 0;
+        }
+
+        /* Support section */
         .support-section {
-            padding-bottom: 60px;
+            padding: 80px 0;
+        }
+
+        .support-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 48px;
         }
 
         .contact-card {
+            background: rgba(0,136,170,0.05);
+            border: 1px solid rgba(0,136,170,0.15);
+            border-radius: 20px;
+            padding: 36px 32px;
+        }
+
+        .contact-emoji {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .contact-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 10px;
+        }
+
+        .contact-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.65;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .contact-link:hover { opacity: 0.75; }
+
+        .response-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            width: fit-content;
+            background: rgba(0,136,170,0.1);
+            border: 1px solid rgba(0,136,170,0.2);
+            border-radius: 100px;
+            padding: 6px 14px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin-top: 16px;
+        }
+
+        .response-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .info-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 20px;
-            padding: 40px;
+            padding: 36px 32px;
+        }
+
+        .info-list {
+            list-style: none;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 32px;
-            position: relative;
-            overflow: hidden;
+            flex-direction: column;
+            gap: 16px;
         }
 
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 0% 50%, rgba(0,212,255,0.06) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .contact-card-text {
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-card-text h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 8px;
-        }
-
-        .contact-card-text p {
+        .info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            font-size: 0.9rem;
             color: var(--text-secondary);
-            font-size: 0.95rem;
-            max-width: 340px;
+            line-height: 1.6;
         }
 
-        .contact-email-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(0,212,255,0.08);
-            border: 1px solid rgba(0,212,255,0.2);
-            color: var(--accent);
-            font-size: 0.875rem;
-            font-weight: 600;
-            padding: 12px 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            white-space: nowrap;
-            transition: all 0.25s ease;
+        .info-list li .icon {
+            font-size: 1.1rem;
             flex-shrink: 0;
-            position: relative;
-            z-index: 1;
+            margin-top: 1px;
         }
 
-        .contact-email-btn:hover {
-            background: rgba(0,212,255,0.14);
-            border-color: rgba(0,212,255,0.35);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0,212,255,0.15);
-        }
-
-        .contact-email-btn svg {
-            width: 16px;
-            height: 16px;
-            flex-shrink: 0;
-        }
-
-        /* FAQ */
+        /* FAQ section */
         .faq-section {
-            padding-bottom: 80px;
+            padding: 0 0 80px;
         }
 
-        .faq-section h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 28px;
+        .faq-header {
+            margin-bottom: 40px;
         }
 
         .faq-list {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
 
         .faq-item {
@@ -358,58 +359,57 @@
             transition: border-color 0.2s ease;
         }
 
-        .faq-item:hover {
-            border-color: rgba(0,212,255,0.18);
-        }
-
-        .faq-item.active {
-            border-color: rgba(0,212,255,0.22);
+        .faq-item.open {
+            border-color: rgba(0,136,170,0.2);
         }
 
         .faq-question {
             width: 100%;
             background: none;
             border: none;
-            padding: 18px 22px;
-            text-align: left;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
             color: var(--text);
             font-family: 'DM Sans', sans-serif;
-            font-size: 0.95rem;
+            font-size: 0.975rem;
             font-weight: 500;
+            text-align: left;
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            transition: color 0.2s;
         }
+
+        .faq-question:hover { color: var(--accent); }
+
+        .faq-item.open .faq-question { color: var(--accent); }
 
         .faq-chevron {
             width: 18px;
             height: 18px;
             flex-shrink: 0;
-            color: var(--accent);
-            transition: transform 0.3s ease;
+            color: var(--text-muted);
+            transition: transform 0.3s ease, color 0.2s;
         }
 
-        .faq-item.active .faq-chevron {
+        .faq-item.open .faq-chevron {
             transform: rotate(180deg);
+            color: var(--accent);
         }
 
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 400px;
+            transition: max-height 0.35s ease;
         }
 
         .faq-answer-inner {
-            padding: 0 22px 20px;
-            color: var(--text-secondary);
+            padding: 16px 24px 20px;
             font-size: 0.9rem;
+            color: var(--text-secondary);
             line-height: 1.75;
+            border-top: 1px solid var(--border);
         }
 
         .faq-answer-inner a {
@@ -417,16 +417,7 @@
             text-decoration: none;
         }
 
-        .faq-answer-inner a:hover {
-            text-decoration: underline;
-        }
-
-        /* Section divider */
-        .section-divider {
-            height: 1px;
-            background: var(--border);
-            margin-bottom: 60px;
-        }
+        .faq-answer-inner a:hover { text-decoration: underline; }
 
         /* Footer */
         footer {
@@ -438,7 +429,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
         .footer-copy {
@@ -448,6 +440,7 @@
 
         .footer-links {
             display: flex;
+            align-items: center;
             gap: 24px;
             flex-wrap: wrap;
         }
@@ -459,127 +452,155 @@
             transition: color 0.2s;
         }
 
-        .footer-links a:hover {
-            color: var(--text);
-        }
+        .footer-links a:hover { color: var(--text); }
 
         /* Responsive */
-        @media (max-width: 700px) {
-            .hero { padding: 72px 0 60px; }
-
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .contact-card {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 28px 24px;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
-            }
+        @media (max-width: 760px) {
+            .nav-links { gap: 20px; }
+            .hero { padding: 70px 0 60px; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .support-layout { grid-template-columns: 1fr; }
         }
 
-        @media (max-width: 480px) {
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 500px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .nav-links { gap: 14px; }
+            .feature-card { padding: 22px 20px; }
+            .contact-card, .info-card { padding: 28px 24px; }
         }
     </style>
 </head>
 <body>
-    <div class="noise"></div>
-    <div class="glow"></div>
 
     <!-- Nav -->
     <nav>
         <div class="nav-inner">
-            <a href="#" class="nav-brand">ProgressPic</a>
-            <div class="nav-links">
-                <a href="../index.html">Home</a>
-                <a href="#support">Support</a>
-                <a href="privacy.html">Privacy</a>
-            </div>
+            <a href="#" class="nav-logo">ProgressPic</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+            </ul>
         </div>
     </nav>
 
     <!-- Hero -->
-    <div class="container">
-        <section class="hero">
-            <img src="../assets/icons/progresspic.png" alt="ProgressPic" class="hero-icon">
+    <section class="hero">
+        <div class="container">
+            <img src="../assets/icons/progresspic.png" alt="ProgressPic app icon" class="hero-icon">
             <h1>ProgressPic</h1>
-            <p class="hero-tagline">Track your transformation journey</p>
+            <p class="hero-tagline">Transformation Photos</p>
+            <p class="hero-desc">Organized progress photos, body measurements, and timelapse exports. Your transformation, documented and private.</p>
             <a href="https://apps.apple.com/app/progresspic" target="_blank" rel="noopener" class="hero-cta">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
                 Download on the App Store
             </a>
-        </section>
+        </div>
+    </section>
 
-        <!-- Features -->
-        <section class="features-section">
-            <p class="section-label">Features</p>
+    <!-- Features -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-header">
+                <span class="section-label">Features</span>
+                <h2 class="section-title">Everything you need<br>to document your journey</h2>
+                <p class="section-subtitle">Capture photos, log measurements, and watch your progress unfold over time.</p>
+            </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <span class="feature-icon">📸</span>
-                    <h3>Progress Photos</h3>
-                    <p>Capture and organize transformation photos in customizable journeys. See your progress unfold over time.</p>
+                    <span class="feature-emoji">📸</span>
+                    <div class="feature-name">Progress Photos</div>
+                    <p class="feature-desc">Organize transformation photos into separate journeys. Scroll back through weeks or months in one place.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-icon">📊</span>
-                    <h3>Measurements</h3>
-                    <p>Track weight, body fat percentage, and body measurements — chest, waist, hips, arms, and legs.</p>
+                    <span class="feature-emoji">📊</span>
+                    <div class="feature-name">Measurements</div>
+                    <p class="feature-desc">Track weight, body fat percentage, and body measurements including chest, waist, hips, arms, and legs.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-icon">☁️</span>
-                    <h3>iCloud Sync</h3>
-                    <p>Your photos and data sync seamlessly and privately across all your Apple devices.</p>
+                    <span class="feature-emoji">☁️</span>
+                    <div class="feature-name">iCloud Sync</div>
+                    <p class="feature-desc">Your photos and data sync privately across all your Apple devices. No account needed.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-icon">❤️</span>
-                    <h3>HealthKit</h3>
-                    <p>Import weight and body composition data directly from Apple Health, automatically.</p>
+                    <span class="feature-emoji">❤️</span>
+                    <div class="feature-name">HealthKit</div>
+                    <p class="feature-desc">Import weight and body composition data directly from Apple Health, automatically.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-icon">🎬</span>
-                    <h3>Video Export</h3>
-                    <p>Create a timelapse of your entire journey and export it to share your transformation.</p>
+                    <span class="feature-emoji">🎬</span>
+                    <div class="feature-name">Video Export</div>
+                    <p class="feature-desc">Turn your entire journey into a timelapse video you can save or share.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-icon">🔔</span>
-                    <h3>Reminders</h3>
-                    <p>Set custom per-journey reminders to stay consistent with your photo routine.</p>
+                    <span class="feature-emoji">🔔</span>
+                    <div class="feature-name">Reminders</div>
+                    <p class="feature-desc">Set custom per-journey reminders to stay consistent with your photo routine.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Support & Contact -->
-        <section class="support-section" id="support">
-            <div class="section-divider"></div>
-            <div class="contact-card">
-                <div class="contact-card-text">
-                    <h2>Need Help?</h2>
-                    <p>Have a question or ran into an issue? Send us an email and we'll get back to you as quickly as possible.</p>
+    <hr class="section-divider">
+
+    <!-- Support -->
+    <section class="support-section" id="support">
+        <div class="container">
+            <span class="section-label">Support</span>
+            <h2 class="section-title">Need Help?</h2>
+            <p class="section-subtitle">Something broken or confusing? Drop me an email.</p>
+
+            <div class="support-layout">
+                <div class="contact-card">
+                    <span class="contact-emoji">✉️</span>
+                    <div class="contact-title">Email Support</div>
+                    <p class="contact-desc">Found a bug, have a question, or want to request a feature? I read every email personally.</p>
+                    <a href="mailto:support@edgarpielb.com?subject=ProgressPic%20Support" class="contact-link">support@edgarpielb.com</a>
+                    <div class="response-badge">Typical response within 24 hours</div>
                 </div>
-                <a href="mailto:progresspic.app@gmail.com" class="contact-email-btn">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    progresspic.app@gmail.com
-                </a>
+                <div class="info-card">
+                    <span class="contact-emoji">💡</span>
+                    <div class="contact-title">Quick Tips</div>
+                    <ul class="info-list">
+                        <li>
+                            <span class="icon">📸</span>
+                            <span>Create a new Journey by tapping the + button on the home screen</span>
+                        </li>
+                        <li>
+                            <span class="icon">☁️</span>
+                            <span>Enable iCloud sync in Settings to keep your photos backed up across devices</span>
+                        </li>
+                        <li>
+                            <span class="icon">❤️</span>
+                            <span>Connect HealthKit in Settings to import weight data from Apple Health automatically</span>
+                        </li>
+                        <li>
+                            <span class="icon">🎬</span>
+                            <span>Use the Watch feature inside a Journey to preview and export your timelapse video</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- FAQ -->
-        <section class="faq-section">
-            <h2>Frequently Asked Questions</h2>
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-header">
+                <span class="section-label">FAQ</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
             <div class="faq-list">
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
                         How do I take my first progress photo?
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
@@ -591,11 +612,13 @@
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
                         Will my photos sync across my devices?
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            Yes. ProgressPic uses iCloud to sync your data across all your Apple devices automatically. Make sure you're signed into the same iCloud account on each device and that iCloud is enabled in Settings. Your sync status is also visible inside the app's Settings.
+                            Yes. ProgressPic uses iCloud to sync your data across all your Apple devices automatically. Make sure you are signed into the same iCloud account on each device and that iCloud is enabled in Settings. Your sync status is also visible inside the app's Settings.
                         </div>
                     </div>
                 </div>
@@ -603,11 +626,13 @@
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
                         How do I track my body measurements?
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            Inside any Journey, tap to add measurements — weight, body fat percentage, and detailed body measurements including chest, waist, hips, arms, and legs. You can also connect HealthKit to import weight and body composition data from Apple Health automatically.
+                            Inside any Journey, tap to add measurements including weight, body fat percentage, and detailed body measurements such as chest, waist, hips, arms, and legs. You can also connect HealthKit to import weight and body composition data from Apple Health automatically.
                         </div>
                     </div>
                 </div>
@@ -615,7 +640,9 @@
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
                         Can I set reminders to take photos?
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
@@ -627,7 +654,9 @@
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
                         How do I compare my before and after photos?
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
@@ -639,7 +668,9 @@
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
                         Can I export my progress as a video?
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
@@ -651,11 +682,13 @@
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
                         What data does ProgressPic collect?
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            Nothing leaves your control. All your photos and measurements are stored locally on your device and in your private iCloud account. We don't collect, track, or have access to any of your data. Read the <a href="privacy.html">Privacy Policy</a> for full details.
+                            None. Your photos and measurements stay on your device and in your private iCloud account. I have no access to any of it.
                         </div>
                     </div>
                 </div>
@@ -663,28 +696,30 @@
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
                         How do I delete my data?
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            You can delete individual photos, measurements, or entire Journeys directly within the app. To remove everything, delete the app from your device — iCloud will sync the deletion across all your devices. To remove data from iCloud storage entirely, manage it via Settings &gt; Apple ID &gt; iCloud on your device.
+                            You can delete individual photos, measurements, or entire Journeys directly within the app. To remove everything, delete the app from your device and iCloud will sync the deletion across all your devices. To remove data from iCloud storage entirely, manage it via Settings &gt; Apple ID &gt; iCloud on your device.
                         </div>
                     </div>
                 </div>
 
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-inner">
-                <span class="footer-copy">&copy; 2026 ProgressPic</span>
+                <span class="footer-copy">&copy; 2026 ProgressPic. All rights reserved.</span>
                 <div class="footer-links">
-                    <a href="privacy.html">Privacy</a>
-                    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms (Apple EULA)</a>
-                    <a href="mailto:progresspic.app@gmail.com">Contact</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms of Use</a>
+                    <a href="mailto:support@edgarpielb.com?subject=ProgressPic%20Support">Contact</a>
                     <a href="../index.html">All Apps</a>
                 </div>
             </div>
@@ -692,21 +727,22 @@
     </footer>
 
     <script>
-        document.querySelectorAll('.faq-question').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const item = btn.closest('.faq-item');
-                const isActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-question').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var item = this.closest('.faq-item');
+                var answer = item.querySelector('.faq-answer');
+                var isOpen = item.classList.contains('open');
 
-                // Close all
-                document.querySelectorAll('.faq-item').forEach(el => {
-                    el.classList.remove('active');
-                    el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+                    openItem.classList.remove('open');
+                    openItem.querySelector('.faq-answer').style.maxHeight = null;
+                    openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
                 });
 
-                // Toggle clicked
-                if (!isActive) {
-                    item.classList.add('active');
-                    btn.setAttribute('aria-expanded', 'true');
+                if (!isOpen) {
+                    item.classList.add('open');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    this.setAttribute('aria-expanded', 'true');
                 }
             });
         });

@@ -3,26 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ember - Streak & Habit Tracker</title>
+    <title>Ember - Streak &amp; Habit Tracker</title>
     <meta name="description" content="Build lasting habits with Ember. Streak tracking, smart reminders, widgets, and milestone rewards. One-time purchase, no subscription.">
-    <meta name="theme-color" content="#08080c">
+    <meta name="theme-color" content="#f5f0e8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #08080c;
-            --bg-card: rgba(255,255,255,0.03);
-            --bg-card-hover: rgba(255,255,255,0.05);
-            --text: #f0f0f5;
-            --text-secondary: rgba(255,255,255,0.5);
-            --text-muted: rgba(255,255,255,0.3);
-            --border: rgba(255,255,255,0.06);
-            --border-hover: rgba(255,255,255,0.12);
-            --accent: #FF6B35;
-            --accent-light: #FFB347;
-            --accent-glow: rgba(255, 107, 53, 0.15);
-            --accent-glow-strong: rgba(255, 107, 53, 0.25);
+            --bg: #f5f0e8;
+            --bg-card: #faf7f2;
+            --text: #1a1a1e;
+            --text-secondary: rgba(0,0,0,0.5);
+            --text-muted: rgba(0,0,0,0.3);
+            --border: rgba(0,0,0,0.06);
+            --accent: #e85d2a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,55 +31,22 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Background layers */
-        .noise {
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .glow-top {
-            position: fixed;
-            top: -30%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            height: 60%;
-            background: radial-gradient(ellipse at center, rgba(255,107,53,0.06) 0%, transparent 65%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .glow-bottom {
-            position: fixed;
-            bottom: -20%;
-            right: -10%;
-            width: 60%;
-            height: 60%;
-            background: radial-gradient(ellipse at center, rgba(255,179,71,0.04) 0%, transparent 65%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
-            position: relative;
-            z-index: 1;
         }
 
         /* Nav */
         nav {
-            padding: 24px 0;
+            padding: 16px 0;
             border-bottom: 1px solid var(--border);
-            position: relative;
-            z-index: 10;
         }
 
         .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -95,10 +57,7 @@
             font-size: 1.1rem;
             font-weight: 600;
             letter-spacing: -0.01em;
-            background: linear-gradient(135deg, #FF6B35 0%, #FFB347 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text);
             text-decoration: none;
         }
 
@@ -117,9 +76,7 @@
             transition: color 0.2s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--text);
-        }
+        .nav-links a:hover { color: var(--text); }
 
         /* Hero */
         .hero {
@@ -127,50 +84,34 @@
             text-align: center;
         }
 
-        .hero-icon-wrap {
-            margin-bottom: 32px;
-            display: inline-block;
-            position: relative;
-        }
-
-        .hero-icon-wrap::after {
-            content: '';
-            position: absolute;
-            inset: -12px;
-            border-radius: 30px;
-            background: radial-gradient(ellipse at center, rgba(255,107,53,0.2) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
         .hero-icon {
             width: 80px;
             height: 80px;
             border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(255,107,53,0.25), 0 2px 8px rgba(0,0,0,0.4);
-            position: relative;
-            z-index: 1;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 32px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.8rem, 7vw, 4.5rem);
-            font-weight: 700;
-            letter-spacing: -0.04em;
+            font-size: clamp(2.4rem, 6vw, 3.5rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
             line-height: 1.05;
             margin-bottom: 12px;
-            background: linear-gradient(135deg, #FF6B35 0%, #FFB347 60%, #fff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent);
         }
 
         .hero-tagline {
-            font-size: 1rem;
+            font-size: 0.85rem;
             font-weight: 500;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 28px;
+            color: rgba(0,0,0,0.35);
+            margin-bottom: 24px;
         }
 
         .hero-desc {
@@ -185,22 +126,20 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: linear-gradient(135deg, #FF6B35 0%, #FFB347 100%);
+            background: var(--accent);
             color: #fff;
             font-family: 'Space Grotesk', sans-serif;
             font-size: 0.95rem;
             font-weight: 600;
-            letter-spacing: -0.01em;
             padding: 14px 28px;
             border-radius: 14px;
             text-decoration: none;
             transition: all 0.25s ease;
-            box-shadow: 0 4px 20px rgba(255,107,53,0.35);
         }
 
         .hero-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(255,107,53,0.45);
+            opacity: 0.9;
         }
 
         .hero-cta svg {
@@ -256,28 +195,11 @@
             border-radius: 16px;
             padding: 28px 24px;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 16px;
-            background: radial-gradient(ellipse at 20% 90%, rgba(255,107,53,0.07) 0%, transparent 60%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
 
         .feature-card:hover {
-            background: var(--bg-card-hover);
-            border-color: rgba(255,107,53,0.18);
+            border-color: rgba(232,93,42,0.2);
             transform: translateY(-3px);
-        }
-
-        .feature-card:hover::before {
-            opacity: 1;
         }
 
         .feature-emoji {
@@ -321,22 +243,10 @@
         }
 
         .contact-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255,107,53,0.15);
+            background: rgba(232,93,42,0.05);
+            border: 1px solid rgba(232,93,42,0.15);
             border-radius: 20px;
             padding: 36px 32px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,107,53,0.4), transparent);
         }
 
         .contact-emoji {
@@ -371,16 +281,15 @@
             transition: opacity 0.2s;
         }
 
-        .contact-link:hover {
-            opacity: 0.75;
-        }
+        .contact-link:hover { opacity: 0.75; }
 
         .response-badge {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             gap: 6px;
-            background: rgba(255,107,53,0.1);
-            border: 1px solid rgba(255,107,53,0.2);
+            width: fit-content;
+            background: rgba(232,93,42,0.1);
+            border: 1px solid rgba(232,93,42,0.2);
             border-radius: 100px;
             padding: 6px 14px;
             font-size: 0.8rem;
@@ -451,7 +360,7 @@
         }
 
         .faq-item.open {
-            border-color: rgba(255,107,53,0.2);
+            border-color: rgba(232,93,42,0.2);
         }
 
         .faq-question {
@@ -472,13 +381,9 @@
             transition: color 0.2s;
         }
 
-        .faq-question:hover {
-            color: var(--accent);
-        }
+        .faq-question:hover { color: var(--accent); }
 
-        .faq-item.open .faq-question {
-            color: var(--accent);
-        }
+        .faq-item.open .faq-question { color: var(--accent); }
 
         .faq-chevron {
             width: 18px;
@@ -500,12 +405,11 @@
         }
 
         .faq-answer-inner {
-            padding: 0 24px 20px;
+            padding: 16px 24px 20px;
             font-size: 0.9rem;
             color: var(--text-secondary);
             line-height: 1.75;
             border-top: 1px solid var(--border);
-            padding-top: 16px;
         }
 
         .faq-answer-inner a {
@@ -513,9 +417,7 @@
             text-decoration: none;
         }
 
-        .faq-answer-inner a:hover {
-            text-decoration: underline;
-        }
+        .faq-answer-inner a:hover { text-decoration: underline; }
 
         /* Footer */
         footer {
@@ -550,9 +452,7 @@
             transition: color 0.2s;
         }
 
-        .footer-links a:hover {
-            color: var(--text);
-        }
+        .footer-links a:hover { color: var(--text); }
 
         /* Responsive */
         @media (max-width: 760px) {
@@ -571,33 +471,26 @@
     </style>
 </head>
 <body>
-    <div class="noise"></div>
-    <div class="glow-top"></div>
-    <div class="glow-bottom"></div>
 
     <!-- Nav -->
     <nav>
-        <div class="container">
-            <div class="nav-inner">
-                <a href="#" class="nav-logo">Ember</a>
-                <ul class="nav-links">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="#support">Support</a></li>
-                    <li><a href="privacy.html">Privacy</a></li>
-                </ul>
-            </div>
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">Ember</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+            </ul>
         </div>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <div class="hero-icon-wrap">
-                <img src="../assets/icons/ember.png" alt="Ember app icon" class="hero-icon">
-            </div>
+            <img src="../assets/icons/ember.png" alt="Ember app icon" class="hero-icon">
             <h1>Ember</h1>
             <p class="hero-tagline">Streak &amp; Habit Tracker</p>
-            <p class="hero-desc">Build lasting habits with streak tracking, smart reminders, milestone rewards, and home screen widgets. One-time purchase - yours forever.</p>
+            <p class="hero-desc">Streak tracking, smart reminders, milestone rewards, and home screen widgets. One purchase, yours forever.</p>
             <a href="https://apps.apple.com/app/id6752352900" target="_blank" rel="noopener" class="hero-cta">
                 <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
@@ -613,18 +506,18 @@
             <div class="features-header">
                 <span class="section-label">Features</span>
                 <h2 class="section-title">Everything you need<br>to build better habits</h2>
-                <p class="section-subtitle">Designed to keep you motivated through visual progress, smart automation, and meaningful rewards.</p>
+                <p class="section-subtitle">Visual progress, smart automation, and rewards that actually mean something.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <span class="feature-emoji">🔥</span>
                     <div class="feature-name">Track Progress</div>
-                    <p class="feature-desc">Visual streak counters and completion rings keep your momentum visible every single day.</p>
+                    <p class="feature-desc">Visual streak counters and completion rings so your momentum is always visible.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-emoji">🔔</span>
                     <div class="feature-name">Smart Reminders</div>
-                    <p class="feature-desc">Reminders that skip automatically when you've already completed your habit. No unnecessary noise.</p>
+                    <p class="feature-desc">Reminders that skip automatically when you have already completed your habit. No unnecessary noise.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-emoji">☁️</span>
@@ -639,7 +532,7 @@
                 <div class="feature-card">
                     <span class="feature-emoji">🛡️</span>
                     <div class="feature-name">Streak Protection</div>
-                    <p class="feature-desc">Streak shields let you recover from a missed day without losing your hard-earned streak.</p>
+                    <p class="feature-desc">Streak shields let you recover from a missed day without losing your progress.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-emoji">📱</span>
@@ -649,12 +542,12 @@
                 <div class="feature-card">
                     <span class="feature-emoji">⚡</span>
                     <div class="feature-name">Login Streaks</div>
-                    <p class="feature-desc">Earn a daily login streak just for opening the app. Small rituals build big consistency.</p>
+                    <p class="feature-desc">Earn a daily login streak just for opening the app. Show up, and the app notices.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-emoji">🏅</span>
                     <div class="feature-name">Milestone Icons</div>
-                    <p class="feature-desc">Unlock 22 unique app icons as you hit streak milestones - from Wood at day 3 to Legend at day 1,000.</p>
+                    <p class="feature-desc">Unlock 22 unique app icons as you hit streak milestones. From Wood at day 3 to Legend at day 1,000.</p>
                 </div>
             </div>
         </div>
@@ -667,15 +560,15 @@
         <div class="container">
             <span class="section-label">Support</span>
             <h2 class="section-title">Need Help?</h2>
-            <p class="section-subtitle">We're here to help you get the most out of Ember. Reach out anytime.</p>
+            <p class="section-subtitle">Something not working right? I am happy to help.</p>
 
             <div class="support-layout">
                 <div class="contact-card">
                     <span class="contact-emoji">✉️</span>
                     <div class="contact-title">Email Support</div>
-                    <p class="contact-desc">Have a question, bug report, or feature request? Send us an email and we'll get back to you as soon as possible.</p>
-                    <a href="mailto:habitglassapp@gmail.com" class="contact-link">habitglassapp@gmail.com</a>
-                    <div class="response-badge">Typical response within 48 hours</div>
+                    <p class="contact-desc">Found a bug, have a question, or want to request a feature? I read every email personally.</p>
+                    <a href="mailto:support@edgarpielb.com?subject=Ember%20Support" class="contact-link">support@edgarpielb.com</a>
+                    <div class="response-badge">Typical response within 24 hours</div>
                 </div>
                 <div class="info-card">
                     <span class="contact-emoji">💡</span>
@@ -721,7 +614,7 @@
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            Ember uses iCloud to sync your habits across all your Apple devices. Make sure all your devices are signed into the same Apple ID and that iCloud is enabled. You can turn iCloud sync on or off in <strong>Settings &rarr; Data</strong> within the app. After enabling it, give the app a moment to sync - especially on first use.
+                            Ember uses iCloud to sync your habits across all your Apple devices. Make sure all your devices are signed into the same Apple ID and that iCloud is enabled. You can turn iCloud sync on or off in <strong>Settings &rarr; Data</strong> within the app. After enabling it, give the app a moment to sync, especially on first use.
                         </div>
                     </div>
                 </div>
@@ -735,7 +628,7 @@
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            Ember has a dedicated Vacation Mode to protect your streaks while you're away. You can access it in <strong>Settings &rarr; Premium &rarr; Vacation Planning</strong>. Set the dates of your trip and all your habit streaks will be frozen for that period. Your progress resumes normally when you return.
+                            Ember has a dedicated Vacation Mode to protect your streaks while you are away. You can access it in <strong>Settings &rarr; Premium &rarr; Vacation Planning</strong>. Set the dates of your trip and all your habit streaks will be frozen for that period. Your progress resumes normally when you return.
                         </div>
                     </div>
                 </div>
@@ -749,7 +642,7 @@
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            Your Ember purchase is tied to your Apple ID - not your device. On your new device, sign in with the same Apple ID you used when you originally purchased, then open Ember and go to <strong>Settings &rarr; Premium &rarr; Restore Purchases</strong>. Your lifetime access will be restored at no charge.
+                            Your Ember purchase is tied to your Apple ID, not your device. On your new device, sign in with the same Apple ID you used when you originally purchased, then open Ember and go to <strong>Settings &rarr; Premium &rarr; Restore Purchases</strong>. Your lifetime access will be restored at no charge.
                         </div>
                     </div>
                 </div>
@@ -763,7 +656,7 @@
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            Yes. When editing a habit, you can set a <strong>daily target</strong> greater than 1. For example, drinking 8 glasses of water or doing 50 push-ups. In the main habit list, tap the right side of a habit to increment your count, and the left side to decrement it. The streak counts as complete once you hit your daily target.
+                            Yes. When editing a habit, you can set a <strong>daily target</strong> greater than 1. For example, drinking 8 glasses of water or doing 50 push-ups. In the main habit list, tap the right side of a habit to increment your count and the left side to decrement it. The streak counts as complete once you hit your daily target.
                         </div>
                     </div>
                 </div>
@@ -791,7 +684,7 @@
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            Reminders are set per habit. Edit any habit and open the <strong>Reminders</strong> section to add one or more reminder times. Ember's smart reminders will automatically skip sending a notification if you've already completed that habit for the day - so you only get reminded when you actually need it.
+                            Reminders are set per habit. Edit any habit and open the <strong>Reminders</strong> section to add one or more reminder times. Ember's smart reminders will automatically skip sending a notification if you have already completed that habit for the day, so you only get reminded when you actually need it.
                         </div>
                     </div>
                 </div>
@@ -814,14 +707,14 @@
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        How do I cancel my subscription?
+                        Is Ember a subscription?
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            Ember is a <strong>one-time lifetime purchase</strong> - there is no recurring subscription to cancel. If you see a charge, it may be related to another app. To manage all your App Store subscriptions, go to the <strong>Settings app &rarr; Your Name &rarr; Subscriptions</strong> on your iPhone.
+                            No. Ember is a one-time purchase. Pay once, keep it forever. There is nothing to cancel.
                         </div>
                     </div>
                 </div>
@@ -838,7 +731,7 @@
                 <div class="footer-links">
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms of Use</a>
-                    <a href="mailto:habitglassapp@gmail.com">Contact</a>
+                    <a href="mailto:support@edgarpielb.com?subject=Ember%20Support">Contact</a>
                     <a href="../index.html">All Apps</a>
                 </div>
             </div>
@@ -852,7 +745,6 @@
                 var answer = item.querySelector('.faq-answer');
                 var isOpen = item.classList.contains('open');
 
-                // Close all others
                 document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
                     openItem.classList.remove('open');
                     openItem.querySelector('.faq-answer').style.maxHeight = null;
