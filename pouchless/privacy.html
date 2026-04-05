@@ -32,7 +32,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
             position: relative;
@@ -64,58 +64,168 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.1rem;
             font-weight: 600;
+            letter-spacing: -0.01em;
             color: var(--text);
             text-decoration: none;
-            letter-spacing: -0.01em;
         }
 
         .nav-links {
             display: flex;
-            gap: 24px;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
         }
 
         .nav-links a {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            font-weight: 500;
             color: var(--text-secondary);
             text-decoration: none;
-            transition: color 0.2s;
+            transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
             color: var(--text);
         }
 
-        /* Header */
+        /* Page header */
         .page-header {
             padding: 64px 0 48px;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 48px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        .back-link svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
         }
 
         .page-header h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 600;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            color: var(--accent);
             margin-bottom: 12px;
+        }
+
+        .page-header .meta {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Privacy badge row */
+        .privacy-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        .privacy-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(26,158,138,0.07);
+            border: 1px solid rgba(26,158,138,0.15);
+            border-radius: 100px;
+            padding: 7px 14px;
+            font-size: 0.8rem;
+            font-weight: 500;
             color: var(--accent);
         }
 
-        .page-header p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
+        .privacy-badge::before {
+            content: '✓';
+            font-weight: 700;
         }
 
-        /* Content sections */
+        /* Content layout */
+        .content {
+            padding-bottom: 100px;
+        }
+
+        .content-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        /* Sidebar TOC */
+        .toc {
+            position: sticky;
+            top: 32px;
+        }
+
+        .toc-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .toc-list a {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 8px;
+            transition: all 0.2s;
+            line-height: 1.4;
+        }
+
+        .toc-list a:hover {
+            color: var(--accent);
+            background: rgba(26,158,138,0.06);
+        }
+
+        /* Policy card */
+        .policy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
         .policy-section {
-            margin-bottom: 40px;
+            padding: 36px 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .policy-section:last-child {
+            border-bottom: none;
         }
 
         .policy-section h2 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.05rem;
             font-weight: 600;
             letter-spacing: -0.01em;
             margin-bottom: 16px;
@@ -124,162 +234,86 @@
             gap: 10px;
         }
 
-        .policy-section h2::before {
-            content: '';
-            width: 3px;
-            height: 20px;
-            background: var(--accent);
-            border-radius: 2px;
+        .policy-section h2 .sec-icon {
+            font-size: 1.1rem;
             flex-shrink: 0;
         }
 
         .policy-section p {
+            font-size: 0.925rem;
             color: var(--text-secondary);
             margin-bottom: 14px;
-            font-size: 0.93rem;
+            line-height: 1.75;
+        }
+
+        .policy-section p:last-child {
+            margin-bottom: 0;
         }
 
         .policy-section ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .policy-section ul li {
+            font-size: 0.925rem;
             color: var(--text-secondary);
-            margin-left: 20px;
-            margin-bottom: 16px;
-            font-size: 0.93rem;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.65;
         }
 
-        .policy-section li {
-            margin-bottom: 8px;
-            line-height: 1.7;
+        .policy-section ul li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
         }
 
-        .policy-section li strong {
+        .policy-section strong {
             color: var(--text);
-            font-weight: 600;
+            font-weight: 500;
         }
 
-        /* Highlight box */
+        .policy-section a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .policy-section a:hover {
+            text-decoration: underline;
+        }
+
         .highlight-box {
             background: rgba(26,158,138,0.05);
-            border: 1px solid rgba(26,158,138,0.15);
-            border-radius: 14px;
-            padding: 28px;
-            margin-bottom: 40px;
+            border: 1px solid rgba(26,158,138,0.12);
+            border-radius: 12px;
+            padding: 18px 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-top: 4px;
         }
 
-        .highlight-box h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 14px;
+        .highlight-box strong {
             color: var(--accent);
-        }
-
-        .highlight-box ul {
-            color: var(--text-secondary);
-            margin-left: 20px;
-            font-size: 0.93rem;
-        }
-
-        .highlight-box li {
-            margin-bottom: 8px;
-            line-height: 1.7;
-        }
-
-        .highlight-box li strong {
-            color: var(--text);
-        }
-
-        /* Info box */
-        .info-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 24px 28px;
-            margin: 20px 0;
-        }
-
-        .info-box h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 14px;
-        }
-
-        .info-box ul {
-            color: var(--text-secondary);
-            margin-left: 20px;
-            font-size: 0.93rem;
-        }
-
-        .info-box li {
-            margin-bottom: 8px;
-            line-height: 1.7;
-        }
-
-        .info-box li strong {
-            color: var(--text);
-        }
-
-        /* Contact card */
-        .contact-card {
-            background: rgba(26,158,138,0.05);
-            border: 1px solid rgba(26,158,138,0.15);
-            border-radius: 16px;
-            padding: 36px;
-            text-align: center;
-            margin-top: 48px;
-        }
-
-        .contact-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .contact-card p {
-            color: var(--text-secondary);
-            font-size: 0.92rem;
-            margin-bottom: 20px;
-        }
-
-        .contact-email {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(0,0,0,0.04);
-            border: 1px solid var(--border);
-            padding: 12px 24px;
-            border-radius: 100px;
-            color: var(--text);
-            text-decoration: none;
-            font-size: 0.92rem;
-            font-weight: 500;
-            transition: all 0.25s ease;
-        }
-
-        .contact-email:hover {
-            border-color: rgba(26,158,138,0.3);
-            box-shadow: 0 0 20px rgba(26,158,138,0.10);
-            transform: translateY(-2px);
-        }
-
-        .contact-email svg {
-            width: 18px;
-            height: 18px;
-            fill: var(--accent);
         }
 
         /* Footer */
         footer {
             border-top: 1px solid var(--border);
             padding: 40px 0;
-            margin-top: 64px;
         }
 
         .footer-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
         .footer-copy {
@@ -289,7 +323,9 @@
 
         .footer-links {
             display: flex;
+            align-items: center;
             gap: 24px;
+            flex-wrap: wrap;
         }
 
         .footer-links a {
@@ -304,21 +340,27 @@
         }
 
         /* Responsive */
-        @media (max-width: 700px) {
-            .page-header { padding: 48px 0 36px; }
-            .footer-inner {
-                flex-direction: column;
-                gap: 16px;
+        @media (max-width: 760px) {
+            .content-layout {
+                grid-template-columns: 1fr;
             }
-            .contact-card { padding: 28px 20px; }
+            .toc {
+                display: none;
+            }
+            .policy-section {
+                padding: 28px 24px;
+            }
+            .nav-links { gap: 20px; }
         }
 
-        @media (max-width: 480px) {
-            .nav-links { gap: 16px; }
+        @media (max-width: 500px) {
+            .nav-links { gap: 14px; }
+            .privacy-badges { gap: 8px; }
         }
     </style>
 </head>
 <body>
+    <!-- Nav -->
     <nav>
         <div class="nav-inner">
             <a href="./" class="nav-logo">PouchLess</a>
@@ -330,121 +372,149 @@
         </div>
     </nav>
 
-    <div class="container">
-
-        <header class="page-header">
-            <h1>Privacy Policy</h1>
-            <p>Last updated: November 2025</p>
-        </header>
-
-        <section class="policy-section">
-            <h2>Overview</h2>
-            <p>PouchLess is designed with your privacy as a core principle. We believe you should be able to track your nicotine consumption without sacrificing your personal data. This privacy policy explains what data we collect (very little) and how we handle it.</p>
-        </section>
-
-        <div class="highlight-box">
-            <h3>Privacy at a Glance</h3>
-            <ul>
-                <li><strong>No account required</strong> - Start using PouchLess immediately</li>
-                <li><strong>No analytics or tracking</strong> - We don't monitor your behavior</li>
-                <li><strong>No advertising</strong> - Your data is never sold or shared</li>
-                <li><strong>Local-first storage</strong> - Your data stays on your device</li>
-                <li><strong>Optional iCloud sync</strong> - Only if you choose to enable it</li>
-            </ul>
-        </div>
-
-        <section class="policy-section">
-            <h2>What Data is Collected</h2>
-            <p>PouchLess collects only the data necessary to provide its core functionality:</p>
-            <ul>
-                <li><strong>Consumption logs:</strong> When you log a pouch, the app records the date, time, pouch type, and nicotine amount.</li>
-                <li><strong>Pouch types:</strong> Custom pouch brands, strengths, and colors you create.</li>
-                <li><strong>Goals and plan:</strong> Your chosen goal (quit, cut down, or keep stable), baseline consumption, and target dates.</li>
-                <li><strong>Cost tracking data:</strong> Box prices and pouch counts you enter for savings calculations.</li>
-                <li><strong>App preferences:</strong> Settings like language, appearance mode, and currency.</li>
-            </ul>
-            <p>All of this data is stored locally on your device and is not transmitted to us or any third party unless you enable iCloud sync.</p>
-        </section>
-
-        <section class="policy-section">
-            <h2>What We Do NOT Collect</h2>
-            <ul>
-                <li>Personal identification information (name, email, phone number)</li>
-                <li>Location data</li>
-                <li>Device identifiers for tracking purposes</li>
-                <li>Usage analytics or behavioral data</li>
-                <li>Crash reports or diagnostics (unless submitted by Apple through their standard process)</li>
-                <li>Any health data beyond what you manually enter</li>
-            </ul>
-        </section>
-
-        <section class="policy-section">
-            <h2>Data Storage</h2>
-            <p><strong>Local Storage:</strong> By default, all your data is stored locally on your device using iOS's secure storage mechanisms. This data is protected by your device's passcode and biometric security.</p>
-            <p><strong>iCloud Sync (Optional):</strong> If you enable iCloud sync in Settings, your data will be stored in your private iCloud account using Apple's CloudKit service. This data is:</p>
-            <ul>
-                <li>Encrypted in transit and at rest</li>
-                <li>Stored in your personal iCloud container</li>
-                <li>Not accessible to us or any third party</li>
-                <li>Synced only to devices signed into your Apple ID</li>
-            </ul>
-        </section>
-
-        <section class="policy-section">
-            <h2>Third-Party Services</h2>
-            <p>PouchLess uses the following Apple services:</p>
-
-            <div class="info-box">
-                <h3>Apple Services Used</h3>
-                <ul>
-                    <li><strong>iCloud (CloudKit):</strong> Optional sync across your devices. Your data remains in your private iCloud storage.</li>
-                    <li><strong>StoreKit:</strong> For processing in-app purchases. Payment information is handled entirely by Apple; we never see your payment details.</li>
-                    <li><strong>Push Notifications:</strong> Optional reminders. Notification tokens are managed by Apple.</li>
-                    <li><strong>WidgetKit:</strong> For home screen widgets. Widget data stays on your device.</li>
-                </ul>
-            </div>
-
-            <p>We do not use any third-party analytics, advertising networks, or data collection services.</p>
-        </section>
-
-        <section class="policy-section">
-            <h2>Your Rights</h2>
-            <p>You have complete control over your data:</p>
-            <ul>
-                <li><strong>Access:</strong> All your data is visible within the app at any time.</li>
-                <li><strong>Export:</strong> Export your complete data as JSON or CSV from Settings, Data, Export.</li>
-                <li><strong>Delete:</strong> Delete all local data from Settings, Data, Reset All Data.</li>
-                <li><strong>iCloud deletion:</strong> If using iCloud sync, you can delete cloud data from Settings, Data, iCloud Sync, Delete iCloud Data.</li>
-            </ul>
-        </section>
-
-        <section class="policy-section">
-            <h2>Children's Privacy</h2>
-            <p>PouchLess is not intended for use by children under 17 years of age. We do not knowingly collect data from children. The app helps adults manage nicotine consumption and contains content about nicotine use.</p>
-        </section>
-
-        <section class="policy-section">
-            <h2>Changes to This Policy</h2>
-            <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date. We encourage you to review this policy periodically.</p>
-        </section>
-
-        <div class="contact-card">
-            <h3>Questions?</h3>
-            <p>If you have any questions about this privacy policy or how your data is handled, please contact us.</p>
-            <a href="mailto:zynlessapp@gmail.com" class="contact-email">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                zynlessapp@gmail.com
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <a href="./" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                Back to PouchLess
             </a>
+            <h1>Privacy Policy</h1>
+            <p class="meta">Last updated: November 2025</p>
+            <div class="privacy-badges">
+                <span class="privacy-badge">No account required</span>
+                <span class="privacy-badge">No analytics or tracking</span>
+                <span class="privacy-badge">No advertising</span>
+                <span class="privacy-badge">Local-first storage</span>
+            </div>
         </div>
-    </div>
+    </header>
 
+    <!-- Content -->
+    <main class="content">
+        <div class="container">
+            <div class="content-layout">
+
+                <!-- TOC Sidebar -->
+                <aside class="toc" aria-label="Table of contents">
+                    <p class="toc-label">On this page</p>
+                    <ul class="toc-list">
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#what-collected">What Data is Collected</a></li>
+                        <li><a href="#not-collected">What We Do NOT Collect</a></li>
+                        <li><a href="#storage">Data Storage</a></li>
+                        <li><a href="#third-party">Third-Party Services</a></li>
+                        <li><a href="#rights">Your Rights</a></li>
+                        <li><a href="#children">Children's Privacy</a></li>
+                        <li><a href="#changes">Changes to Policy</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Policy card -->
+                <div class="policy-card">
+
+                    <div class="policy-section" id="overview">
+                        <h2><span class="sec-icon">📋</span> Overview</h2>
+                        <p>PouchLess is designed with your privacy as a core principle. We believe you should be able to track your nicotine consumption without sacrificing your personal data. This privacy policy explains what data we collect (very little) and how we handle it.</p>
+                        <div class="highlight-box">
+                            <strong>The short version:</strong> No account required. No analytics or tracking. No advertising — your data is never sold or shared. Your data stays on your device with optional iCloud sync only if you choose to enable it.
+                        </div>
+                    </div>
+
+                    <div class="policy-section" id="what-collected">
+                        <h2><span class="sec-icon">🗄️</span> What Data is Collected</h2>
+                        <p>PouchLess collects only the data necessary to provide its core functionality:</p>
+                        <ul>
+                            <li><strong>Consumption logs:</strong> When you log a pouch, the app records the date, time, pouch type, and nicotine amount.</li>
+                            <li><strong>Pouch types:</strong> Custom pouch brands, strengths, and colors you create.</li>
+                            <li><strong>Goals and plan:</strong> Your chosen goal (quit, cut down, or keep stable), baseline consumption, and target dates.</li>
+                            <li><strong>Cost tracking data:</strong> Box prices and pouch counts you enter for savings calculations.</li>
+                            <li><strong>App preferences:</strong> Settings like language, appearance mode, and currency.</li>
+                        </ul>
+                        <p>All of this data is stored locally on your device and is not transmitted to us or any third party unless you enable iCloud sync.</p>
+                    </div>
+
+                    <div class="policy-section" id="not-collected">
+                        <h2><span class="sec-icon">🚫</span> What We Do NOT Collect</h2>
+                        <ul>
+                            <li>Personal identification information (name, email, phone number)</li>
+                            <li>Location data</li>
+                            <li>Device identifiers for tracking purposes</li>
+                            <li>Usage analytics or behavioral data</li>
+                            <li>Crash reports or diagnostics (unless submitted by Apple through their standard process)</li>
+                            <li>Any health data beyond what you manually enter</li>
+                        </ul>
+                    </div>
+
+                    <div class="policy-section" id="storage">
+                        <h2><span class="sec-icon">💾</span> Data Storage</h2>
+                        <p><strong>Local Storage:</strong> By default, all your data is stored locally on your device using iOS's secure storage mechanisms. This data is protected by your device's passcode and biometric security.</p>
+                        <p><strong>iCloud Sync (Optional):</strong> If you enable iCloud sync in Settings, your data will be stored in your private iCloud account using Apple's CloudKit service. This data is:</p>
+                        <ul>
+                            <li>Encrypted in transit and at rest</li>
+                            <li>Stored in your personal iCloud container</li>
+                            <li>Not accessible to us or any third party</li>
+                            <li>Synced only to devices signed into your Apple ID</li>
+                        </ul>
+                    </div>
+
+                    <div class="policy-section" id="third-party">
+                        <h2><span class="sec-icon">🔗</span> Third-Party Services</h2>
+                        <p>PouchLess uses the following Apple services:</p>
+                        <ul>
+                            <li><strong>iCloud (CloudKit):</strong> Optional sync across your devices. Your data remains in your private iCloud storage.</li>
+                            <li><strong>StoreKit:</strong> For processing in-app purchases. Payment information is handled entirely by Apple; we never see your payment details.</li>
+                            <li><strong>Push Notifications:</strong> Optional reminders. Notification tokens are managed by Apple.</li>
+                            <li><strong>WidgetKit:</strong> For home screen widgets. Widget data stays on your device.</li>
+                        </ul>
+                        <p>We do not use any third-party analytics, advertising networks, or data collection services.</p>
+                    </div>
+
+                    <div class="policy-section" id="rights">
+                        <h2><span class="sec-icon">⚖️</span> Your Rights</h2>
+                        <p>You have complete control over your data:</p>
+                        <ul>
+                            <li><strong>Access:</strong> All your data is visible within the app at any time.</li>
+                            <li><strong>Export:</strong> Export your complete data as JSON or CSV from Settings &rarr; Data &rarr; Export.</li>
+                            <li><strong>Delete:</strong> Delete all local data from Settings &rarr; Data &rarr; Reset All Data.</li>
+                            <li><strong>iCloud deletion:</strong> If using iCloud sync, you can delete cloud data from Settings &rarr; Data &rarr; iCloud Sync &rarr; Delete iCloud Data.</li>
+                        </ul>
+                    </div>
+
+                    <div class="policy-section" id="children">
+                        <h2><span class="sec-icon">👶</span> Children's Privacy</h2>
+                        <p>PouchLess is not intended for use by children under 17 years of age. We do not knowingly collect data from children. The app helps adults manage nicotine consumption and contains content about nicotine use.</p>
+                    </div>
+
+                    <div class="policy-section" id="changes">
+                        <h2><span class="sec-icon">📝</span> Changes to This Policy</h2>
+                        <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date. We encourage you to review this policy periodically.</p>
+                    </div>
+
+                    <div class="policy-section" id="contact">
+                        <h2><span class="sec-icon">✉️</span> Contact</h2>
+                        <p>If you have any questions about this privacy policy or how your data is handled, please contact us:</p>
+                        <p><a href="mailto:support@edgarpielb.com">support@edgarpielb.com</a></p>
+                        <p>We typically respond within 48 hours.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-inner">
-                <span class="footer-copy">&copy; 2025 PouchLess</span>
+                <span class="footer-copy">&copy; 2025 PouchLess. All rights reserved.</span>
                 <div class="footer-links">
                     <a href="./">Support</a>
-                    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">Terms</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms of Use</a>
                 </div>
             </div>
         </div>
