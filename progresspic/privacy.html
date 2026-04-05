@@ -33,8 +33,14 @@
 
         /* Nav */
         nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
             padding: 16px 0;
             border-bottom: 1px solid var(--border);
+            background: rgba(245,240,232,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
         }
 
         .nav-inner {
@@ -47,7 +53,7 @@
             justify-content: space-between;
         }
 
-        .nav-brand {
+        .nav-logo {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1rem;
             font-weight: 600;
@@ -291,12 +297,12 @@
     <!-- Nav -->
     <nav>
         <div class="nav-inner">
-            <a href="./" class="nav-brand">ProgressPic</a>
-            <div class="nav-links">
-                <a href="../">All Apps</a>
-                <a href="./#support">Support</a>
-                <a href="privacy.html" style="color: var(--text);">Privacy</a>
-            </div>
+            <a href="./" class="nav-logo">ProgressPic</a>
+            <ul class="nav-links">
+                <li><a href="../">All Apps</a></li>
+                <li><a href="./#support">Support</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+            </ul>
         </div>
     </nav>
 
