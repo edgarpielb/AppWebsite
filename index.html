@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edgar Pielbusch - iOS Apps</title>
-    <meta name="description" content="Independent iOS apps by Edgar Pielbusch. Habit tracking, progress photos, nicotine reduction, ethical shopping. Privacy-first, no tracking, honest pricing.">
+    <meta name="description" content="Independent iOS apps by Edgar Pielbusch. Habit tracking, nicotine reduction, and AI-powered video learning. Privacy-first, no tracking, honest pricing.">
     <meta name="theme-color" content="#f5f0e8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,6 +80,11 @@
         .cell--boycottr:hover {
             border-color: rgba(40,170,75,0.4);
             box-shadow: 0 8px 30px rgba(40,170,75,0.1);
+        }
+
+        .cell--ingrain:hover {
+            border-color: rgba(95,72,180,0.4);
+            box-shadow: 0 8px 30px rgba(95,72,180,0.1);
         }
 
         /* --- Intro cell: top-left, spans 2 columns --- */
@@ -324,6 +329,12 @@
             color: #1a1a1e;
         }
 
+        /* --- Temporary 3-app layout (ProgressPic + Boycottr hidden) --- */
+        .cell--intro {
+            grid-column: 1 / -1;
+        }
+        /* --- End temporary layout --- */
+
         /* --- Responsive --- */
         @media (max-width: 900px) {
             .bento {
@@ -409,20 +420,6 @@
                 </div>
             </div>
 
-            <!-- ProgressPic -->
-            <div class="cell cell--app cell--progresspic">
-                <div class="app-top">
-                    <img src="assets/icons/progresspic.png" alt="ProgressPic" class="app-icon">
-                    <div class="app-name">ProgressPic</div>
-                    <div class="app-subtitle">Transformation Photos</div>
-                </div>
-                <p class="app-desc">Progress photos, body measurements, HealthKit, and timelapse export. Photos stay on your device.</p>
-                <div class="app-links">
-                    <a href="#" class="store-link">App Store <span class="arrow">&rarr;</span></a>
-                    <a href="progresspic/#support" class="support-link">Support</a>
-                </div>
-            </div>
-
             <!-- PouchLess -->
             <div class="cell cell--app cell--pouchless">
                 <div class="app-top">
@@ -437,7 +434,36 @@
                 </div>
             </div>
 
-            <!-- Boycottr -->
+            <!-- Ingrain -->
+            <div class="cell cell--app cell--ingrain">
+                <div class="app-top">
+                    <img src="assets/icons/ingrain.png" alt="Ingrain" class="app-icon">
+                    <div class="app-name">Ingrain</div>
+                    <div class="app-subtitle">Learn from Videos</div>
+                </div>
+                <p class="app-desc">Turn any YouTube, TikTok, or Instagram video into a quiz. Spaced repetition keeps what you watch in your head.</p>
+                <div class="app-links">
+                    <a href="#" class="store-link">App Store <span class="arrow">&rarr;</span></a>
+                    <a href="ingrain/#support" class="support-link">Support</a>
+                </div>
+            </div>
+
+            <!-- ProgressPic — hidden until launch
+            <div class="cell cell--app cell--progresspic">
+                <div class="app-top">
+                    <img src="assets/icons/progresspic.png" alt="ProgressPic" class="app-icon">
+                    <div class="app-name">ProgressPic</div>
+                    <div class="app-subtitle">Transformation Photos</div>
+                </div>
+                <p class="app-desc">Progress photos, body measurements, HealthKit, and timelapse export. Photos stay on your device.</p>
+                <div class="app-links">
+                    <a href="#" class="store-link">App Store <span class="arrow">&rarr;</span></a>
+                    <a href="progresspic/#support" class="support-link">Support</a>
+                </div>
+            </div>
+            -->
+
+            <!-- Boycottr — hidden until launch
             <div class="cell cell--app cell--boycottr">
                 <div class="app-top">
                     <img src="assets/icons/boycottr.png" alt="Boycottr" class="app-icon">
@@ -450,6 +476,7 @@
                     <a href="boycottr/#support" class="support-link">Support</a>
                 </div>
             </div>
+            -->
 
             <!-- Principles: bottom-left, spans 2 cols -->
             <div class="cell cell--principles">
