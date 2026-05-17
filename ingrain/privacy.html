@@ -382,7 +382,7 @@
                 Back to Ingrain
             </a>
             <h1>Privacy Policy</h1>
-            <p class="meta">Last updated: May 16, 2026</p>
+            <p class="meta">Last updated: May 17, 2026</p>
             <div class="privacy-badges">
                 <span class="privacy-badge">No third-party trackers</span>
                 <span class="privacy-badge">No advertising</span>
@@ -430,7 +430,8 @@
 
                     <div class="policy-section" id="information">
                         <h2><span class="sec-icon">🗄️</span> What We Collect</h2>
-                        <p><strong>Account data:</strong> When you sign in with Apple, we receive a unique Apple identifier and the name and email address you choose to share. We use these to create your account, identify you across devices, and contact you if you reach out to support.</p>
+                        <p><strong>Anonymous account:</strong> The first time you open Ingrain, we create an anonymous account with a random identifier. This lets you save videos, take quizzes, and (if you subscribe) hold an Ingrain Pro entitlement without sharing any personal information. The anonymous identifier is not linked to your Apple ID, email, name, or device serial.</p>
+                        <p><strong>Account data (optional Apple Sign-In):</strong> If you choose to sign in with Apple — required for friends, the activity feed, and cross-device sync — we receive a unique Apple identifier and the name and email address you choose to share (Apple offers a "Hide My Email" relay). We use these to upgrade the anonymous account to a persistent one, identify you across devices, and contact you if you reach out to support.</p>
                         <p><strong>Profile data:</strong> An optional username, display name, avatar URL, and a generated friend code so other users can add you. You control everything in this section.</p>
                         <p><strong>Learning data:</strong> The video URLs you save, the AI-generated quizzes and summaries linked to them, your answers, mastery scores, streak history, and spaced repetition state. This is the core data that makes the app work.</p>
                         <p><strong>Activity data:</strong> Records of completed quizzes (video title, score, mastery, completion time) so your activity feed and friends features can show recent learning. You can turn activity visibility off in Profile.</p>
@@ -492,6 +493,7 @@
                             <li><strong>Apple UserNotifications</strong> — sends optional review reminders (requires your permission)</li>
                             <li><strong>Supabase</strong> — hosts our database, authentication, and edge functions (project region: Frankfurt, EU)</li>
                             <li><strong>Anthropic Claude</strong> — generates quiz questions and summaries from video transcripts</li>
+                            <li><strong>Google Gemini</strong> — secondary AI model used for follow-up question generation and certain quiz-content paths; receives only the video transcript and quiz context, never your identifier</li>
                             <li><strong>Supadata</strong> — fetches public video metadata and transcripts</li>
                             <li><strong>YouTube Data API</strong> — fallback metadata source for YouTube videos only</li>
                         </ul>
@@ -501,6 +503,7 @@
                     <div class="policy-section" id="purchases">
                         <h2><span class="sec-icon">💳</span> Subscriptions</h2>
                         <p>Ingrain Pro is processed entirely by Apple through StoreKit. We receive your subscription status (active / inactive / tier) from Apple's servers, never your payment details.</p>
+                        <p>To keep the subscription state in sync — for example so an Ingrain Pro purchase on your iPhone is recognized on your iPad — Apple sends signed server-to-server notifications (App Store Server Notifications V2) to our edge function each time a transaction changes (purchase, renewal, refund, expiration). The payload contains Apple's transaction ID and a random token we generate on purchase to tie the transaction to your Ingrain account. It does not contain payment information.</p>
                         <p>You can manage or cancel your subscription at any time in <strong>iOS Settings &rarr; your name &rarr; Subscriptions</strong>. Cancellation takes effect at the end of the current billing period.</p>
                     </div>
 
@@ -528,11 +531,12 @@
                         <ul>
                             <li><strong>Access</strong> — view all your saved videos, quizzes, and activity directly in the app</li>
                             <li><strong>Correction</strong> — edit your display name, username, and friend visibility from Profile</li>
-                            <li><strong>Deletion</strong> — request full account deletion by emailing support; we honor requests within 30 days</li>
-                            <li><strong>Portability</strong> — request a copy of your data by emailing support</li>
+                            <li><strong>Portability (GDPR Art. 20)</strong> — tap <em>Profile → Account → Export My Data</em> to download a JSON file containing every video, question, and activity record tied to your account. Exports are rate-limited to one per hour per account to prevent abuse. The download is generated server-side at request time, not stored.</li>
+                            <li><strong>Deletion (GDPR Art. 17)</strong> — tap <em>Profile → Account → Delete Account</em>. This permanently deletes your account, profile, saved videos, questions, activity history, and all friendships from our database, and wipes all local progress on the device. Shared quiz cache entries (which are not personally identifiable) may remain so future users benefit from them. The action takes effect immediately. You can also email support if you'd rather we run the deletion server-side.</li>
                             <li><strong>Withdrawal of consent</strong> — disable activity visibility, remove friends, or sign out and delete the app</li>
                         </ul>
-                        <p>If you are in the EU, UK, California, or another region with specific privacy laws (GDPR, UK GDPR, CCPA / CPRA), these rights are explicitly granted to you. To exercise any of them, contact <a href="mailto:support@edgarpielb.com?subject=Ingrain%20Privacy%20Request">support@edgarpielb.com</a> from the email tied to your account.</p>
+                        <p>To prevent automated abuse of the export endpoint, we keep a small audit log (<code>data_export_audit</code>) recording the request timestamp, your user ID, and the row counts returned. It contains no quiz content, no answers, and no video URLs. This log is purged when you delete your account.</p>
+                        <p>If you are in the EU, UK, California, or another region with specific privacy laws (GDPR, UK GDPR, CCPA / CPRA), these rights are explicitly granted to you. For requests we can't surface in-app, contact <a href="mailto:support@edgarpielb.com?subject=Ingrain%20Privacy%20Request">support@edgarpielb.com</a> from the email tied to your account.</p>
                     </div>
 
                     <div class="policy-section" id="children">
