@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ember - Streak &amp; Habit Tracker</title>
-    <meta name="description" content="Build lasting habits with Ember. Streak tracking, smart reminders, widgets, and milestone rewards. One-time purchase, no subscription.">
+    <title>Habit Tracker with Streaks &amp; Widgets - Ember</title>
+    <meta name="description" content="Build lasting habits with Ember. Streak tracking, smart reminders, widgets, and milestone rewards. Pay once for lifetime access.">
     <meta name="theme-color" content="#f5f0e8">
     <link rel="canonical" href="https://edgarpielb.com/ember/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Edgar Pielbusch">
-    <meta property="og:title" content="Ember - Streak &amp; Habit Tracker">
-    <meta property="og:description" content="Build lasting habits with Ember. Streak tracking, smart reminders, widgets, and milestone rewards. One-time purchase, no subscription.">
+    <meta property="og:title" content="Habit Tracker with Streaks &amp; Widgets - Ember">
+    <meta property="og:description" content="Build lasting habits with Ember. Streak tracking, smart reminders, widgets, and milestone rewards. Pay once for lifetime access.">
     <meta property="og:url" content="https://edgarpielb.com/ember/">
     <meta property="og:image" content="https://edgarpielb.com/assets/icons/ember.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ember - Streak &amp; Habit Tracker">
-    <meta name="twitter:description" content="Build lasting habits with Ember. Streak tracking, smart reminders, widgets, and milestone rewards. One-time purchase, no subscription.">
+    <meta name="twitter:title" content="Habit Tracker with Streaks &amp; Widgets - Ember">
+    <meta name="twitter:description" content="Build lasting habits with Ember. Streak tracking, smart reminders, widgets, and milestone rewards. Pay once for lifetime access.">
     <meta name="twitter:image" content="https://edgarpielb.com/assets/icons/ember.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -163,6 +163,20 @@
             width: 18px;
             height: 18px;
             flex-shrink: 0;
+        }
+
+        /* Intro paragraph */
+        .page-intro {
+            padding: 0 0 64px;
+        }
+
+        .page-intro p {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
         }
 
         /* Section labels */
@@ -493,6 +507,29 @@
             .contact-card, .info-card { padding: 28px 24px; }
         }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Ember: Streak & Habit Tracker",
+        "description": "Build lasting habits with Ember. Streak tracking, smart reminders, widgets, and milestone rewards. Pay once for lifetime access.",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "iOS",
+        "image": "https://edgarpielb.com/assets/icons/ember.png",
+        "url": "https://apps.apple.com/app/id6752352900",
+        "author": {
+            "@type": "Person",
+            "name": "Edgar Pielbusch",
+            "url": "https://edgarpielb.com/"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "url": "https://apps.apple.com/app/id6752352900"
+        }
+    }
+    </script>
 </head>
 <body>
 
@@ -512,7 +549,7 @@
     <section class="hero">
         <div class="container">
             <img src="../assets/icons/ember.png" alt="Ember app icon" class="hero-icon">
-            <h1>Ember</h1>
+            <h1>Ember: Habit &amp; Streak Tracker</h1>
             <p class="hero-tagline">Streak &amp; Habit Tracker</p>
             <p class="hero-desc">Streak tracking, smart reminders, milestone rewards, and home screen widgets. Subscribe weekly or monthly, or pay once for lifetime access.</p>
             <a href="https://apps.apple.com/app/id6752352900" target="_blank" rel="noopener" class="hero-cta">
@@ -521,6 +558,13 @@
                 </svg>
                 Download on the App Store
             </a>
+        </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="page-intro">
+        <div class="container">
+            <p>Ember is a habit tracker built around the streak: a clear, visible run of days that keeps you coming back. Mark a habit done and watch the streak climb, then unlock milestone app icons as the long stretches add up. Home screen widgets put your progress one glance away, smart reminders skip days you already finished, and streak shields cover the occasional miss so one bad day does not undo months of work. Vacation mode freezes everything while you travel. Your data syncs privately through your own iCloud account with no login to create and nothing collected. Subscribe weekly or monthly, or pay once for lifetime access and keep Ember forever.</p>
         </div>
     </section>
 
