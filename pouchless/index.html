@@ -19,7 +19,7 @@
     <meta name="twitter:image" content="https://edgarpielb.com/assets/icons/pouchless.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #f5f0e8;
@@ -34,7 +34,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
@@ -70,10 +70,10 @@
         }
 
         .nav-logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 0;
             color: var(--text);
             text-decoration: none;
         }
@@ -113,10 +113,10 @@
         }
 
         .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.4rem, 6vw, 3.5rem);
-            font-weight: 600;
-            letter-spacing: -0.03em;
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: clamp(2.8rem, 7vw, 4.2rem);
+            font-weight: 400;
+            letter-spacing: -0.01em;
             line-height: 1.05;
             margin-bottom: 12px;
             color: var(--accent);
@@ -145,7 +145,7 @@
             gap: 10px;
             background: var(--accent);
             color: #fff;
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Ubuntu', sans-serif;
             font-size: 0.95rem;
             font-weight: 600;
             padding: 14px 28px;
@@ -171,13 +171,14 @@
         }
 
         .page-intro p {
-            max-width: 720px;
-            margin: 0 auto;
+            max-width: 620px;
+            margin: 0 auto 16px;
             text-align: center;
             font-size: 1.05rem;
-            line-height: 1.8;
+            line-height: 1.75;
             color: var(--text-secondary);
         }
+        .page-intro p:last-child { margin-bottom: 0; }
 
         /* Section labels */
         .section-label {
@@ -191,10 +192,11 @@
         }
 
         .section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-            font-weight: 600;
-            letter-spacing: -0.03em;
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: clamp(1.9rem, 4vw, 2.6rem);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
             margin-bottom: 12px;
         }
 
@@ -241,7 +243,7 @@
         }
 
         .feature-name {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Ubuntu', sans-serif;
             font-size: 0.95rem;
             font-weight: 600;
             letter-spacing: -0.01em;
@@ -287,7 +289,7 @@
         }
 
         .contact-title {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Ubuntu', sans-serif;
             font-size: 1.1rem;
             font-weight: 600;
             letter-spacing: -0.01em;
@@ -399,7 +401,7 @@
             background: none;
             border: none;
             color: var(--text);
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Ubuntu', sans-serif;
             font-size: 0.975rem;
             font-weight: 500;
             text-align: left;
@@ -564,7 +566,8 @@
     <!-- Intro -->
     <section class="page-intro">
         <div class="container">
-            <p>PouchLess helps you quit nicotine pouches or cut back at a pace that actually fits your life. Whether you use snus, Zyn, or any other brand, the app builds a gradual reduction plan with a daily limit that steps down over time, so quitting feels manageable instead of overwhelming. Log every pouch with one tap, lean on built-in craving tools like the 4-7-8 breathing exercise and a craving timer when the urge hits, and watch your savings grow as your intake drops. Everything stays private and on-device, with optional encrypted iCloud sync and no account required. Track your progress, beat the cravings, and see exactly how far you have come.</p>
+            <p>Quit nicotine pouches, or cut back at a pace that fits your life. PouchLess builds a gradual plan with a daily limit that steps down over time, so it feels manageable instead of overwhelming.</p>
+            <p>Log every pouch in one tap, lean on craving tools when the urge hits, and watch your savings grow. Private and on-device, no account required.</p>
         </div>
     </section>
 
@@ -580,22 +583,37 @@
                 <div class="feature-card">
                     <span class="feature-emoji">📉</span>
                     <div class="feature-name">Personalized Plan</div>
-                    <p class="feature-desc">Reduce gradually or quit completely with daily limits that adapt to your goals.</p>
+                    <p class="feature-desc">Quit, cut down, or stay stable with a daily limit that steps down automatically as you progress.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-emoji">💪</span>
                     <div class="feature-name">Craving Support</div>
-                    <p class="feature-desc">Breathing exercises, craving timer, color grounding, and a health benefits timeline to help you through tough moments.</p>
+                    <p class="feature-desc">4-7-8 breathing, a craving timer, color grounding, and focus games (math, memory, tap, color match) to ride out the urge.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-emoji">📊</span>
                     <div class="feature-name">Smart Tracking</div>
-                    <p class="feature-desc">Log any brand and strength with one tap. See clear charts of your progress over time.</p>
+                    <p class="feature-desc">Log any brand and strength with one tap. See clear charts and detailed statistics of your progress over time.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-emoji">🔥</span>
+                    <div class="feature-name">Streaks &amp; Milestones</div>
+                    <p class="feature-desc">Build under-limit streaks, track your longest run, and watch a health benefits timeline as your body recovers.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-emoji">📓</span>
+                    <div class="feature-name">Trigger Diary</div>
+                    <p class="feature-desc">Spot the moments that set off cravings by logging your triggers, then review your history to break the pattern.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-emoji">💰</span>
                     <div class="feature-name">Money Saved</div>
                     <p class="feature-desc">See exactly how much money you have saved by cutting back. The numbers add up fast.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-emoji">📱</span>
+                    <div class="feature-name">Home Screen Widgets</div>
+                    <p class="feature-desc">Keep today's count, your limit, and your next pouch timer one glance away with home screen widgets.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-emoji">🔒</span>
@@ -605,7 +623,7 @@
                 <div class="feature-card">
                     <span class="feature-emoji">☁️</span>
                     <div class="feature-name">iCloud Sync</div>
-                    <p class="feature-desc">Optional sync across all your Apple devices with your private iCloud account.</p>
+                    <p class="feature-desc">Optional encrypted sync across all your Apple devices with your private iCloud account.</p>
                 </div>
             </div>
         </div>
@@ -701,7 +719,8 @@
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            <p>PouchLess includes several tools to help you overcome cravings: a 4-7-8 breathing exercise proven to calm your nervous system, a craving timer that tracks how long each craving lasts (most fade within minutes), a color grounding technique to stay present, and a health benefits timeline showing the positive changes happening in your body.</p>
+                            <p>PouchLess includes several tools to help you overcome cravings: a 4-7-8 breathing exercise proven to calm your nervous system, a craving timer that tracks how long each craving lasts (most fade within minutes), a color grounding technique to stay present, and quick focus games (math, memory pattern, tap challenge, and color match) to distract your mind until the urge passes.</p>
+                            <p>A health benefits timeline shows the positive changes happening in your body, and a trigger diary helps you spot the situations that set off cravings so you can plan around them.</p>
                         </div>
                     </div>
                 </div>
