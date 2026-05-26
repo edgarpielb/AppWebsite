@@ -165,18 +165,57 @@
             flex-shrink: 0;
         }
 
-        /* Intro paragraph */
-        .page-intro {
-            padding: 0 0 64px;
+        /* Hero headline */
+        .hero-headline {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
         }
 
-        .page-intro p {
-            max-width: 720px;
-            margin: 0 auto;
-            text-align: center;
+        /* How it works strip */
+        .how-strip {
+            padding: 12px 0 64px;
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .how-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 24px;
+            position: relative;
+        }
+
+        .how-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .how-title {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.05rem;
-            line-height: 1.8;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
+        }
+
+        .how-desc {
+            font-size: 0.9rem;
             color: var(--text-secondary);
+            line-height: 1.65;
         }
 
         /* Section labels */
@@ -496,6 +535,7 @@
         @media (max-width: 760px) {
             .nav-links { gap: 20px; }
             .hero { padding: 70px 0 60px; }
+            .how-grid { grid-template-columns: 1fr; }
             .features-grid { grid-template-columns: repeat(2, 1fr); }
             .support-layout { grid-template-columns: 1fr; }
         }
@@ -551,6 +591,7 @@
             <img src="../assets/icons/ember.png" alt="Ember app icon" class="hero-icon">
             <h1>Ember: Habit &amp; Streak Tracker</h1>
             <p class="hero-tagline">Streak &amp; Habit Tracker</p>
+            <p class="hero-headline">Don't break the chain.</p>
             <p class="hero-desc">Streak tracking, smart reminders, milestone rewards, and home screen widgets. Subscribe weekly or monthly, or pay once for lifetime access.</p>
             <a href="https://apps.apple.com/app/id6752352900" target="_blank" rel="noopener" class="hero-cta">
                 <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -561,10 +602,26 @@
         </div>
     </section>
 
-    <!-- Intro -->
-    <section class="page-intro">
+    <!-- How it works -->
+    <section class="how-strip">
         <div class="container">
-            <p>Ember is a habit tracker built around the streak: a clear, visible run of days that keeps you coming back. Mark a habit done and watch the streak climb, then unlock milestone app icons as the long stretches add up. Home screen widgets put your progress one glance away, smart reminders skip days you already finished, and streak shields cover the occasional miss so one bad day does not undo months of work. Vacation mode freezes everything while you travel. Your data syncs privately through your own iCloud account with no login to create and nothing collected. Subscribe weekly or monthly, or pay once for lifetime access and keep Ember forever.</p>
+            <div class="how-grid">
+                <div class="how-step">
+                    <div class="how-num">Step 1 — Add habits</div>
+                    <div class="how-title">Set up your routine</div>
+                    <p class="how-desc">Create daily, weekly, or custom habits with targets and reminders. Link Apple Health to auto-track steps, workouts, sleep, and more.</p>
+                </div>
+                <div class="how-step">
+                    <div class="how-num">Step 2 — Build the streak</div>
+                    <div class="how-title">Show up each day</div>
+                    <p class="how-desc">Mark a habit done and watch the streak climb. Smart reminders skip days you finished, and widgets keep progress one glance away.</p>
+                </div>
+                <div class="how-step">
+                    <div class="how-num">Step 3 — Keep it alive</div>
+                    <div class="how-title">Protect your momentum</div>
+                    <p class="how-desc">Streak shields cover a missed day and vacation mode freezes trips, so real life never wipes out months of work. Unlock milestone icons as you go.</p>
+                </div>
+            </div>
         </div>
     </section>
 

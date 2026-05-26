@@ -165,20 +165,58 @@
             flex-shrink: 0;
         }
 
-        /* Intro paragraph */
-        .page-intro {
-            padding: 0 0 64px;
+        /* Hero headline */
+        .hero-headline {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
         }
 
-        .page-intro p {
-            max-width: 620px;
-            margin: 0 auto 16px;
-            text-align: center;
-            font-size: 1.05rem;
-            line-height: 1.75;
-            color: var(--text-secondary);
+        /* How it works strip */
+        .how-strip {
+            padding: 12px 0 64px;
         }
-        .page-intro p:last-child { margin-bottom: 0; }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .how-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 24px;
+            position: relative;
+        }
+
+        .how-num {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .how-title {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
+        }
+
+        .how-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
 
         /* Section labels */
         .section-label {
@@ -498,6 +536,7 @@
         @media (max-width: 760px) {
             .nav-links { gap: 20px; }
             .hero { padding: 70px 0 60px; }
+            .how-grid { grid-template-columns: 1fr; }
             .features-grid { grid-template-columns: repeat(2, 1fr); }
             .support-layout { grid-template-columns: 1fr; }
         }
@@ -553,6 +592,7 @@
             <img src="../assets/icons/pouchless.png" alt="PouchLess app icon" class="hero-icon">
             <h1>PouchLess: Quit Nicotine Pouches &amp; Snus</h1>
             <p class="hero-tagline">Nicotine Reduction</p>
+            <p class="hero-headline">Less nicotine, one day at a time.</p>
             <p class="hero-desc">A personal plan to reduce nicotine at your pace. Track every pouch, manage cravings, and see how much you are saving.</p>
             <a href="https://apps.apple.com/se/app/pouchless-quit-zyn-nicotine/id6751212860?l=en-GB" target="_blank" rel="noopener" class="hero-cta">
                 <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -563,11 +603,26 @@
         </div>
     </section>
 
-    <!-- Intro -->
-    <section class="page-intro">
+    <!-- How it works -->
+    <section class="how-strip">
         <div class="container">
-            <p>Quit nicotine pouches, or cut back at a pace that fits your life. PouchLess builds a gradual plan with a daily limit that steps down over time, so it feels manageable instead of overwhelming.</p>
-            <p>Log every pouch in one tap, lean on craving tools when the urge hits, and watch your savings grow. Private and on-device, no account required.</p>
+            <div class="how-grid">
+                <div class="how-step">
+                    <div class="how-num">Step 1 — Set your plan</div>
+                    <div class="how-title">Pick your pace</div>
+                    <p class="how-desc">Tell PouchLess your current intake and goal. It builds a daily limit that steps down over time, gradual enough to actually stick.</p>
+                </div>
+                <div class="how-step">
+                    <div class="how-num">Step 2 — Log &amp; cope</div>
+                    <div class="how-title">One tap, plus support</div>
+                    <p class="how-desc">Log any brand or strength in a tap. When a craving hits, lean on breathing, the craving timer, and quick focus games to ride it out.</p>
+                </div>
+                <div class="how-step">
+                    <div class="how-num">Step 3 — Watch it drop</div>
+                    <div class="how-title">See real progress</div>
+                    <p class="how-desc">Streaks, clear charts, and a savings counter show how far you have come, and exactly how much money you have kept.</p>
+                </div>
+            </div>
         </div>
     </section>
 
