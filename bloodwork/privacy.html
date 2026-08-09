@@ -438,9 +438,9 @@
 
                     <div class="policy-section" id="information">
                         <h2><span class="sec-icon">🗄️</span> Information the App Handles</h2>
-                        <p><strong>Blood test data:</strong> the values, units, and reference ranges from lab reports you import or enter manually, along with the sample dates, any notes you add, and the questions you prepare for doctor visits.</p>
+                        <p><strong>Blood test data:</strong> the values, units, and reference ranges from lab reports you import or enter manually, along with the sample dates. The doctor visit summary and its questions are assembled from this data when you export them, not stored separately.</p>
                         <p><strong>Imported documents:</strong> lab report PDFs you share into the app. They are parsed entirely on your device; no document is ever uploaded anywhere for processing.</p>
-                        <p><strong>Health data (optional):</strong> if you connect Apple Health, the app reads only the categories you approve in iOS's own permission sheet, and uses them solely to add context to your results within the app.</p>
+                        <p><strong>Health data (optional):</strong> if you connect Apple Health, the app reads the categories you approve in iOS's own permission sheet and uses them solely to add context to your results within the app. With your permission it can also save individual values, such as blood glucose, back to Health.</p>
                         <p><strong>We do NOT collect:</strong></p>
                         <ul>
                             <li>Personal identification information (name, email address, or similar)</li>
@@ -469,7 +469,7 @@
                         <p>Bloodwork uses the following Apple-provided services only:</p>
                         <ul>
                             <li><strong>iCloud / CloudKit</strong>: syncs data across your devices (optional, user-controlled, private database only)</li>
-                            <li><strong>HealthKit</strong>: reads only the health categories you explicitly approve (optional, requires your permission)</li>
+                            <li><strong>HealthKit</strong>: reads the health categories you explicitly approve, and can save individual values back to Health if you allow it (optional, requires your permission)</li>
                         </ul>
                         <p>We do not use any third-party analytics, advertising, crash reporting, or tracking services. There are no SDKs from Facebook, Google, Mixpanel, Amplitude, or any similar provider embedded in Bloodwork.</p>
                     </div>
