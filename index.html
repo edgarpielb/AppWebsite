@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private iOS Apps: Habit, Nicotine &amp; Learning Tools</title>
-    <meta name="description" content="Independent iOS apps by Edgar Pielbusch. Habit tracking, nicotine reduction, and AI-powered video learning. Privacy-first, no tracking, honest pricing.">
+    <title>Private iOS Apps: Habit, Health &amp; Learning Tools</title>
+    <meta name="description" content="Independent iOS apps by Edgar Pielbusch. Habit tracking, nicotine reduction, blood test tracking, and AI-powered video learning. Privacy-first, no tracking, honest pricing.">
     <meta name="theme-color" content="#f5f0e8">
     <link rel="canonical" href="https://edgarpielb.com/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Edgar Pielbusch">
-    <meta property="og:title" content="Private iOS Apps: Habit, Nicotine &amp; Learning Tools">
-    <meta property="og:description" content="Independent iOS apps by Edgar Pielbusch. Habit tracking, nicotine reduction, and AI-powered video learning. Privacy-first, no tracking, honest pricing.">
+    <meta property="og:title" content="Private iOS Apps: Habit, Health &amp; Learning Tools">
+    <meta property="og:description" content="Independent iOS apps by Edgar Pielbusch. Habit tracking, nicotine reduction, blood test tracking, and AI-powered video learning. Privacy-first, no tracking, honest pricing.">
     <meta property="og:url" content="https://edgarpielb.com/">
     <meta property="og:image" content="https://edgarpielb.com/assets/headshot.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Private iOS Apps: Habit, Nicotine &amp; Learning Tools">
-    <meta name="twitter:description" content="Independent iOS apps by Edgar Pielbusch. Habit tracking, nicotine reduction, and AI-powered video learning. Privacy-first, no tracking, honest pricing.">
+    <meta name="twitter:title" content="Private iOS Apps: Habit, Health &amp; Learning Tools">
+    <meta name="twitter:description" content="Independent iOS apps by Edgar Pielbusch. Habit tracking, nicotine reduction, blood test tracking, and AI-powered video learning. Privacy-first, no tracking, honest pricing.">
     <meta name="twitter:image" content="https://edgarpielb.com/assets/headshot.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,6 +96,11 @@
         .cell--ingrain:hover {
             border-color: rgba(95,72,180,0.4);
             box-shadow: 0 8px 30px rgba(95,72,180,0.1);
+        }
+
+        .cell--bloodwork:hover {
+            border-color: rgba(222,32,42,0.4);
+            box-shadow: 0 8px 30px rgba(222,32,42,0.1);
         }
 
         .cell--app.cell--ingrain .app-name {
@@ -374,12 +379,6 @@
             color: #1a1a1e;
         }
 
-        /* --- Temporary 3-app layout (ProgressPic + Boycottr hidden) --- */
-        .cell--intro {
-            grid-column: 1 / -1;
-        }
-        /* --- End temporary layout --- */
-
         /* --- Responsive --- */
         @media (max-width: 900px) {
             .bento {
@@ -467,7 +466,7 @@
                     <div class="intro-text">
                         <h1>I make iOS apps<br>for people who want<br>less noise.</h1>
                         <p>I'm Edgar. I build small, focused tools that respect your time and your data. <strong>No accounts, no tracking, no data collection.</strong> Just software that works and then gets out of your way.</p>
-                        <h2 class="intro-subhead">iOS apps for habit tracking, quitting nicotine, and learning from video.</h2>
+                        <h2 class="intro-subhead">iOS apps for habit tracking, quitting nicotine, learning from video, and tracking your blood tests.</h2>
                     </div>
                 </div>
             </div>
@@ -511,6 +510,20 @@
                 <div class="app-links">
                     <span class="coming-soon">Coming soon</span>
                     <a href="ingrain/#support" class="support-link">Support</a>
+                </div>
+            </div>
+
+            <!-- Bloodwork -->
+            <div class="cell cell--app cell--bloodwork">
+                <div class="app-top">
+                    <img src="assets/icons/bloodwork.png" alt="Bloodwork" class="app-icon">
+                    <div class="app-name">Bloodwork</div>
+                    <div class="app-subtitle">Blood Test Tracker</div>
+                </div>
+                <p class="app-desc">Import a lab report PDF and see every value over time, charted against your lab's own reference ranges. Arrive at your next doctor visit prepared.</p>
+                <div class="app-links">
+                    <span class="coming-soon">Coming soon</span>
+                    <a href="bloodwork/#support" class="support-link">Support</a>
                 </div>
             </div>
 

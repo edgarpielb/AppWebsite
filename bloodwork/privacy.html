@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloodwork Privacy Policy</title>
+    <meta name="description" content="Privacy Policy for Bloodwork: Blood Test Tracker. Your health data stays on your device and in your own iCloud. No tracking, no analytics, no accounts required.">
+    <meta name="theme-color" content="#f5f0e8">
+    <link rel="canonical" href="https://edgarpielb.com/bloodwork/privacy">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Edgar Pielbusch">
+    <meta property="og:title" content="Bloodwork Privacy Policy">
+    <meta property="og:description" content="Privacy Policy for Bloodwork: Blood Test Tracker. Your health data stays on your device and in your own iCloud. No tracking, no analytics, no accounts required.">
+    <meta property="og:url" content="https://edgarpielb.com/bloodwork/privacy">
+    <meta property="og:image" content="https://edgarpielb.com/assets/icons/bloodwork.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bloodwork Privacy Policy">
+    <meta name="twitter:description" content="Privacy Policy for Bloodwork: Blood Test Tracker. Your health data stays on your device and in your own iCloud. No tracking, no analytics, no accounts required.">
+    <meta name="twitter:image" content="https://edgarpielb.com/assets/icons/bloodwork.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f5f0e8;
+            --bg-card: #faf7f2;
+            --text: #1a1a1e;
+            --text-secondary: rgba(0,0,0,0.5);
+            --text-muted: rgba(0,0,0,0.3);
+            --border: rgba(0,0,0,0.06);
+            --accent: #c81e28;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Nav */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+            background: rgba(245,240,232,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        /* Page header */
+        .page-header {
+            padding: 64px 0 48px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        .back-link svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+
+        .page-header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .page-header .meta {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Privacy badge row */
+        .privacy-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        .privacy-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(200,30,40,0.07);
+            border: 1px solid rgba(200,30,40,0.15);
+            border-radius: 100px;
+            padding: 7px 14px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .privacy-badge::before {
+            content: '✓';
+            font-weight: 700;
+        }
+
+        /* Content layout */
+        .content {
+            padding-bottom: 100px;
+        }
+
+        .content-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        /* Sidebar TOC */
+        .toc {
+            position: sticky;
+            top: 32px;
+        }
+
+        .toc-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .toc-list a {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 8px;
+            transition: all 0.2s;
+            line-height: 1.4;
+        }
+
+        .toc-list a:hover {
+            color: var(--accent);
+            background: rgba(200,30,40,0.06);
+        }
+
+        /* Policy card */
+        .policy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .policy-section {
+            padding: 36px 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .policy-section:last-child {
+            border-bottom: none;
+        }
+
+        .policy-section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .policy-section h2 .sec-icon {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .policy-section p {
+            font-size: 0.925rem;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            line-height: 1.75;
+        }
+
+        .policy-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-section ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .policy-section ul li {
+            font-size: 0.925rem;
+            color: var(--text-secondary);
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.65;
+        }
+
+        .policy-section ul li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
+        }
+
+        .policy-section strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .policy-section a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .policy-section a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight-box {
+            background: rgba(200,30,40,0.05);
+            border: 1px solid rgba(200,30,40,0.12);
+            border-radius: 12px;
+            padding: 18px 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-top: 4px;
+        }
+
+        .highlight-box strong {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        /* Responsive */
+        @media (max-width: 760px) {
+            .content-layout {
+                grid-template-columns: 1fr;
+            }
+            .toc {
+                display: none;
+            }
+            .policy-section {
+                padding: 28px 24px;
+            }
+            .nav-links { gap: 20px; }
+        }
+
+        @media (max-width: 500px) {
+            .nav-links { gap: 14px; }
+            .privacy-badges { gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Nav -->
+    <nav>
+        <div class="nav-inner">
+            <a href="./" class="nav-logo">Bloodwork</a>
+            <ul class="nav-links">
+                <li><a href="../">All Apps</a></li>
+                <li><a href="./#support">Support</a></li>
+                <li><a href="privacy">Privacy</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <a href="./" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                Back to Bloodwork
+            </a>
+            <h1>Privacy Policy</h1>
+            <p class="meta">Last updated: August 9, 2026</p>
+            <div class="privacy-badges">
+                <span class="privacy-badge">No data collection</span>
+                <span class="privacy-badge">No account required</span>
+                <span class="privacy-badge">No third-party tracking</span>
+                <span class="privacy-badge">Your data stays with you</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+        <div class="container">
+            <div class="content-layout">
+
+                <!-- TOC Sidebar -->
+                <aside class="toc" aria-label="Table of contents">
+                    <p class="toc-label">On this page</p>
+                    <ul class="toc-list">
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#information">Information the App Handles</a></li>
+                        <li><a href="#consent">Consent</a></li>
+                        <li><a href="#storage">Data Storage</a></li>
+                        <li><a href="#third-party">Third-Party Services</a></li>
+                        <li><a href="#security">Data Security</a></li>
+                        <li><a href="#rights">Your Rights</a></li>
+                        <li><a href="#children">Children's Privacy</a></li>
+                        <li><a href="#changes">Changes to Policy</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Policy card -->
+                <div class="policy-card">
+
+                    <div class="policy-section" id="overview">
+                        <h2><span class="sec-icon">📋</span> Overview</h2>
+                        <p>Bloodwork ("we", "our", or "the app") is a blood test tracking application. Blood test results are health data, among the most sensitive categories of personal data there is, and this policy explains how the app is built so that they never leave your control.</p>
+                        <div class="highlight-box">
+                            <strong>The short version:</strong> Bloodwork stores your results on your device and, if you choose, in your own iCloud account. There are no servers of ours, no analytics, and no accounts. We never see your data, so we could not share it even if we wanted to.
+                        </div>
+                    </div>
+
+                    <div class="policy-section" id="information">
+                        <h2><span class="sec-icon">🗄️</span> Information the App Handles</h2>
+                        <p><strong>Blood test data:</strong> the values, units, and reference ranges from lab reports you import or enter manually, along with the sample dates, any notes you add, and the questions you prepare for doctor visits.</p>
+                        <p><strong>Imported documents:</strong> lab report PDFs you share into the app. They are parsed entirely on your device; no document is ever uploaded anywhere for processing.</p>
+                        <p><strong>Health data (optional):</strong> if you connect Apple Health, the app reads only the categories you approve in iOS's own permission sheet, and uses them solely to add context to your results within the app.</p>
+                        <p><strong>We do NOT collect:</strong></p>
+                        <ul>
+                            <li>Personal identification information (name, email address, or similar)</li>
+                            <li>Location data</li>
+                            <li>Device identifiers for tracking purposes</li>
+                            <li>Usage analytics or behavioral data</li>
+                            <li>Any data for advertising purposes</li>
+                        </ul>
+                    </div>
+
+                    <div class="policy-section" id="consent">
+                        <h2><span class="sec-icon">🤝</span> Consent</h2>
+                        <p>Because blood values are sensitive health data, Bloodwork asks for your explicit consent before storing anything, and records the date of that consent so it can always be demonstrated.</p>
+                        <p>You can withdraw your consent at any time in Settings. Withdrawing it erases all data the app holds, on your device and in your iCloud, because consent with no data has nothing to attach to. You can export everything first if you want to keep a copy.</p>
+                    </div>
+
+                    <div class="policy-section" id="storage">
+                        <h2><span class="sec-icon">💾</span> Data Storage</h2>
+                        <p><strong>Local storage:</strong> all your data is stored locally on your device using secure storage mechanisms provided by iOS.</p>
+                        <p><strong>iCloud sync:</strong> if you enable iCloud sync, your data is stored in the private database of your personal iCloud account using Apple's CloudKit technology. It is encrypted and accessible only through devices signed into your Apple ID. No health data is ever at rest on any server we operate, because we operate none.</p>
+                        <p><strong>On-device processing:</strong> PDF parsing, charting, and export generation all happen on your device. Nothing is sent out for processing.</p>
+                    </div>
+
+                    <div class="policy-section" id="third-party">
+                        <h2><span class="sec-icon">🔗</span> Third-Party Services</h2>
+                        <p>Bloodwork uses the following Apple-provided services only:</p>
+                        <ul>
+                            <li><strong>iCloud / CloudKit</strong>: syncs data across your devices (optional, user-controlled, private database only)</li>
+                            <li><strong>HealthKit</strong>: reads only the health categories you explicitly approve (optional, requires your permission)</li>
+                        </ul>
+                        <p>We do not use any third-party analytics, advertising, crash reporting, or tracking services. There are no SDKs from Facebook, Google, Mixpanel, Amplitude, or any similar provider embedded in Bloodwork.</p>
+                    </div>
+
+                    <div class="policy-section" id="security">
+                        <h2><span class="sec-icon">🔒</span> Data Security</h2>
+                        <p>We implement appropriate security measures to protect your data:</p>
+                        <ul>
+                            <li>All iCloud data is encrypted in transit and at rest by Apple</li>
+                            <li>Local data is stored using iOS secure storage mechanisms</li>
+                            <li>We do not transmit your data to any external servers, because there are none to transmit to</li>
+                            <li>Exports are created only when you explicitly initiate them, and you choose where each file goes</li>
+                        </ul>
+                    </div>
+
+                    <div class="policy-section" id="rights">
+                        <h2><span class="sec-icon">⚖️</span> Your Rights</h2>
+                        <p>You have complete control over your data at all times:</p>
+                        <ul>
+                            <li><strong>Access</strong>: view all your data within the app at any time</li>
+                            <li><strong>Export</strong>: create a PDF summary for your doctor, or a full export of everything as CSV and JSON, from Settings</li>
+                            <li><strong>Delete</strong>: remove individual results, whole reports, or everything at once by withdrawing consent in Settings</li>
+                            <li><strong>Portability</strong>: the full export uses standard formats you can open anywhere and keep indefinitely</li>
+                            <li><strong>iCloud removal</strong>: disable iCloud sync at any time; your data remains local on your device</li>
+                        </ul>
+                        <p>Because we collect no personal data on our end, there is nothing for us to look up, correct, or delete on your behalf. All data management happens directly through the app on your device.</p>
+                    </div>
+
+                    <div class="policy-section" id="children">
+                        <h2><span class="sec-icon">👶</span> Children's Privacy</h2>
+                        <p>Bloodwork does not knowingly collect information from children under 13. The app requires no personal information to use, and no data leaves your device unless you explicitly enable iCloud sync to your own account.</p>
+                    </div>
+
+                    <div class="policy-section" id="changes">
+                        <h2><span class="sec-icon">📝</span> Changes to This Policy</h2>
+                        <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by updating the "Last updated" date at the top of this policy. Continued use of the app after any changes constitutes your acceptance of the updated policy.</p>
+                        <p>We will never introduce data collection, analytics, or advertising without making this clearly visible through an updated policy and a prominent in-app notice, and any such change would ask for your consent first.</p>
+                    </div>
+
+                    <div class="policy-section" id="contact">
+                        <h2><span class="sec-icon">✉️</span> Contact</h2>
+                        <p>If you have any questions or concerns about this Privacy Policy or how Bloodwork handles data, please contact us:</p>
+                        <p><a href="mailto:support@edgarpielb.com?subject=Bloodwork%20Privacy">support@edgarpielb.com</a></p>
+                        <p>We typically respond within 48 hours.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <span class="footer-copy">&copy; 2026 Bloodwork. All rights reserved.</span>
+                <div class="footer-links">
+                    <a href="./">Support</a>
+                    <a href="privacy">Privacy Policy</a>
+                    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

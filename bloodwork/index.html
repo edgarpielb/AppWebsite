@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quit Nicotine Pouches, Snus &amp; Zyn - PouchLess</title>
-    <meta name="description" content="Quit or cut back on nicotine pouches, snus, and Zyn at your own pace. Track every pouch, beat cravings, and watch your savings grow. Try it free.">
+    <title>Bloodwork: Blood Test Tracker with Lab PDF Import</title>
+    <meta name="description" content="Track your blood test results over time with Bloodwork. Import lab PDFs, see trends against your lab's own reference ranges, and prepare for your next doctor visit. Private by design.">
     <meta name="theme-color" content="#f5f0e8">
-    <link rel="canonical" href="https://edgarpielb.com/pouchless/">
+    <link rel="canonical" href="https://edgarpielb.com/bloodwork/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Edgar Pielbusch">
-    <meta property="og:title" content="Quit Nicotine Pouches, Snus &amp; Zyn - PouchLess">
-    <meta property="og:description" content="Quit or cut back on nicotine pouches, snus, and Zyn at your own pace. Track every pouch, beat cravings, and watch your savings grow. Try it free.">
-    <meta property="og:url" content="https://edgarpielb.com/pouchless/">
-    <meta property="og:image" content="https://edgarpielb.com/assets/icons/pouchless.png">
+    <meta property="og:title" content="Bloodwork: Blood Test Tracker with Lab PDF Import">
+    <meta property="og:description" content="Track your blood test results over time with Bloodwork. Import lab PDFs, see trends against your lab's own reference ranges, and prepare for your next doctor visit. Private by design.">
+    <meta property="og:url" content="https://edgarpielb.com/bloodwork/">
+    <meta property="og:image" content="https://edgarpielb.com/assets/icons/bloodwork.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Quit Nicotine Pouches, Snus &amp; Zyn - PouchLess">
-    <meta name="twitter:description" content="Quit or cut back on nicotine pouches, snus, and Zyn at your own pace. Track every pouch, beat cravings, and watch your savings grow. Try it free.">
-    <meta name="twitter:image" content="https://edgarpielb.com/assets/icons/pouchless.png">
+    <meta name="twitter:title" content="Bloodwork: Blood Test Tracker with Lab PDF Import">
+    <meta name="twitter:description" content="Track your blood test results over time with Bloodwork. Import lab PDFs, see trends against your lab's own reference ranges, and prepare for your next doctor visit. Private by design.">
+    <meta name="twitter:image" content="https://edgarpielb.com/assets/icons/bloodwork.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #f5f0e8;
@@ -28,13 +28,13 @@
             --text-secondary: rgba(0,0,0,0.5);
             --text-muted: rgba(0,0,0,0.3);
             --border: rgba(0,0,0,0.06);
-            --accent: #33b89c;
+            --accent: #c81e28;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
@@ -70,10 +70,10 @@
         }
 
         .nav-logo {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: 1.4rem;
-            font-weight: 400;
-            letter-spacing: 0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
             color: var(--text);
             text-decoration: none;
         }
@@ -113,10 +113,10 @@
         }
 
         .hero h1 {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: clamp(2.8rem, 7vw, 4.2rem);
-            font-weight: 400;
-            letter-spacing: -0.01em;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.4rem, 6vw, 3.5rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
             line-height: 1.05;
             margin-bottom: 12px;
             color: var(--accent);
@@ -145,7 +145,7 @@
             gap: 10px;
             background: var(--accent);
             color: #fff;
-            font-family: 'Ubuntu', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 0.95rem;
             font-weight: 600;
             padding: 14px 28px;
@@ -159,17 +159,18 @@
             opacity: 0.9;
         }
 
-        .hero-cta svg {
-            width: 18px;
-            height: 18px;
-            flex-shrink: 0;
+        .hero-cta--soon {
+            background: #8a8378;
+            cursor: default;
+            pointer-events: none;
+            opacity: 0.85;
         }
 
         /* Hero headline */
         .hero-headline {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            font-weight: 400;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+            font-weight: 500;
             color: var(--text);
             margin-bottom: 16px;
             letter-spacing: -0.01em;
@@ -195,9 +196,9 @@
         }
 
         .how-num {
-            font-family: 'Ubuntu', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 0.72rem;
-            font-weight: 700;
+            font-weight: 600;
             letter-spacing: 0.16em;
             text-transform: uppercase;
             color: var(--accent);
@@ -205,9 +206,9 @@
         }
 
         .how-title {
-            font-family: 'Ubuntu', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.05rem;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: -0.01em;
             margin-bottom: 8px;
         }
@@ -230,11 +231,10 @@
         }
 
         .section-title {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: clamp(1.9rem, 4vw, 2.6rem);
-            font-weight: 400;
-            letter-spacing: -0.01em;
-            line-height: 1.1;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
             margin-bottom: 12px;
         }
 
@@ -269,7 +269,7 @@
         }
 
         .feature-card:hover {
-            border-color: rgba(51,184,156,0.2);
+            border-color: rgba(200,30,40,0.2);
             transform: translateY(-3px);
         }
 
@@ -281,7 +281,7 @@
         }
 
         .feature-name {
-            font-family: 'Ubuntu', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 0.95rem;
             font-weight: 600;
             letter-spacing: -0.01em;
@@ -315,7 +315,7 @@
 
         .contact-card {
             background: var(--bg-card);
-            border: 1px solid rgba(51,184,156,0.25);
+            border: 1px solid rgba(200,30,40,0.25);
             border-radius: 20px;
             padding: 36px 32px;
         }
@@ -327,7 +327,7 @@
         }
 
         .contact-title {
-            font-family: 'Ubuntu', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.1rem;
             font-weight: 600;
             letter-spacing: -0.01em;
@@ -359,8 +359,8 @@
             align-items: center;
             gap: 6px;
             width: fit-content;
-            background: rgba(51,184,156,0.1);
-            border: 1px solid rgba(51,184,156,0.2);
+            background: rgba(200,30,40,0.1);
+            border: 1px solid rgba(200,30,40,0.2);
             border-radius: 100px;
             padding: 6px 14px;
             font-size: 0.8rem;
@@ -431,7 +431,7 @@
         }
 
         .faq-item.open {
-            border-color: rgba(51,184,156,0.2);
+            border-color: rgba(200,30,40,0.2);
         }
 
         .faq-question {
@@ -439,7 +439,7 @@
             background: none;
             border: none;
             color: var(--text);
-            font-family: 'Ubuntu', sans-serif;
+            font-family: 'DM Sans', sans-serif;
             font-size: 0.975rem;
             font-weight: 500;
             text-align: left;
@@ -552,22 +552,16 @@
     {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "PouchLess: Nicotine Reduction",
-        "description": "Take control of your nicotine consumption with personalized reduction plans, craving support tools, and savings tracking.",
+        "name": "Bloodwork: Blood Test Tracker",
+        "description": "Track your blood test results over time. Import lab PDFs, see trends against your lab's own reference ranges, and prepare for your next doctor visit. Private by design.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "iOS",
-        "image": "https://edgarpielb.com/assets/icons/pouchless.png",
-        "url": "https://apps.apple.com/se/app/pouchless-quit-zyn-nicotine/id6751212860?l=en-GB",
+        "image": "https://edgarpielb.com/assets/icons/bloodwork.png",
+        "url": "https://edgarpielb.com/bloodwork/",
         "author": {
             "@type": "Person",
             "name": "Edgar Pielbusch",
             "url": "https://edgarpielb.com/"
-        },
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD",
-            "url": "https://apps.apple.com/se/app/pouchless-quit-zyn-nicotine/id6751212860?l=en-GB"
         }
     }
     </script>
@@ -577,7 +571,7 @@
     <!-- Nav -->
     <nav>
         <div class="nav-inner">
-            <a href="#" class="nav-logo">PouchLess</a>
+            <a href="#" class="nav-logo">Bloodwork</a>
             <ul class="nav-links">
                 <li><a href="../">All Apps</a></li>
                 <li><a href="#support">Support</a></li>
@@ -589,17 +583,12 @@
     <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <img src="../assets/icons/pouchless.png" alt="PouchLess app icon" class="hero-icon">
-            <h1>PouchLess: Quit Nicotine Pouches &amp; Snus</h1>
-            <p class="hero-tagline">Nicotine Reduction</p>
-            <p class="hero-headline">Less nicotine, one day at a time.</p>
-            <p class="hero-desc">A personal plan to reduce nicotine at your pace. Track every pouch, manage cravings, and see how much you are saving.</p>
-            <a href="https://apps.apple.com/se/app/pouchless-quit-zyn-nicotine/id6751212860?l=en-GB" target="_blank" rel="noopener" class="hero-cta">
-                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                </svg>
-                Download on the App Store
-            </a>
+            <img src="../assets/icons/bloodwork.png" alt="Bloodwork app icon" class="hero-icon">
+            <h1>Bloodwork: Blood Test Tracker</h1>
+            <p class="hero-tagline">Your Labs, Over Time</p>
+            <p class="hero-headline">One test tells you a number. Ten tell you a story.</p>
+            <p class="hero-desc">Import a lab report PDF and every value lands in one place, charted over time against your lab's own reference ranges. Arrive at your next appointment with better questions.</p>
+            <span class="hero-cta hero-cta--soon">Coming soon</span>
         </div>
     </section>
 
@@ -608,19 +597,19 @@
         <div class="container">
             <div class="how-grid">
                 <div class="how-step">
-                    <div class="how-num">Step 1 — Set your plan</div>
-                    <div class="how-title">Pick your pace</div>
-                    <p class="how-desc">Tell PouchLess your current intake and goal. It builds a daily limit that steps down over time, gradual enough to actually stick.</p>
+                    <div class="how-num">Step 1: Import</div>
+                    <div class="how-title">Share a lab report</div>
+                    <p class="how-desc">Send a PDF to Bloodwork from Mail or Files and it reads the results table: values, units, and the reference ranges your lab printed.</p>
                 </div>
                 <div class="how-step">
-                    <div class="how-num">Step 2 — Log &amp; cope</div>
-                    <div class="how-title">One tap, plus support</div>
-                    <p class="how-desc">Log any brand or strength in a tap. When a craving hits, lean on breathing, the craving timer, and quick focus games to ride it out.</p>
+                    <div class="how-num">Step 2: Review</div>
+                    <div class="how-title">Confirm every value</div>
+                    <p class="how-desc">Nothing is saved silently. Each import opens a review screen where uncertain readings are flagged instead of hidden, and you approve or correct each row before it enters your history.</p>
                 </div>
                 <div class="how-step">
-                    <div class="how-num">Step 3 — Watch it drop</div>
-                    <div class="how-title">See real progress</div>
-                    <p class="how-desc">Streaks, clear charts, and a savings counter show how far you have come, and exactly how much money you have kept.</p>
+                    <div class="how-num">Step 3: Track</div>
+                    <div class="how-title">See results in context</div>
+                    <p class="how-desc">Every marker is charted over time against your lab's own ranges, and a one-page summary with your questions is ready for the next doctor visit.</p>
                 </div>
             </div>
         </div>
@@ -631,54 +620,54 @@
         <div class="container">
             <div class="features-header">
                 <span class="section-label">Features</span>
-                <h2 class="section-title">Tools to support<br>your reduction journey</h2>
-                <p class="section-subtitle">Personalized plans, craving support, and clear progress tracking to help you take back control.</p>
+                <h2 class="section-title">The whole picture,<br>without the guesswork</h2>
+                <p class="section-subtitle">Built for people who get blood drawn more than once and want to see what changes between the printouts.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <span class="feature-emoji">📉</span>
-                    <div class="feature-name">Personalized Plan</div>
-                    <p class="feature-desc">Quit, cut down, or stay stable with a daily limit that steps down automatically as you progress.</p>
+                    <span class="feature-emoji">📄</span>
+                    <div class="feature-name">Lab PDF Import</div>
+                    <p class="feature-desc">Share a report straight from Mail or Files. Values, units, and reference ranges are read for you, all on your device.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-emoji">💪</span>
-                    <div class="feature-name">Craving Support</div>
-                    <p class="feature-desc">Guided 4-4-6 breathing, a 5-minute craving timer, color grounding, and focus games (math, memory, tap, color match) to ride out the urge.</p>
+                    <span class="feature-emoji">✅</span>
+                    <div class="feature-name">Review Every Import</div>
+                    <p class="feature-desc">Every import passes through a review screen first. Uncertain readings are flagged for your attention, never silently dropped.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-emoji">📊</span>
-                    <div class="feature-name">Smart Tracking</div>
-                    <p class="feature-desc">Log any brand and strength with one tap. See clear charts and detailed statistics of your progress over time.</p>
+                    <span class="feature-emoji">✍️</span>
+                    <div class="feature-name">Manual Entry</div>
+                    <p class="feature-desc">Got a paper report or a value read over the phone? Type it in and it joins the same timeline.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-emoji">🔥</span>
-                    <div class="feature-name">Streaks &amp; Milestones</div>
-                    <p class="feature-desc">Build under-limit streaks, track your longest run, and watch a health benefits timeline as your body recovers.</p>
+                    <span class="feature-emoji">📈</span>
+                    <div class="feature-name">Trends Over Time</div>
+                    <p class="feature-desc">Each marker is charted against the reference range your own lab printed, so you see change in its proper context.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-emoji">📓</span>
-                    <div class="feature-name">Trigger Diary</div>
-                    <p class="feature-desc">Spot the moments that set off cravings by logging your triggers, then review your history to break the pattern.</p>
+                    <span class="feature-emoji">📚</span>
+                    <div class="feature-name">Marker Encyclopedia</div>
+                    <p class="feature-desc">Plain-language explanations of what each marker measures and why labs test it, from hemoglobin to thyroid hormones.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-emoji">💰</span>
-                    <div class="feature-name">Money Saved</div>
-                    <p class="feature-desc">See exactly how much money you have saved by cutting back. The numbers add up fast.</p>
+                    <span class="feature-emoji">🧭</span>
+                    <div class="feature-name">No Verdicts</div>
+                    <p class="feature-desc">Bloodwork shows what your lab reported and forms no judgement of its own. Interpretation stays where it belongs: with your doctor.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-emoji">📱</span>
-                    <div class="feature-name">Home Screen Widgets</div>
-                    <p class="feature-desc">Keep today's count, your limit, and your next pouch timer one glance away with home screen widgets.</p>
+                    <span class="feature-emoji">🩺</span>
+                    <div class="feature-name">Doctor Visit Prep</div>
+                    <p class="feature-desc">Gather the results you want to discuss and the questions you want to ask, then walk in with one clean page instead of a folder of printouts.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-emoji">🔒</span>
-                    <div class="feature-name">Privacy First</div>
-                    <p class="feature-desc">No account required. Your data stays on your device. I do not track you.</p>
+                    <span class="feature-emoji">📤</span>
+                    <div class="feature-name">Exports That Mean It</div>
+                    <p class="feature-desc">A one-page PDF summary for your doctor, and a complete CSV and JSON export of everything for you. Your data is never locked in.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-emoji">☁️</span>
-                    <div class="feature-name">iCloud Sync</div>
-                    <p class="feature-desc">Optional encrypted sync across all your Apple devices with your private iCloud account.</p>
+                    <div class="feature-name">Private iCloud Sync</div>
+                    <p class="feature-desc">Syncs between your devices through your own iCloud account. No account to create, and no server of ours anywhere in the chain.</p>
                 </div>
             </div>
         </div>
@@ -691,14 +680,14 @@
         <div class="container">
             <span class="section-label">Support</span>
             <h2 class="section-title">Need Help?</h2>
-            <p class="section-subtitle">Have a question or running into trouble? Check the FAQ below or email me directly.</p>
+            <p class="section-subtitle">Something not working right? I am happy to help.</p>
 
             <div class="support-layout">
                 <div class="contact-card">
                     <span class="contact-emoji">✉️</span>
                     <div class="contact-title">Email Support</div>
-                    <p class="contact-desc">Found a bug, have a question, or want to request a feature? I read every email personally.</p>
-                    <a href="mailto:support@edgarpielb.com?subject=PouchLess%20Support" class="contact-link">support@edgarpielb.com</a>
+                    <p class="contact-desc">Found a bug, have a question, or a lab report that would not import? I read every email personally.</p>
+                    <a href="mailto:support@edgarpielb.com?subject=Bloodwork%20Support" class="contact-link">support@edgarpielb.com</a>
                     <div class="response-badge">Typical response within 24 hours</div>
                 </div>
                 <div class="info-card">
@@ -706,20 +695,20 @@
                     <div class="contact-title">Quick Tips</div>
                     <ul class="info-list">
                         <li>
-                            <span class="icon">📉</span>
-                            <span>Set up your reduction plan on first launch by entering your current consumption and target</span>
+                            <span class="icon">📄</span>
+                            <span>Import a report by opening the PDF in Mail or Files and sharing it to Bloodwork</span>
                         </li>
                         <li>
-                            <span class="icon">💰</span>
-                            <span>Enter your box price and pouches per box in Settings to enable savings tracking</span>
+                            <span class="icon">✍️</span>
+                            <span>Add results from paper reports with manual entry; they chart alongside imported ones</span>
                         </li>
                         <li>
-                            <span class="icon">☁️</span>
-                            <span>Enable iCloud sync in Settings to keep your data across all your Apple devices</span>
+                            <span class="icon">📤</span>
+                            <span>Export any time in Settings: a PDF summary for your doctor, or all data as CSV and JSON</span>
                         </li>
                         <li>
-                            <span class="icon">💪</span>
-                            <span>Use the craving tools from the home screen whenever you feel the urge to use more</span>
+                            <span class="icon">🗑️</span>
+                            <span>Withdraw your storage consent in Settings to erase everything the app holds</span>
                         </li>
                     </ul>
                 </div>
@@ -738,162 +727,134 @@
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        How does PouchLess help me reduce nicotine?
+                        Where is my blood test data stored?
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            <p>PouchLess creates a personalized reduction plan based on your current consumption and goals. Whether you want to quit completely or cut down to a target level, the app guides you with daily limits that gradually decrease over time.</p>
-                            <p>Track your progress with one-tap logging and see your journey visualized in clear charts.</p>
+                            <p>On your device, and nowhere else by default. If you enable iCloud sync, your data is stored in the private database of your own iCloud account, readable only by devices signed into your Apple ID.</p>
+                            <p>There is no server of mine involved at any point. Blood values are sensitive health data, and the honest way to protect them is to never hold them in the first place.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        Does PouchLess work for Zyn and snus?
+                        Does Bloodwork interpret my results?
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            <p>Yes. PouchLess works with Zyn, snus, and any other nicotine pouch brand. You can add custom pouch types with their own nicotine strength, then track and reduce your use with the same gradual plan.</p>
+                            <p>No, and that is deliberate. Bloodwork shows your values against the reference ranges your own lab printed, explains what each marker measures, and helps you collect questions for your doctor.</p>
+                            <p>It does not diagnose, score, or tell you whether a result is good or bad. An app cannot know your medical history; your doctor can.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        What craving support tools are included?
+                        Which lab reports can Bloodwork read?
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            <p>PouchLess includes several tools to help you overcome cravings: a guided 4-4-6 breathing exercise (inhale, hold, exhale) that slows your breathing to calm your nervous system, a 5-minute craving timer to help you ride out the urge while it fades (most cravings pass within minutes), a color grounding technique to stay present, and quick focus games (math quiz, memory pattern, tap challenge, and color match) to distract your mind until the craving passes.</p>
-                            <p>A health benefits timeline shows the positive changes happening in your body, and a trigger diary helps you spot the situations that set off cravings so you can plan around them.</p>
+                            <p>PDF lab reports with a results table, which is how most laboratories deliver them. Share the PDF to Bloodwork from Mail, Files, or your lab's own app.</p>
+                            <p>Every import goes through a review screen, so if a report is unusual you will see exactly what was read before anything is saved. Anything the parser cannot handle, you can add with manual entry, and I would genuinely like to see the report so I can fix it.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        Does PouchLess sync across my devices?
+                        What if a value is read incorrectly?
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            <p>Yes. PouchLess offers optional iCloud sync to keep your data synchronized across all your Apple devices.</p>
-                            <p>Your consumption history, pouch types, and progress will be available on any device signed into the same iCloud account. You can enable or disable this feature in Settings.</p>
+                            <p>No import bypasses the review screen. Readings the parser is not confident about are flagged as uncertain rather than quietly accepted or dropped, and you can correct or discard any row before saving.</p>
+                            <p>Everything remains editable afterwards too, so a mistake is never locked in.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        How do I restore my purchase on a new device?
+                        Can I add results without a PDF?
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            <p>Your PouchLess Premium access is linked to your Apple ID. Simply download the app on your new device and sign in with the same Apple ID.</p>
-                            <p>Go to Settings and your premium access should restore automatically. If not, you can manually restore purchases from the subscription options screen.</p>
+                            <p>Yes. Manual entry lets you type in results from a paper report, a patient portal, or a phone call. They land in the same timeline and charts as imported values.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        Can I track different pouch brands and strengths?
+                        How does the doctor visit summary work?
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            <p>Yes. PouchLess lets you add any nicotine pouch brand and strength. You can create custom pouch types with specific nicotine content (mg per pouch), choose colors for easy identification, and track how many pouches of each type you have remaining.</p>
-                            <p>Log your consumption with a single tap.</p>
+                            <p>You collect the results you want to discuss and the questions you want to ask in the Doctor Visit tab, then export a single A4 page you can print or show from your phone.</p>
+                            <p>The summary reports your values and your questions. It draws no conclusions, so it supports the conversation instead of trying to replace it.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        How are my savings calculated?
+                        Can I get my data out?
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            <p>PouchLess calculates your savings based on the difference between your baseline consumption (when you started) and your actual consumption.</p>
-                            <p>Enter your box price and pouches per box in Settings, and the app will track how much you have saved by reducing your nicotine intake over time.</p>
+                            <p>Always. Settings offers two exports: a one-page PDF summary for your doctor, and a complete export of all your data as CSV and JSON.</p>
+                            <p>The full export is in standard formats you can open anywhere, so your history is yours to keep even if you stop using the app.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        How do I cancel my subscription?
+                        How do I delete my data?
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            <p>PouchLess subscriptions are managed through your Apple ID. To cancel, go to your iPhone's Settings, tap your name, then Subscriptions, find PouchLess, and tap Cancel Subscription.</p>
-                            <p>You will continue to have premium access until the end of your current billing period.</p>
+                            <p>In Settings, withdraw your storage consent. That is the erase flow: consent with no data has nothing to attach to, so withdrawing it removes everything the app holds, on the device and in your iCloud.</p>
+                            <p>You can export your data first if you want to keep a copy.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        Is my data private and secure?
+                        Is Bloodwork a medical device?
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
                     <div class="faq-answer" role="region">
                         <div class="faq-answer-inner">
-                            <p>Yes. All your data stays on your device. If you turn on iCloud sync, it is encrypted in your private iCloud account.</p>
-                            <p>I do not collect analytics, track your behavior, or share anything with anyone. No account means no personal data to worry about.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        What is the best app to quit Zyn?
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </button>
-                    <div class="faq-answer" role="region">
-                        <div class="faq-answer-inner">
-                            <p>PouchLess helps you cut down or quit Zyn on your own schedule. It builds a gradual reduction plan with daily limits that step down over time, lets you log every pouch with one tap, offers craving tools when the urge hits, and tracks how much money you are saving as your intake drops.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        How do I quit snus with PouchLess?
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </button>
-                    <div class="faq-answer" role="region">
-                        <div class="faq-answer-inner">
-                            <p>PouchLess uses a tapering approach. Set your starting point and a goal, and the app gives you a daily limit that decreases over time. Log each pouch as you go, lean on the built-in craving support when you need it, and watch your progress add up. Everything stays private and on-device.</p>
+                            <p>No. Bloodwork is a record-keeping tool. It reproduces the information your laboratory already gave you (your values, their units, and the lab's own reference ranges) and adds no diagnosis, no risk scores, and no medical advice.</p>
+                            <p>Always discuss your results with your doctor.</p>
                         </div>
                     </div>
                 </div>
@@ -906,15 +867,15 @@
     <footer>
         <div class="container">
             <div class="footer-inner">
-                <span class="footer-copy">&copy; 2026 PouchLess. All rights reserved.</span>
+                <span class="footer-copy">&copy; 2026 Bloodwork. All rights reserved.</span>
                 <div class="footer-links">
                     <a href="privacy">Privacy Policy</a>
                     <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms of Use</a>
                     <a href="../ember/">Ember</a>
+                    <a href="../pouchless/">PouchLess</a>
                     <a href="../ingrain/">Ingrain</a>
                     <a href="../progresspic/">ProgressPic</a>
                     <a href="../boycottr/">Boycottr</a>
-                    <a href="../bloodwork/">Bloodwork</a>
                 </div>
             </div>
         </div>
