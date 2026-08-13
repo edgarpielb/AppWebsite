@@ -67,14 +67,14 @@
         <priority>0.3</priority>
     </url>
     <url>
-        <loc>https://edgarpielb.com/bloodwork/</loc>
-        <lastmod>2026-08-09</lastmod>
+        <loc>https://edgarpielb.com/bloodchart/</loc>
+        <lastmod>2026-08-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://edgarpielb.com/bloodwork/privacy</loc>
-        <lastmod>2026-08-09</lastmod>
+        <loc>https://edgarpielb.com/bloodchart/privacy</loc>
+        <lastmod>2026-08-13</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
