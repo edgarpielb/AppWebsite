@@ -393,7 +393,7 @@
                 Back to Ember
             </a>
             <h1>Privacy Policy</h1>
-            <p class="meta">Last updated: May 16, 2026</p>
+            <p class="meta">Last updated: September 8, 2026</p>
             <div class="privacy-badges">
                 <span class="privacy-badge">No data collection</span>
                 <span class="privacy-badge">No account required</span>
@@ -439,6 +439,7 @@
                     <div class="policy-section" id="information">
                         <h2><span class="sec-icon">🗄️</span> Information We Collect</h2>
                         <p><strong>Habit Data:</strong> Ember stores your habit information, including habit names, completion records, streaks, and reminder settings. This data is stored locally on your device and, if you enable iCloud sync, in your personal iCloud account.</p>
+                        <p><strong>Health Data:</strong> If you link a habit to a health metric, Ember reads that metric from the Health app on your device so the habit can complete itself. Two kinds of habit can also write back: water and mindful minutes save the amount you log in Ember to the Health app, and only for habits where you have turned that on. Both directions are optional, both are chosen per habit, and both can be revoked at any time in the Health app. Health data stays on your device and in your own iCloud. It is never sent to us, never shared with third parties, never used for advertising or marketing, and never sold.</p>
                         <p><strong>We do NOT collect:</strong></p>
                         <ul>
                             <li>Personal identification information (name, email address, or similar)</li>
@@ -453,6 +454,7 @@
                         <h2><span class="sec-icon">💾</span> Data Storage</h2>
                         <p><strong>Local Storage:</strong> All your habit data is stored locally on your device using secure storage mechanisms provided by iOS.</p>
                         <p><strong>iCloud Sync:</strong> If you enable iCloud sync, your data is stored in your personal iCloud account using Apple's CloudKit technology. This data is encrypted and only accessible by you through devices signed into your Apple ID.</p>
+                        <p><strong>Apple Watch and widgets:</strong> If you use the Ember watch app or a home screen widget, your habit names, colors and completion state are shared with them through a private app group container on your own device, and with the watch over Apple's encrypted connection to your paired device. Nothing on that path leaves your own devices.</p>
                         <p><strong>Backups:</strong> You can create manual backups that are stored locally or in your iCloud Drive. These backups are entirely under your control.</p>
                     </div>
 
@@ -460,10 +462,10 @@
                         <h2><span class="sec-icon">🔗</span> Third-Party Services</h2>
                         <p>Ember uses the following Apple-provided services only:</p>
                         <ul>
-                            <li><strong>iCloud / CloudKit</strong> - for syncing data across your devices (optional, user-controlled)</li>
+                            <li><strong>iCloud / CloudKit</strong> - for syncing data across your devices (optional, user-controlled). Sync uses Apple's silent push notifications to tell your device that another of your devices has changes. Those pushes carry no habit content.</li>
                             <li><strong>StoreKit</strong> - for processing in-app purchases through Apple's App Store</li>
                             <li><strong>UserNotifications</strong> - for sending habit reminders (optional, requires your permission)</li>
-                            <li><strong>HealthKit</strong> - for reading health metrics you choose to track (optional, requires your permission)</li>
+                            <li><strong>HealthKit</strong> - for reading the health metrics you choose to track, and for saving water and mindful minutes you log in Ember back to the Health app (optional, granted per habit, requires your permission)</li>
                         </ul>
                         <p>We do not use any third-party analytics, advertising, crash reporting, or tracking services. There are no SDKs from Facebook, Google, Mixpanel, Amplitude, or any similar provider embedded in Ember.</p>
                     </div>
