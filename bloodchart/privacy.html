@@ -397,7 +397,7 @@
             <div class="privacy-badges">
                 <span class="privacy-badge">No data collection</span>
                 <span class="privacy-badge">No account required</span>
-                <span class="privacy-badge">No third-party tracking</span>
+                <span class="privacy-badge">No tracking</span>
                 <span class="privacy-badge">Your data stays with you</span>
             </div>
         </div>
@@ -429,15 +429,15 @@
 
                     <div class="policy-section" id="overview">
                         <h2><span class="sec-icon">📋</span> Overview</h2>
-                        <p>BloodChart ("we", "our", or "the app") is a blood test tracking application. Blood test results are health data, among the most sensitive categories of personal data there is, and this policy explains how the app is built so that they never leave your control.</p>
+                        <p>BloodChart is an app for tracking your blood test results. In this policy, "we" means its developer. Blood test results are health data, among the most sensitive categories of personal data there are, and this policy explains how the app is built so that they never leave your control.</p>
                         <div class="highlight-box">
-                            <strong>The short version:</strong> BloodChart stores your results on your device and, if you choose, in your own iCloud account. There are no servers of ours, no analytics, and no accounts. We never see your data, so we could not share it even if we wanted to.
+                            <strong>The short version:</strong> BloodChart stores your results on your device and, when iCloud is on for BloodChart, in your own iCloud account. There are no servers of ours, no analytics, and no accounts. We never see your data, so we could not share it even if we wanted to.
                         </div>
                     </div>
 
                     <div class="policy-section" id="information">
                         <h2><span class="sec-icon">🗄️</span> Information the App Handles</h2>
-                        <p><strong>Blood test data:</strong> the values, units, and reference intervals from lab reports you import or enter by hand, with the sample dates, the names of the healthcare provider and the laboratory, the sampling context (fasting, recent exercise) and any doctor's comment you note down. The doctor visit summary is assembled from this data when you export it, not stored separately.</p>
+                        <p><strong>Blood test data:</strong> the values, units, and reference intervals from lab reports you import or enter by hand, with the sample dates, the names of the healthcare provider and the laboratory, the sampling context (fasting, time of day, recent exercise, illness) and any doctor's comment you note down. The doctor visit summary is assembled from this data when you export it, not stored separately.</p>
                         <p><strong>Profile:</strong> your birth year and sex, if you enter them. They are used only to pick the reference interval that fits you and to compute phenotypic age.</p>
                         <p><strong>Imported documents:</strong> lab report PDFs you choose in the app. They are read entirely on your device; the values are saved after you review them, the PDF itself is not kept, and no document is ever uploaded anywhere for processing.</p>
                         <p><strong>Health data (optional):</strong> if you connect Apple Health, the app reads your workouts, and only to mark a sample drawn within 48 hours of a workout. Workouts are never stored or synced, and the app writes nothing to Health.</p>
@@ -453,8 +453,8 @@
 
                     <div class="policy-section" id="storage">
                         <h2><span class="sec-icon">💾</span> Data Storage</h2>
-                        <p><strong>Local storage:</strong> all your data is stored locally on your device using secure storage mechanisms provided by iOS.</p>
-                        <p><strong>iCloud sync:</strong> if you enable iCloud sync, your data is stored in the private database of your personal iCloud account using Apple's CloudKit technology. It is encrypted, accessible only through devices signed in to your Apple ID, and we have no way to read it. No health data is ever at rest on any server we operate, because we operate none.</p>
+                        <p><strong>Local storage:</strong> all your data is stored locally on your device, encrypted by iOS.</p>
+                        <p><strong>iCloud sync:</strong> when iCloud is on for BloodChart, your data is stored in the private database of your personal iCloud account using Apple's CloudKit technology. Apple encrypts it in transit and at rest, and we have no way to read it. No health data is ever at rest on any server we operate, because we operate none.</p>
                         <p><strong>On-device processing:</strong> PDF parsing, charting, and export generation all happen on your device. Nothing is sent out for processing.</p>
                     </div>
 
@@ -462,7 +462,7 @@
                         <h2><span class="sec-icon">🔗</span> Third-Party Services</h2>
                         <p>BloodChart uses the following Apple-provided services only:</p>
                         <ul>
-                            <li><strong>iCloud / CloudKit</strong>: syncs data across your devices (optional, user-controlled, private database only)</li>
+                            <li><strong>iCloud / CloudKit</strong>: keeps a copy in your own iCloud account when iCloud is on for BloodChart (private database only)</li>
                             <li><strong>HealthKit</strong>: reads your workouts, with your permission, to mark samples drawn within 48 hours of one (optional, read only)</li>
                         </ul>
                         <p>We do not use any third-party analytics, advertising, crash reporting, or tracking services. There are no SDKs from Facebook, Google, Mixpanel, Amplitude, or any similar provider embedded in BloodChart.</p>
@@ -470,10 +470,10 @@
 
                     <div class="policy-section" id="security">
                         <h2><span class="sec-icon">🔒</span> Data Security</h2>
-                        <p>We implement appropriate security measures to protect your data:</p>
+                        <p>How your data is protected:</p>
                         <ul>
                             <li>All iCloud data is encrypted in transit and at rest by Apple</li>
-                            <li>Local data is stored using iOS secure storage mechanisms</li>
+                            <li>Local data is encrypted by iOS</li>
                             <li>We do not transmit your data to any external servers, because there are none to transmit to</li>
                             <li>Exports are created only when you explicitly initiate them, and you choose where each file goes</li>
                         </ul>
@@ -494,12 +494,12 @@
 
                     <div class="policy-section" id="children">
                         <h2><span class="sec-icon">👶</span> Children's Privacy</h2>
-                        <p>BloodChart does not knowingly collect information from children under 13. The app requires no personal information to use, and no data leaves your device unless you explicitly enable iCloud sync to your own account.</p>
+                        <p>BloodChart collects no information from anyone, children included. Nothing leaves your device except to your own iCloud account, when iCloud is on for the app.</p>
                     </div>
 
                     <div class="policy-section" id="changes">
                         <h2><span class="sec-icon">📝</span> Changes to This Policy</h2>
-                        <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by updating the "Last updated" date at the top of this policy. Continued use of the app after any changes constitutes your acceptance of the updated policy.</p>
+                        <p>We may update this policy from time to time, and the date at the top shows when it last changed.</p>
                         <p>We will never introduce data collection, analytics, or advertising without making this clearly visible through an updated policy and a prominent in-app notice, and any such change would ask for your consent first.</p>
                     </div>
 
