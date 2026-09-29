@@ -55,6 +55,7 @@ h1, h2, h3 { font-family: var(--heading); font-weight: 700; }
 
 /* --- Nav --- */
 .nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; margin-bottom: 0.75rem; border-bottom: 0.0625rem solid var(--hairline); }
+.nav--end { justify-content: flex-end; }
 .nav-brand { display: flex; align-items: center; gap: 0.625rem; font-family: var(--heading); font-weight: 600; font-size: 1.0625rem; letter-spacing: -.01em; }
 .nav-brand img { width: 1.75rem; height: 1.75rem; border-radius: 0.4375rem; }
 .nav-links { display: flex; gap: 1.75rem; font-size: 0.875rem; font-weight: 500; color: var(--nav); }
