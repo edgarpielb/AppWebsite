@@ -73,10 +73,10 @@ h1, h2, h3 { font-family: var(--heading); font-weight: 700; }
 /* --- Home hero --- */
 .hero-card { background: var(--card); border: 0.0625rem solid var(--border); border-radius: 1.75rem; padding: 4rem 3.5rem; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 3rem; align-items: end; }
 .byline { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem; font-size: 0.875rem; }
-.byline img { width: 2.75rem; height: 2.75rem; border-radius: 50%; object-fit: cover; }
+.byline img { width: 3.75rem; height: 3.75rem; border-radius: 50%; object-fit: cover; }
 .byline strong { font-weight: 600; }
 .byline span { color: var(--ink-3); }
-.hero-card h1 { font-size: 5rem; line-height: .98; letter-spacing: -.05em; text-wrap: balance; }
+.hero-card h1 { font-size: 4.25rem; line-height: .98; letter-spacing: -.05em; text-wrap: balance; }
 .hero-side { display: flex; flex-direction: column; align-items: flex-start; gap: 1.75rem; width: 20rem; align-self: center; }
 .icon-fan { position: relative; width: 16.25rem; height: 8.125rem; }
 .icon-fan img { position: absolute; width: 6rem; height: 6rem; border-radius: 1.375rem; box-shadow: 0 0.875rem 2.125rem rgba(0,0,0,.18); }
@@ -212,7 +212,7 @@ h1, h2, h3 { font-family: var(--heading); font-weight: 700; }
 
 /* --- Responsive --- */
 @media (max-width: 1000px) {
-    .hero-card h1 { font-size: 4rem; }
+    .hero-card h1 { font-size: 3.5rem; }
     .page-hero { grid-template-columns: 1fr; gap: 1.5rem; padding: 3rem 0 2.5rem; }
     .page-hero h1 { font-size: 4.5rem; }
     .hero-fan { height: 32.5rem; max-width: 35rem; }
@@ -238,7 +238,8 @@ h1, h2, h3 { font-family: var(--heading); font-weight: 700; }
     .nav-links { gap: 1.125rem; }
     .nav-links .hide-phone { display: none; }
     .hero-card { padding: 1.75rem 1.375rem; border-radius: 1.5rem; }
-    .hero-card h1 { font-size: 2.625rem; line-height: 1.02; }
+    .hero-card h1 { font-size: 2.375rem; line-height: 1.02; }
+    .byline img { width: 3.25rem; height: 3.25rem; }
     .byline { margin-bottom: 1.25rem; }
     .byline span { display: none; }
     .icon-fan { display: none; }
