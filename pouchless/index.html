@@ -547,6 +547,68 @@
             .feature-card { padding: 22px 20px; }
             .contact-card, .info-card { padding: 28px 24px; }
         }
+        /* --- App Store style screenshot strip --- */
+        .shots-section {
+            --shots-gutter: max(24px, calc((100% - 1200px) / 2 + 24px));
+            padding: 0 0 72px;
+        }
+        .shots-head {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+        .shots-btn {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.2s ease, border-color 0.2s ease;
+        }
+        .shots-btn svg { width: 18px; height: 18px; }
+        .shots-btn:hover { border-color: rgba(0,0,0,0.18); }
+        .shots-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+        .shots-btn[disabled] { opacity: 0.3; cursor: default; }
+        @media (hover: hover) and (pointer: fine) {
+            .shots-btn { display: inline-flex; }
+        }
+        .shots {
+            display: flex;
+            gap: 14px;
+            overflow-x: auto;
+            overscroll-behavior-x: contain;
+            scroll-snap-type: x mandatory;
+            scroll-padding-inline: var(--shots-gutter);
+            padding-inline: var(--shots-gutter);
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+        .shots::-webkit-scrollbar { display: none; }
+        .shots::after { content: ''; flex: 0 0 calc(var(--shots-gutter) - 14px); }
+        .shots:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+        .shot {
+            flex: 0 0 auto;
+            width: min(72vw, 300px);
+            height: auto;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            scroll-snap-align: start;
+        }
+        @media (max-width: 500px) {
+            .shots-section { padding-bottom: 56px; }
+            .shot { border-radius: 20px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .shots { scroll-behavior: auto; }
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -601,6 +663,26 @@
                 </svg>
                 Download on the App Store
             </a>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="shots-section" aria-label="PouchLess screenshots">
+        <div class="container">
+            <div class="shots-head">
+                <button class="shots-btn shots-btn--prev" type="button" aria-label="Previous screenshots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                <button class="shots-btn shots-btn--next" type="button" aria-label="Next screenshots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            </div>
+        </div>
+        <div class="shots" tabindex="0" role="group" aria-label="Scroll through PouchLess screenshots">
+                <img class="shot" src="../assets/screenshots/pouchless/01.webp" width="720" height="1561" alt="PouchLess: Log a pouch in one tap. Any brand, any strength." decoding="async">
+                <img class="shot" src="../assets/screenshots/pouchless/02.webp" width="720" height="1561" alt="PouchLess: Cut down to zero, or hold steady." decoding="async">
+                <img class="shot" src="../assets/screenshots/pouchless/03.webp" width="720" height="1561" alt="PouchLess: See the curve bend: days under limit, money kept." decoding="async">
+                <img class="shot" src="../assets/screenshots/pouchless/04.webp" width="720" height="1561" alt="PouchLess: Seven ways through a craving." loading="lazy" decoding="async">
+                <img class="shot" src="../assets/screenshots/pouchless/05.webp" width="720" height="1561" alt="PouchLess: Trigger diary: see what actually helps." loading="lazy" decoding="async">
+                <img class="shot" src="../assets/screenshots/pouchless/06.webp" width="720" height="1561" alt="PouchLess: Breathing exercise" loading="lazy" decoding="async">
+                <img class="shot" src="../assets/screenshots/pouchless/07.webp" width="720" height="1561" alt="PouchLess: Home Screen widgets" loading="lazy" decoding="async">
+                <img class="shot" src="../assets/screenshots/pouchless/08.webp" width="720" height="1561" alt="PouchLess: The pouch tracker that helps you cut down. No account, no tracking." loading="lazy" decoding="async">
         </div>
     </section>
 
@@ -984,6 +1066,29 @@
                     this.setAttribute('aria-expanded', 'true');
                 }
             });
+        });
+    </script>
+    <script>
+        document.querySelectorAll('.shots-section').forEach(function(section) {
+            var strip = section.querySelector('.shots');
+            var prev = section.querySelector('.shots-btn--prev');
+            var next = section.querySelector('.shots-btn--next');
+            function update() {
+                var max = strip.scrollWidth - strip.clientWidth - 1;
+                prev.disabled = strip.scrollLeft <= 0;
+                next.disabled = strip.scrollLeft >= max;
+            }
+            function step(dir) {
+                var shot = strip.querySelector('.shot');
+                var width = shot ? shot.getBoundingClientRect().width + 14 : strip.clientWidth * 0.8;
+                var count = Math.max(1, Math.floor(strip.clientWidth / width) - 1);
+                strip.scrollBy({ left: dir * width * count, behavior: 'smooth' });
+            }
+            prev.addEventListener('click', function() { step(-1); });
+            next.addEventListener('click', function() { step(1); });
+            strip.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
         });
     </script>
 </body>
