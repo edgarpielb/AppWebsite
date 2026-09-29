@@ -114,6 +114,12 @@ h1, h2, h3 { font-family: var(--heading); font-weight: 700; }
 .contact-card .btn { font-size: 0.9375rem; padding: 0.75rem 1.125rem; }
 .contact-card small { display: block; font-size: 0.8125rem; color: var(--ink-3); }
 
+/* Desktop: the left column takes its text's width so each principle stays on one line. */
+@media (min-width: 1180px) {
+    .principles { grid-template-columns: max-content 1fr; }
+    .principles p { white-space: nowrap; }
+}
+
 /* --- App page hero --- */
 .page-hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 2.5rem; align-items: center; padding: 3.75rem 0 3.25rem; }
 .page-hero-text { display: flex; flex-direction: column; gap: 1.5rem; align-items: flex-start; }
