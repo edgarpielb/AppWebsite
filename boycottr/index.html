@@ -539,32 +539,40 @@
         }
         /* --- App Store style screenshot strip --- */
         .shots-section {
-            --shots-gutter: max(24px, calc((100% - 1200px) / 2 + 24px));
             padding: 0 0 72px;
         }
-        .shots-head {
-            display: flex;
-            justify-content: flex-end;
-            gap: 8px;
-            margin-bottom: 14px;
+        .shots-frame {
+            position: relative;
         }
         .shots-btn {
             display: none;
-            width: 40px;
-            height: 40px;
+            position: absolute;
+            top: 50%;
+            z-index: 1;
+            width: 44px;
+            height: 44px;
+            margin-top: -22px;
             border-radius: 50%;
             border: 1px solid var(--border);
             background: var(--bg-card);
             color: var(--text);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.06);
             cursor: pointer;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.2s ease, border-color 0.2s ease;
+            transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .shots-btn svg { width: 18px; height: 18px; }
-        .shots-btn:hover { border-color: rgba(0,0,0,0.18); }
+        .shots-btn--prev { left: -22px; }
+        .shots-btn--next { right: -22px; }
+        .shots-btn svg { width: 20px; height: 20px; }
+        .shots-btn--prev svg { margin-left: -2px; }
+        .shots-btn--next svg { margin-right: -2px; }
+        .shots-btn:hover {
+            transform: scale(1.06);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.14), 0 1px 2px rgba(0,0,0,0.06);
+        }
         .shots-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-        .shots-btn[disabled] { opacity: 0.3; cursor: default; }
+        .shots-btn[disabled] { opacity: 0; pointer-events: none; }
         @media (hover: hover) and (pointer: fine) {
             .shots-btn { display: inline-flex; }
         }
@@ -574,27 +582,45 @@
             overflow-x: auto;
             overscroll-behavior-x: contain;
             scroll-snap-type: x mandatory;
-            scroll-padding-inline: var(--shots-gutter);
-            padding-inline: var(--shots-gutter);
             scrollbar-width: none;
             -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
+            cursor: grab;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .shots.is-dragging {
+            cursor: grabbing;
+            scroll-snap-type: none;
+            scroll-behavior: auto;
         }
         .shots::-webkit-scrollbar { display: none; }
-        .shots::after { content: ''; flex: 0 0 calc(var(--shots-gutter) - 14px); }
         .shots:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
         .shot {
-            flex: 0 0 auto;
-            width: min(72vw, 300px);
+            flex: 0 0 calc((100% - 42px) / 4);
+            min-width: 0;
             height: auto;
             border-radius: 24px;
             border: 1px solid var(--border);
             background: var(--bg-card);
             scroll-snap-align: start;
+            -webkit-user-drag: none;
+        }
+        @media (max-width: 1000px) {
+            .shot { flex-basis: calc((100% - 28px) / 3); }
+        }
+        @media (max-width: 700px) {
+            .shots {
+                margin: 0 -24px;
+                padding-inline: 24px;
+                scroll-padding-inline: 24px;
+            }
+            .shots::after { content: ''; flex: 0 0 10px; }
+            .shot { flex-basis: calc((100% - 14px) / 2); }
         }
         @media (max-width: 500px) {
             .shots-section { padding-bottom: 56px; }
-            .shot { border-radius: 20px; }
+            .shot { flex-basis: 78%; border-radius: 20px; }
         }
         @media (prefers-reduced-motion: reduce) {
             .shots { scroll-behavior: auto; }
@@ -646,18 +672,18 @@
     <!-- Screenshots -->
     <section class="shots-section" aria-label="Boycottr screenshots">
         <div class="container">
-            <div class="shots-head">
-                <button class="shots-btn shots-btn--prev" type="button" aria-label="Previous screenshots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+            <div class="shots-frame">
+                <div class="shots" tabindex="0" role="group" aria-label="Scroll through Boycottr screenshots">
+                    <img class="shot" src="../assets/screenshots/boycottr/01.webp" width="720" height="1561" alt="Boycottr: Your purchases. Your principles." decoding="async" draggable="false">
+                    <img class="shot" src="../assets/screenshots/boycottr/02.webp" width="720" height="1561" alt="Boycottr: Scan any product: barcode or camera." decoding="async" draggable="false">
+                    <img class="shot" src="../assets/screenshots/boycottr/03.webp" width="720" height="1561" alt="Boycottr: Point the camera at a product. Over a billion products." decoding="async" draggable="false">
+                    <img class="shot" src="../assets/screenshots/boycottr/04.webp" width="720" height="1561" alt="Boycottr: Your rules: choose the origins to flag." decoding="async" draggable="false">
+                    <img class="shot" src="../assets/screenshots/boycottr/05.webp" width="720" height="1561" alt="Boycottr App Store screenshot 5 of 6" loading="lazy" decoding="async" draggable="false">
+                    <img class="shot" src="../assets/screenshots/boycottr/06.webp" width="720" height="1561" alt="Boycottr App Store screenshot 6 of 6" loading="lazy" decoding="async" draggable="false">
+                </div>
+                <button class="shots-btn shots-btn--prev" type="button" aria-label="Previous screenshots" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
                 <button class="shots-btn shots-btn--next" type="button" aria-label="Next screenshots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
             </div>
-        </div>
-        <div class="shots" tabindex="0" role="group" aria-label="Scroll through Boycottr screenshots">
-                <img class="shot" src="../assets/screenshots/boycottr/01.webp" width="720" height="1561" alt="Boycottr: Your purchases. Your principles." decoding="async">
-                <img class="shot" src="../assets/screenshots/boycottr/02.webp" width="720" height="1561" alt="Boycottr: Scan any product: barcode or camera." decoding="async">
-                <img class="shot" src="../assets/screenshots/boycottr/03.webp" width="720" height="1561" alt="Boycottr: Point the camera at a product. Over a billion products." decoding="async">
-                <img class="shot" src="../assets/screenshots/boycottr/04.webp" width="720" height="1561" alt="Boycottr: Your rules: choose the origins to flag." loading="lazy" decoding="async">
-                <img class="shot" src="../assets/screenshots/boycottr/05.webp" width="720" height="1561" alt="Boycottr App Store screenshot 5 of 6" loading="lazy" decoding="async">
-                <img class="shot" src="../assets/screenshots/boycottr/06.webp" width="720" height="1561" alt="Boycottr App Store screenshot 6 of 6" loading="lazy" decoding="async">
         </div>
     </section>
 
@@ -883,19 +909,49 @@
             var strip = section.querySelector('.shots');
             var prev = section.querySelector('.shots-btn--prev');
             var next = section.querySelector('.shots-btn--next');
+            function stepWidth() {
+                var shot = strip.querySelector('.shot');
+                return shot ? shot.getBoundingClientRect().width + 14 : strip.clientWidth;
+            }
             function update() {
                 var max = strip.scrollWidth - strip.clientWidth - 1;
                 prev.disabled = strip.scrollLeft <= 0;
                 next.disabled = strip.scrollLeft >= max;
             }
-            function step(dir) {
-                var shot = strip.querySelector('.shot');
-                var width = shot ? shot.getBoundingClientRect().width + 14 : strip.clientWidth * 0.8;
-                var count = Math.max(1, Math.floor(strip.clientWidth / width) - 1);
-                strip.scrollBy({ left: dir * width * count, behavior: 'smooth' });
+            function page(dir) {
+                var w = stepWidth();
+                var perView = Math.max(1, Math.round(strip.clientWidth / w));
+                var index = Math.round(strip.scrollLeft / w) + dir * perView;
+                strip.scrollTo({ left: Math.max(0, index) * w, behavior: 'smooth' });
             }
-            prev.addEventListener('click', function() { step(-1); });
-            next.addEventListener('click', function() { step(1); });
+            prev.addEventListener('click', function() { page(-1); });
+            next.addEventListener('click', function() { page(1); });
+
+            // Mouse drag to swipe. Touch and trackpad swipe natively.
+            var dragging = false, startX = 0, startLeft = 0;
+            strip.addEventListener('pointerdown', function(e) {
+                if (e.pointerType !== 'mouse' || e.button !== 0) return;
+                dragging = true;
+                startX = e.clientX;
+                startLeft = strip.scrollLeft;
+                strip.classList.add('is-dragging');
+                strip.setPointerCapture(e.pointerId);
+                e.preventDefault();
+            });
+            strip.addEventListener('pointermove', function(e) {
+                if (!dragging) return;
+                strip.scrollLeft = startLeft - (e.clientX - startX);
+            });
+            function endDrag() {
+                if (!dragging) return;
+                dragging = false;
+                strip.classList.remove('is-dragging');
+                var w = stepWidth();
+                strip.scrollTo({ left: Math.round(strip.scrollLeft / w) * w, behavior: 'smooth' });
+            }
+            strip.addEventListener('pointerup', endDrag);
+            strip.addEventListener('pointercancel', endDrag);
+
             strip.addEventListener('scroll', update, { passive: true });
             window.addEventListener('resize', update);
             update();
