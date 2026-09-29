@@ -19,526 +19,162 @@
     <meta name="twitter:image" content="https://edgarpielb.com/assets/icons/pouchless.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #f5f0e8;
-            --bg-card: #faf7f2;
-            --text: #1a1a1e;
-            --text-secondary: rgba(0,0,0,0.5);
-            --text-muted: rgba(0,0,0,0.3);
-            --border: rgba(0,0,0,0.06);
-            --accent: #1a9e8a;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Nav */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border);
-            background: rgba(245,240,232,0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-
-        .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            color: var(--text);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
-        /* Page header */
-        .page-header {
-            padding: 64px 0 48px;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-bottom: 32px;
-            transition: color 0.2s;
-        }
-
-        .back-link:hover {
-            color: var(--accent);
-        }
-
-        .back-link svg {
-            width: 15px;
-            height: 15px;
-            flex-shrink: 0;
-        }
-
-        .page-header h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            line-height: 1.05;
-            color: var(--accent);
-            margin-bottom: 12px;
-        }
-
-        .page-header .meta {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-        }
-
-        /* Privacy badge row */
-        .privacy-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 28px;
-        }
-
-        .privacy-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            background: rgba(26,158,138,0.07);
-            border: 1px solid rgba(26,158,138,0.15);
-            border-radius: 100px;
-            padding: 7px 14px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--accent);
-        }
-
-        .privacy-badge::before {
-            content: '✓';
-            font-weight: 700;
-        }
-
-        /* Content layout */
-        .content {
-            padding-bottom: 100px;
-        }
-
-        .content-layout {
-            display: grid;
-            grid-template-columns: 220px 1fr;
-            gap: 32px;
-            align-items: start;
-        }
-
-        /* Sidebar TOC */
-        .toc {
-            position: sticky;
-            top: 32px;
-        }
-
-        .toc-label {
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 14px;
-        }
-
-        .toc-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .toc-list a {
-            display: block;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: 6px 10px;
-            border-radius: 8px;
-            transition: all 0.2s;
-            line-height: 1.4;
-        }
-
-        .toc-list a:hover {
-            color: var(--accent);
-            background: rgba(26,158,138,0.06);
-        }
-
-        /* Policy card */
-        .policy-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .policy-section {
-            padding: 36px 40px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .policy-section:last-child {
-            border-bottom: none;
-        }
-
-        .policy-section h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .policy-section h2 .sec-icon {
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-
-        .policy-section p {
-            font-size: 0.925rem;
-            color: var(--text-secondary);
-            margin-bottom: 14px;
-            line-height: 1.75;
-        }
-
-        .policy-section p:last-child {
-            margin-bottom: 0;
-        }
-
-        .policy-section ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-bottom: 14px;
-        }
-
-        .policy-section ul li {
-            font-size: 0.925rem;
-            color: var(--text-secondary);
-            padding-left: 18px;
-            position: relative;
-            line-height: 1.65;
-        }
-
-        .policy-section ul li::before {
-            content: '–';
-            position: absolute;
-            left: 0;
-            color: var(--text-muted);
-        }
-
-        .policy-section strong {
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        .policy-section a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .policy-section a:hover {
-            text-decoration: underline;
-        }
-
-        .highlight-box {
-            background: rgba(26,158,138,0.05);
-            border: 1px solid rgba(26,158,138,0.12);
-            border-radius: 12px;
-            padding: 18px 20px;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-top: 4px;
-        }
-
-        .highlight-box strong {
-            color: var(--accent);
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 40px 0;
-        }
-
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .footer-copy {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .footer-links {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--text);
-        }
-
-        /* Responsive */
-        @media (max-width: 760px) {
-            .content-layout {
-                grid-template-columns: 1fr;
-            }
-            .toc {
-                display: none;
-            }
-            .policy-section {
-                padding: 28px 24px;
-            }
-            .nav-links { gap: 20px; }
-        }
-
-        @media (max-width: 500px) {
-            .nav-links { gap: 14px; }
-            .privacy-badges { gap: 8px; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Instrument+Serif&family=Figtree:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body>
-    <!-- Nav -->
-    <nav>
-        <div class="nav-inner">
-            <a href="./" class="nav-logo">PouchLess</a>
-            <ul class="nav-links">
-                <li><a href="../">All Apps</a></li>
-                <li><a href="./#support">Support</a></li>
-                <li><a href="privacy">Privacy</a></li>
-            </ul>
-        </div>
+<body class="app-pouchless">
+<div class="container">
+    <nav class="nav">
+        <a class="nav-brand" href="./"><img src="../assets/icons/pouchless.png" alt="">PouchLess</a>
+        <div class="nav-links"><a href="../">All Apps</a><a href="./#support">Support</a><a class="hide-phone is-current" href="privacy">Privacy</a></div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header">
-        <div class="container">
-            <a href="./" class="back-link">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-                Back to PouchLess
-            </a>
-            <h1>Privacy Policy</h1>
-            <p class="meta">Last updated: September 2026</p>
-            <div class="privacy-badges">
-                <span class="privacy-badge">No account required</span>
-                <span class="privacy-badge">No analytics or tracking</span>
-                <span class="privacy-badge">No advertising</span>
-                <span class="privacy-badge">Local-first storage</span>
-            </div>
+    <header class="privacy-head">
+        <div class="privacy-title">
+            <a class="back-link" href="./">← Back to PouchLess</a>
+            <h1>Privacy <span class="accent">Policy</span></h1>
+            <span class="meta">Last updated: September 29, 2026</span>
         </div>
-    </header>
-
-    <!-- Content -->
-    <main class="content">
-        <div class="container">
-            <div class="content-layout">
-
-                <!-- TOC Sidebar -->
-                <aside class="toc" aria-label="Table of contents">
-                    <p class="toc-label">On this page</p>
-                    <ul class="toc-list">
-                        <li><a href="#overview">Overview</a></li>
-                        <li><a href="#what-collected">What Data is Collected</a></li>
-                        <li><a href="#not-collected">What We Do NOT Collect</a></li>
-                        <li><a href="#storage">Data Storage</a></li>
-                        <li><a href="#third-party">Third-Party Services</a></li>
-                        <li><a href="#rights">Your Rights</a></li>
-                        <li><a href="#children">Children's Privacy</a></li>
-                        <li><a href="#changes">Changes to Policy</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </aside>
-
-                <!-- Policy card -->
-                <div class="policy-card">
-
-                    <div class="policy-section" id="overview">
-                        <h2><span class="sec-icon">📋</span> Overview</h2>
-                        <p>PouchLess is designed with your privacy as a core principle. We believe you should be able to track your nicotine consumption without sacrificing your personal data. This privacy policy explains what data we collect (very little) and how we handle it.</p>
-                        <div class="highlight-box">
-                            <strong>The short version:</strong> No account required. No analytics or tracking. No advertising. Your data is never sold or shared. It stays on your device and, when iCloud is on for PouchLess, in your own iCloud account.
-                        </div>
-                    </div>
-
-                    <div class="policy-section" id="what-collected">
-                        <h2><span class="sec-icon">🗄️</span> What Data is Collected</h2>
-                        <p>PouchLess collects only the data necessary to provide its core functionality:</p>
-                        <ul>
-                            <li><strong>Consumption logs:</strong> When you log a pouch, the app records the date, time, pouch type, and nicotine amount.</li>
-                            <li><strong>Pouch types:</strong> Custom pouch brands, strengths, and colors you create.</li>
-                            <li><strong>Goals and plan:</strong> Your chosen goal (quit smart, cold turkey, cut down, or keep stable), baseline consumption, target dates, plan history, and the reasons you gave for quitting, including any free text you typed.</li>
-                            <li><strong>Craving check-ins and trigger diary:</strong> How strong a craving was, what set it off, what you tried, how it felt afterwards, optional notes, and the time.</li>
-                            <li><strong>Cost tracking data:</strong> Box prices and pouch counts you enter for savings calculations.</li>
-                            <li><strong>Pacing and reminders:</strong> Whether pacing and its reminder notifications are turned on.</li>
-                            <li><strong>Subscription status:</strong> Whether Premium is active, as reported by the App Store. Never any payment details.</li>
-                            <li><strong>App preferences:</strong> Settings like language, appearance mode, and currency.</li>
-                        </ul>
-                        <p>All of this data is stored locally on your device and is not transmitted to us or any third party. When iCloud is on for PouchLess, it is also stored in your own iCloud account, as described under Data Storage.</p>
-                    </div>
-
-                    <div class="policy-section" id="not-collected">
-                        <h2><span class="sec-icon">🚫</span> What We Do NOT Collect</h2>
-                        <ul>
-                            <li>Personal identification information (name, email, phone number)</li>
-                            <li>Location data</li>
-                            <li>Device identifiers for tracking purposes</li>
-                            <li>Usage analytics or behavioral data</li>
-                            <li>Crash reports or diagnostics (unless submitted by Apple through their standard process)</li>
-                            <li>Any health data beyond what you manually enter</li>
-                        </ul>
-                    </div>
-
-                    <div class="policy-section" id="storage">
-                        <h2><span class="sec-icon">💾</span> Data Storage</h2>
-                        <p><strong>Local Storage:</strong> By default, all your data is stored locally on your device using iOS's secure storage mechanisms. This data is protected by your device's passcode and biometric security.</p>
-                        <p><strong>iCloud Sync:</strong> PouchLess syncs whenever iCloud is turned on for PouchLess in the iOS Settings app. There is no separate switch inside the app. Your data is then stored in your private iCloud account using Apple's CloudKit service. This data is:</p>
-                        <ul>
-                            <li>Encrypted in transit and at rest</li>
-                            <li>Stored in your personal iCloud container</li>
-                            <li>Not accessible to us or any third party</li>
-                            <li>Synced only to devices signed in with your Apple ID</li>
-                        </ul>
-                        <p>To stop syncing, turn off iCloud for PouchLess in the iOS Settings app. To remove what is already stored, use Delete iCloud Data, described under Your Rights.</p>
-                        <p><strong>Apple Watch:</strong> The Watch app receives your data from the paired iPhone through Apple's Watch Connectivity and keeps a copy on the watch. Nothing leaves your own devices.</p>
-                    </div>
-
-                    <div class="policy-section" id="third-party">
-                        <h2><span class="sec-icon">🔗</span> Third-Party Services</h2>
-                        <p>PouchLess uses the following Apple services:</p>
-                        <ul>
-                            <li><strong>iCloud (CloudKit):</strong> Sync across your devices when iCloud is on for PouchLess. Your data remains in your private iCloud storage.</li>
-                            <li><strong>StoreKit:</strong> For processing in-app purchases. Payment information is handled entirely by Apple; we never see your payment details.</li>
-                            <li><strong>Notifications:</strong> Reminders (when your next paced pouch is due, and two days before a free trial ends) are scheduled on your device as local notifications. The app also registers for silent push notifications, which iCloud uses only to tell the app that new data is ready to sync. The push token is handled by Apple.</li>
-                            <li><strong>WidgetKit and Watch Connectivity:</strong> For home screen widgets and the Apple Watch app. This data stays on your devices.</li>
-                        </ul>
-                        <p>One service outside Apple is involved:</p>
-                        <ul>
-                            <li><strong>YouTube (Google):</strong> The Learn section lists educational videos hosted on YouTube. When you open a video's page in the app, its thumbnail is loaded from YouTube's servers, so Google receives your IP address and the standard connection details of that request. Tapping play opens the video in the YouTube app or your browser, where Google's privacy policy applies. PouchLess never sends any of your app data to YouTube.</li>
-                        </ul>
-                        <p>Some screens link to outside websites, such as the sources behind the health information, the App Store, and this site. Opening a link takes you to that site, with its own privacy policy.</p>
-                        <p>We do not use any third-party analytics, advertising networks, or data collection services.</p>
-                    </div>
-
-                    <div class="policy-section" id="rights">
-                        <h2><span class="sec-icon">⚖️</span> Your Rights</h2>
-                        <p>You have complete control over your data:</p>
-                        <ul>
-                            <li><strong>Access:</strong> All your data is visible within the app at any time.</li>
-                            <li><strong>Export:</strong> Export your complete data as a JSON backup, or your entries or statistics as CSV, from Settings &rarr; Data &amp; Sync &rarr; Export Data. A JSON backup can be brought back with Import Data on the same screen.</li>
-                            <li><strong>Delete:</strong> Delete all local data from Settings &rarr; Data &amp; Sync &rarr; Reset All Data. The app offers an export first.</li>
-                            <li><strong>iCloud deletion:</strong> Remove everything stored in iCloud from Settings &rarr; Data &amp; Sync &rarr; Delete iCloud Data. Your data on the device is kept, and sync stays on, so the device uploads again unless you first turn off iCloud for PouchLess in the iOS Settings app.</li>
-                        </ul>
-                    </div>
-
-                    <div class="policy-section" id="children">
-                        <h2><span class="sec-icon">👶</span> Children's Privacy</h2>
-                        <p>PouchLess is not intended for use by children under 17 years of age. We do not knowingly collect data from children. The app helps adults manage nicotine consumption and contains content about nicotine use.</p>
-                    </div>
-
-                    <div class="policy-section" id="changes">
-                        <h2><span class="sec-icon">📝</span> Changes to This Policy</h2>
-                        <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date. We encourage you to review this policy periodically.</p>
-                    </div>
-
-                    <div class="policy-section" id="contact">
-                        <h2><span class="sec-icon">✉️</span> Contact</h2>
-                        <p>If you have any questions about this privacy policy or how your data is handled, please contact us:</p>
-                        <p><a href="mailto:support@edgarpielb.com?subject=PouchLess%20Privacy">support@edgarpielb.com</a></p>
-                        <p>We typically respond within 48 hours.</p>
-                    </div>
-
-                </div>
+        <aside class="short-card">
+            <span class="label">The short version</span>
+            <p>PouchLess stores your data on your device and, when iCloud is on for it, in your own iCloud account. No servers of mine, no analytics, no account. Your data belongs to you.</p>
+            <div class="promises">
+                    <div><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm-34.32,69.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"/></svg>No data collection</div>
+                    <div><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,76a44,44,0,1,1-44,44A44,44,0,0,1,128,76Zm48-12h48a8,8,0,0,0,0-16H176a8,8,0,0,0,0,16Zm39.87,24.46A8,8,0,0,0,211,98.67a88,88,0,0,1-17.23,87.74A79.86,79.86,0,0,0,172,165.1a4,4,0,0,0-4.84.32,59.81,59.81,0,0,1-78.27,0A4,4,0,0,0,84,165.1a79.71,79.71,0,0,0-21.79,21.31A88,88,0,0,1,128,40a88.76,88.76,0,0,1,14.68,1.22,8,8,0,0,0,2.64-15.78,103.9,103.9,0,1,0,80.76,67.89A8,8,0,0,0,215.87,88.46Z"/></svg>No account required</div>
+                    <div><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M96.68,57.87a4,4,0,0,1,2.08-6.6A130.13,130.13,0,0,1,128,48c34.88,0,66.57,13.26,91.66,38.35,18.83,18.83,27.3,37.62,27.65,38.41a8,8,0,0,1,0,6.5c-.35.79-8.82,19.57-27.65,38.4q-4.28,4.26-8.79,8.07a4,4,0,0,1-5.55-.36ZM213.92,210.62a8,8,0,1,1-11.84,10.76L180,197.13A127.21,127.21,0,0,1,128,208c-34.88,0-66.57-13.26-91.66-38.34C17.51,150.83,9,132.05,8.69,131.26a8,8,0,0,1,0-6.5C9,124,17.51,105.18,36.34,86.35a135,135,0,0,1,25-19.78L42.08,45.38A8,8,0,1,1,53.92,34.62Zm-65.49-48.25-52.69-58a40,40,0,0,0,52.69,58Z"/></svg>No third-party tracking</div>
+                    <div><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M176,16H80A24,24,0,0,0,56,40V216a24,24,0,0,0,24,24h96a24,24,0,0,0,24-24V40A24,24,0,0,0,176,16ZM80,32h96a8,8,0,0,1,8,8v8H72V40A8,8,0,0,1,80,32Zm96,192H80a8,8,0,0,1-8-8v-8H184v8A8,8,0,0,1,176,224Z"/></svg>Your data stays on-device</div>
             </div>
+        </aside>
+    </header>
+    <main class="privacy-body">
+        <nav class="toc" aria-label="On this page">
+            <span class="label">On this page</span>
+            <a href="#overview"><span class="num">01</span>Overview</a>
+            <a href="#collected"><span class="num">02</span>What Data is Collected</a>
+            <a href="#not-collected"><span class="num">03</span>What We Do NOT Collect</a>
+            <a href="#storage"><span class="num">04</span>Data Storage</a>
+            <a href="#third-party"><span class="num">05</span>Third-Party Services</a>
+            <a href="#rights"><span class="num">06</span>Your Rights</a>
+            <a href="#children"><span class="num">07</span>Children’s Privacy</a>
+            <a href="#changes"><span class="num">08</span>Changes to This Policy</a>
+            <a href="#contact"><span class="num">09</span>Contact</a>
+        </nav>
+        <div class="policy">
+            <section class="policy-section" id="overview">
+                <span class="num">01</span>
+                <div>
+                <h2>Overview</h2>
+                <p>PouchLess is designed with your privacy as a core principle. You should be able to track your nicotine consumption without giving up your personal data. This policy explains what data the app handles (very little) and how it is handled.</p>
+                </div>
+            </section>
+            <section class="policy-section" id="collected">
+                <span class="num">02</span>
+                <div>
+                <h2>What Data is Collected</h2>
+                <p>PouchLess collects only the data necessary to provide its core functionality:</p>
+                <ul>
+                    <li><span><strong>Consumption logs:</strong> When you log a pouch, the app records the date, time, pouch type, and nicotine amount.</span></li>
+                    <li><span><strong>Pouch types:</strong> Custom pouch brands, strengths, and colors you create.</span></li>
+                    <li><span><strong>Goals and plan:</strong> Your chosen goal (quit smart, cold turkey, cut down, or keep stable), baseline consumption, target dates, plan history, and the reasons you gave for quitting, including any free text you typed.</span></li>
+                    <li><span><strong>Craving check-ins and trigger diary:</strong> How strong a craving was, what set it off, what you tried, how it felt afterwards, optional notes, and the time.</span></li>
+                    <li><span><strong>Cost tracking data:</strong> Box prices and pouch counts you enter for savings calculations.</span></li>
+                    <li><span><strong>Pacing and reminders:</strong> Whether pacing and its reminder notifications are turned on.</span></li>
+                    <li><span><strong>Subscription status:</strong> Whether Premium is active, as reported by the App Store. Never any payment details.</span></li>
+                    <li><span><strong>App preferences:</strong> Settings like language, appearance mode, and currency.</span></li>
+                </ul>
+                <p>All of this data is stored locally on your device and is not transmitted to us or any third party. When iCloud is on for PouchLess, it is also stored in your own iCloud account, as described under Data Storage.</p>
+                </div>
+            </section>
+            <section class="policy-section" id="not-collected">
+                <span class="num">03</span>
+                <div>
+                <h2>What We Do NOT Collect</h2>
+                <ul>
+                    <li><span>Personal identification information (name, email, phone number)</span></li>
+                    <li><span>Location data</span></li>
+                    <li><span>Device identifiers for tracking purposes</span></li>
+                    <li><span>Usage analytics or behavioral data</span></li>
+                    <li><span>Crash reports or diagnostics (unless submitted by Apple through their standard process)</span></li>
+                    <li><span>Any health data beyond what you manually enter</span></li>
+                </ul>
+                </div>
+            </section>
+            <section class="policy-section" id="storage">
+                <span class="num">04</span>
+                <div>
+                <h2>Data Storage</h2>
+                <p><strong>Local Storage:</strong> By default, all your data is stored locally on your device using iOS’s secure storage mechanisms. This data is protected by your device’s passcode and biometric security.</p>
+                <p><strong>iCloud Sync:</strong> PouchLess syncs whenever iCloud is turned on for PouchLess in the iOS Settings app. There is no separate switch inside the app. Your data is then stored in your private iCloud account using Apple’s CloudKit service. This data is:</p>
+                <ul>
+                    <li><span>Encrypted in transit and at rest</span></li>
+                    <li><span>Stored in your personal iCloud container</span></li>
+                    <li><span>Not accessible to us or any third party</span></li>
+                    <li><span>Synced only to devices signed in with your Apple ID</span></li>
+                </ul>
+                <p>To stop syncing, turn off iCloud for PouchLess in the iOS Settings app. To remove what is already stored, use Delete iCloud Data, described under Your Rights.</p>
+                <p><strong>Apple Watch:</strong> The Watch app receives your data from the paired iPhone through Apple’s Watch Connectivity and keeps a copy on the watch. Nothing leaves your own devices.</p>
+                </div>
+            </section>
+            <section class="policy-section" id="third-party">
+                <span class="num">05</span>
+                <div>
+                <h2>Third-Party Services</h2>
+                <p>PouchLess uses the following Apple services:</p>
+                <ul>
+                    <li><span><strong>iCloud (CloudKit):</strong> Sync across your devices when iCloud is on for PouchLess. Your data remains in your private iCloud storage.</span></li>
+                    <li><span><strong>StoreKit:</strong> For processing in-app purchases. Payment information is handled entirely by Apple; we never see your payment details.</span></li>
+                    <li><span><strong>Notifications:</strong> Reminders (when your next paced pouch is due, and two days before a free trial ends) are scheduled on your device as local notifications. The app also registers for silent push notifications, which iCloud uses only to tell the app that new data is ready to sync. The push token is handled by Apple.</span></li>
+                    <li><span><strong>WidgetKit and Watch Connectivity:</strong> For home screen widgets and the Apple Watch app. This data stays on your devices.</span></li>
+                </ul>
+                <p>One service outside Apple is involved:</p>
+                <ul>
+                    <li><span><strong>YouTube (Google):</strong> The Learn section lists educational videos hosted on YouTube. When you open a video’s page in the app, its thumbnail is loaded from YouTube’s servers, so Google receives your IP address and the standard connection details of that request. Tapping play opens the video in the YouTube app or your browser, where Google’s privacy policy applies. PouchLess never sends any of your app data to YouTube.</span></li>
+                </ul>
+                <p>Some screens link to outside websites, such as the sources behind the health information, the App Store, and this site. Opening a link takes you to that site, with its own privacy policy.</p>
+                <p>We do not use any third-party analytics, advertising networks, or data collection services.</p>
+                </div>
+            </section>
+            <section class="policy-section" id="rights">
+                <span class="num">06</span>
+                <div>
+                <h2>Your Rights</h2>
+                <p>You have complete control over your data:</p>
+                <ul>
+                    <li><span><strong>Access:</strong> All your data is visible within the app at any time.</span></li>
+                    <li><span><strong>Export:</strong> Export your complete data as a JSON backup, or your entries or statistics as CSV, from Settings → Data &amp; Sync → Export Data. A JSON backup can be brought back with Import Data on the same screen.</span></li>
+                    <li><span><strong>Delete:</strong> Delete all local data from Settings → Data &amp; Sync → Reset All Data. The app offers an export first.</span></li>
+                    <li><span><strong>iCloud deletion:</strong> Remove everything stored in iCloud from Settings → Data &amp; Sync → Delete iCloud Data. Your data on the device is kept, and sync stays on, so the device uploads again unless you first turn off iCloud for PouchLess in the iOS Settings app.</span></li>
+                </ul>
+                </div>
+            </section>
+            <section class="policy-section" id="children">
+                <span class="num">07</span>
+                <div>
+                <h2>Children’s Privacy</h2>
+                <p>PouchLess is not intended for use by children under 17 years of age. We do not knowingly collect data from children. The app helps adults manage nicotine consumption and contains content about nicotine use.</p>
+                </div>
+            </section>
+            <section class="policy-section" id="changes">
+                <span class="num">08</span>
+                <div>
+                <h2>Changes to This Policy</h2>
+                <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date. We encourage you to review this policy periodically.</p>
+                </div>
+            </section>
+            <section class="policy-section" id="contact">
+                <span class="num">09</span>
+                <div>
+                <h2>Contact</h2>
+                <p>If you have any questions about this privacy policy or how your data is handled, please contact us: support@edgarpielb.com. We typically respond within 48 hours.</p>
+                </div>
+            </section>
+            <a class="btn btn-dark" href="mailto:support@edgarpielb.com?subject=PouchLess%20Privacy">Email support@edgarpielb.com</a>
         </div>
     </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-inner">
-                <span class="footer-copy">&copy; 2026 PouchLess. All rights reserved.</span>
-                <div class="footer-links">
-                    <a href="./">Support</a>
-                    <a href="privacy">Privacy Policy</a>
-                    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms of Use</a>
-                </div>
-            </div>
-        </div>
+    <footer class="footer privacy-foot">
+        <span>&copy; 2026 PouchLess. All rights reserved.</span>
+        <div><a href="./#support">Support</a><a href="privacy">Privacy Policy</a><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms of Use</a></div>
     </footer>
+</div>
 </body>
 </html>

@@ -3,444 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private iOS Apps: Habit, Health &amp; Learning Tools</title>
-    <meta name="description" content="Independent iOS apps by Edgar Pielbusch. Habit tracking, nicotine reduction, blood test tracking, and AI-powered video learning. Privacy-first, no tracking, honest pricing.">
+    <title>Private iOS Apps: Habit, Health &amp; Blood Test Tools</title>
+    <meta name="description" content="Independent iOS apps by Edgar Pielbusch: Ember for habits and streaks, PouchLess for quitting nicotine pouches, BloodChart for blood test results. No accounts, no tracking, no data collection.">
     <meta name="theme-color" content="#f5f0e8">
     <link rel="canonical" href="https://edgarpielb.com/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Edgar Pielbusch">
-    <meta property="og:title" content="Private iOS Apps: Habit, Health &amp; Learning Tools">
-    <meta property="og:description" content="Independent iOS apps by Edgar Pielbusch. Habit tracking, nicotine reduction, blood test tracking, and AI-powered video learning. Privacy-first, no tracking, honest pricing.">
+    <meta property="og:title" content="Private iOS Apps: Habit, Health &amp; Blood Test Tools">
+    <meta property="og:description" content="Independent iOS apps by Edgar Pielbusch: Ember for habits and streaks, PouchLess for quitting nicotine pouches, BloodChart for blood test results. No accounts, no tracking, no data collection.">
     <meta property="og:url" content="https://edgarpielb.com/">
     <meta property="og:image" content="https://edgarpielb.com/assets/headshot.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Private iOS Apps: Habit, Health &amp; Learning Tools">
-    <meta name="twitter:description" content="Independent iOS apps by Edgar Pielbusch. Habit tracking, nicotine reduction, blood test tracking, and AI-powered video learning. Privacy-first, no tracking, honest pricing.">
+    <meta name="twitter:title" content="Private iOS Apps: Habit, Health &amp; Blood Test Tools">
+    <meta name="twitter:description" content="Independent iOS apps by Edgar Pielbusch: Ember for habits and streaks, PouchLess for quitting nicotine pouches, BloodChart for blood test results. No accounts, no tracking, no data collection.">
     <meta name="twitter:image" content="https://edgarpielb.com/assets/headshot.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Figtree:wght@700;800&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #f5f0e8;
-            color: #2a2a2e;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        a { color: inherit; }
-
-        .grid-wrap {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 24px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* --- Bento Grid --- */
-        .bento {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: auto auto auto;
-            gap: 12px;
-            flex: 1;
-        }
-
-        .cell {
-            background: #faf7f2;
-            border: 1px solid rgba(0,0,0,0.06);
-            border-radius: 20px;
-            padding: 36px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-
-        .cell:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            border-color: rgba(0,0,0,0.12);
-        }
-
-        /* --- Per-app hover border colors --- */
-        .cell--ember:hover {
-            border-color: rgba(255,107,53,0.4);
-            box-shadow: 0 8px 30px rgba(255,107,53,0.1);
-        }
-
-        .cell--progresspic:hover {
-            border-color: rgba(0,150,200,0.4);
-            box-shadow: 0 8px 30px rgba(0,150,200,0.1);
-        }
-
-        .cell--pouchless:hover {
-            border-color: rgba(51,184,156,0.4);
-            box-shadow: 0 8px 30px rgba(51,184,156,0.1);
-        }
-
-        .cell--boycottr:hover {
-            border-color: rgba(40,170,75,0.4);
-            box-shadow: 0 8px 30px rgba(40,170,75,0.1);
-        }
-
-        .cell--ingrain:hover {
-            border-color: rgba(95,72,180,0.4);
-            box-shadow: 0 8px 30px rgba(95,72,180,0.1);
-        }
-
-        .cell--bloodchart:hover {
-            border-color: rgba(222,32,42,0.4);
-            box-shadow: 0 8px 30px rgba(222,32,42,0.1);
-        }
-
-        .cell--app.cell--ingrain .app-name {
-            font-family: 'Bricolage Grotesque', 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-        }
-
-        .cell--app.cell--pouchless .app-name {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-weight: 400;
-            font-size: 1.5rem;
-            letter-spacing: 0;
-        }
-
-        .cell--app.cell--bloodchart .app-name {
-            font-family: 'Figtree', 'Space Grotesk', sans-serif;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-        }
-
-        /* --- Intro cell: top-left, spans 2 columns --- */
-        .cell--intro {
-            grid-column: 1 / 3;
-            grid-row: 1;
-            border-color: rgba(0,0,0,0.04);
-            padding: 48px 44px;
-            justify-content: center;
-        }
-
-        .cell--intro:hover { border-color: rgba(0,0,0,0.1); }
-
-        .intro-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .intro-text {
-            flex: 1;
-        }
-
-        .intro-headshot {
-            width: 140px;
-            height: 140px;
-            border-radius: 24px;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
-        .cell--intro h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 3.5vw, 2.8rem);
-            font-weight: 700;
-            letter-spacing: -0.035em;
-            line-height: 1.12;
-            color: #1a1a1e;
-            margin-bottom: 20px;
-        }
-
-        .cell--intro p {
-            font-size: 1rem;
-            line-height: 1.75;
-            color: rgba(0,0,0,0.45);
-            max-width: 480px;
-        }
-
-        .cell--intro p strong {
-            color: rgba(0,0,0,0.7);
-            font-weight: 500;
-        }
-
-        .cell--intro .intro-subhead {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1rem;
-            font-weight: 500;
-            line-height: 1.6;
-            color: rgba(0,0,0,0.55);
-            max-width: 480px;
-            margin-top: 16px;
-        }
-
-        /* --- App cells --- */
-        .cell--app {
-            text-decoration: none;
-            cursor: pointer;
-            justify-content: space-between;
-            position: relative;
-        }
-
-        .cell--app .app-top {
-            margin-bottom: 24px;
-        }
-
-        .cell--app .app-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 13px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
-            margin-bottom: 20px;
-        }
-
-        .cell--app .app-name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: #1a1a1e;
-            margin-bottom: 3px;
-        }
-
-        .cell--app .app-subtitle {
-            font-size: 0.82rem;
-            color: rgba(0,0,0,0.35);
-        }
-
-        .cell--app .app-desc {
-            font-size: 0.9rem;
-            color: rgba(0,0,0,0.45);
-            line-height: 1.65;
-            margin-bottom: 20px;
-        }
-
-        .cell--app .app-links {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-            margin-top: auto;
-        }
-
-        .cell--app .app-links a {
-            font-size: 0.82rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: color 0.15s;
-        }
-
-        .cell--app .app-links .store-link,
-        .cell--app .app-links .support-link {
-            color: rgba(0,0,0,0.7);
-            padding: 6px 14px;
-            border-radius: 8px;
-            border: 1px solid rgba(0,0,0,0.12);
-            transition: all 0.15s;
-            position: relative;
-            z-index: 2;
-        }
-        .cell--app .app-links .store-link:hover,
-        .cell--app .app-links .support-link:hover {
-            color: #1a1a1e;
-            border-color: rgba(0,0,0,0.25);
-            background: rgba(0,0,0,0.04);
-        }
-
-        .cell--app .app-links .coming-soon {
-            font-size: 0.82rem;
-            font-weight: 500;
-            color: rgba(0,0,0,0.4);
-            padding: 6px 14px;
-            border-radius: 8px;
-            border: 1px dashed rgba(0,0,0,0.18);
-            background: rgba(0,0,0,0.015);
-            letter-spacing: 0.01em;
-        }
-
-        .arrow {
-            display: inline-block;
-            margin-left: 3px;
-            transition: transform 0.15s;
-        }
-        a:hover .arrow { transform: translateX(2px); }
-
-        /* --- Principles cell --- */
-        .cell--principles {
-            grid-column: 1 / 3;
-            border-color: rgba(0,0,0,0.04);
-            padding: 36px 44px;
-            justify-content: center;
-        }
-
-        .cell--principles:hover { border-color: rgba(0,0,0,0.1); }
-
-        .cell--principles h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            text-transform: uppercase;
-            color: rgba(0,0,0,0.3);
-            margin-bottom: 24px;
-        }
-
-        .principles-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px 40px;
-        }
-
-        .principle {
-            font-size: 0.85rem;
-            line-height: 1.6;
-            color: rgba(0,0,0,0.4);
-        }
-
-        .principle strong {
-            display: block;
-            color: rgba(0,0,0,0.65);
-            font-weight: 500;
-            margin-bottom: 2px;
-        }
-
-        /* --- Contact cell --- */
-        .cell--contact {
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            border-color: rgba(0,0,0,0.04);
-        }
-
-        .cell--contact:hover { border-color: rgba(0,0,0,0.1); }
-
-        .cell--contact p {
-            font-size: 0.85rem;
-            color: rgba(0,0,0,0.35);
-            margin-bottom: 12px;
-        }
-
-        .cell--contact a {
-            font-size: 0.85rem;
-            color: rgba(0,0,0,0.5);
-            text-decoration: none;
-            transition: color 0.15s;
-        }
-
-        .cell--contact a:hover {
-            color: rgba(0,0,0,0.75);
-        }
-
-        .cell--contact .copy {
-            margin-top: 16px;
-            font-size: 0.75rem;
-            color: rgba(0,0,0,0.2);
-        }
-
-        /* --- Nav --- */
-        nav {
-            padding: 16px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.06);
-        }
-
-        .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-brand {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #1a1a1e;
-            text-decoration: none;
-            letter-spacing: -0.01em;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-        }
-
-        .nav-links a {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: rgba(0,0,0,0.5);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: #1a1a1e;
-        }
-
-        /* --- Responsive --- */
-        @media (max-width: 900px) {
-            .bento {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .cell--intro {
-                grid-column: 1 / 3;
-            }
-
-            .cell--principles {
-                grid-column: 1 / 3;
-            }
-
-            .cell--contact {
-                grid-column: 1 / 3;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .grid-wrap { padding: 12px; }
-
-            .bento {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-
-            .cell--intro,
-            .cell--principles,
-            .cell--contact {
-                grid-column: 1;
-            }
-
-            .cell { padding: 28px 24px; border-radius: 16px; }
-
-            .intro-content {
-                flex-direction: column-reverse;
-                gap: 24px;
-                text-align: center;
-            }
-
-            .intro-headshot {
-                width: 100px;
-                height: 100px;
-            }
-            .cell--intro { padding: 36px 28px; }
-            .cell--intro h1 { font-size: 1.8rem; }
-            .cell--principles { padding: 28px 24px; }
-
-            .principles-grid {
-                grid-template-columns: 1fr;
-                gap: 14px;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Instrument+Serif&family=Figtree:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/site.css">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -453,158 +33,92 @@
         "description": "Independent iOS developer building small, focused, privacy-first apps with no accounts, no tracking, and honest pricing."
     }
     </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Edgar Pielbusch",
-        "url": "https://edgarpielb.com/"
-    }
-    </script>
 </head>
 <body>
-    <div class="grid-wrap">
-        <div class="bento">
+<div class="container">
+    <nav class="nav">
+        <a class="nav-brand" href="./">Edgar Pielbusch</a>
+        <div class="nav-links"><a href="#apps">Apps</a><a class="hide-phone" href="#how">How I build</a><a href="mailto:support@edgarpielb.com?subject=General%20Inquiry">Contact</a></div>
+    </nav>
 
-            <!-- Intro: top-left, spans 2 cols -->
-            <div class="cell cell--intro">
-                <div class="intro-content">
-                    <img src="assets/headshot.png" alt="Edgar Pielbusch" class="intro-headshot">
-                    <div class="intro-text">
-                        <h1>I make iOS apps<br>for people who want<br>less noise.</h1>
-                        <p>I'm Edgar. I build small, focused tools that respect your time and your data. <strong>No accounts, no tracking, no data collection.</strong> Just software that works and then gets out of your way.</p>
-                        <h2 class="intro-subhead">iOS apps for habit tracking, quitting nicotine, learning from video, and tracking your blood tests.</h2>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ember: top-right -->
-            <div class="cell cell--app cell--ember">
-                <div class="app-top">
-                    <img src="assets/icons/ember.png" alt="Ember" class="app-icon">
-                    <div class="app-name">Ember</div>
-                    <div class="app-subtitle">Streak & Habit Tracker</div>
-                </div>
-                <p class="app-desc">The habit tracker I wanted but couldn't find. Visible streaks, shields for the days you miss, and milestones that reward the long stretches.</p>
-                <div class="app-links">
-                    <a href="https://apps.apple.com/app/id6752352900" target="_blank" rel="noopener" class="store-link">App Store <span class="arrow">&rarr;</span></a>
-                    <a href="ember/#support" class="support-link">Support</a>
-                </div>
-            </div>
-
-            <!-- PouchLess -->
-            <div class="cell cell--app cell--pouchless">
-                <div class="app-top">
-                    <img src="assets/icons/pouchless.png" alt="PouchLess" class="app-icon">
-                    <div class="app-name">PouchLess</div>
-                    <div class="app-subtitle">Quit Nicotine Pouches</div>
-                </div>
-                <p class="app-desc">Quit nicotine pouches your way: step down, cold turkey, or hold steady. Track every pouch, beat cravings, and watch your savings grow.</p>
-                <div class="app-links">
-                    <a href="https://apps.apple.com/app/id6751212860" target="_blank" rel="noopener" class="store-link">App Store <span class="arrow">&rarr;</span></a>
-                    <a href="pouchless/#support" class="support-link">Support</a>
-                </div>
-            </div>
-
-            <!-- Ingrain -->
-            <div class="cell cell--app cell--ingrain">
-                <div class="app-top">
-                    <img src="assets/icons/ingrain.png" alt="Ingrain" class="app-icon">
-                    <div class="app-name">Ingrain</div>
-                    <div class="app-subtitle">Learn from Videos</div>
-                </div>
-                <p class="app-desc">Turn any YouTube, TikTok, or Instagram video into a quiz. Spaced repetition keeps what you watch in your head.</p>
-                <div class="app-links">
-                    <span class="coming-soon">Coming soon</span>
-                    <a href="ingrain/#support" class="support-link">Support</a>
-                </div>
-            </div>
-
-            <!-- BloodChart -->
-            <div class="cell cell--app cell--bloodchart">
-                <div class="app-top">
-                    <img src="assets/icons/bloodchart.png" alt="BloodChart" class="app-icon">
-                    <div class="app-name">BloodChart</div>
-                    <div class="app-subtitle">Blood Test Tracker</div>
-                </div>
-                <p class="app-desc">Import a lab report PDF and see every value over time against its reference interval, with your phenotypic age on top. Arrive at your next doctor visit prepared.</p>
-                <div class="app-links">
-                    <span class="coming-soon">Coming soon</span>
-                    <a href="bloodchart/#support" class="support-link">Support</a>
-                </div>
-            </div>
-
-            <!-- ProgressPic — hidden until launch
-            <div class="cell cell--app cell--progresspic">
-                <div class="app-top">
-                    <img src="assets/icons/progresspic.png" alt="ProgressPic" class="app-icon">
-                    <div class="app-name">ProgressPic</div>
-                    <div class="app-subtitle">Transformation Photos</div>
-                </div>
-                <p class="app-desc">Progress photos, body measurements, HealthKit, and timelapse export. Photos stay on your device.</p>
-                <div class="app-links">
-                    <a href="#" class="store-link">App Store <span class="arrow">&rarr;</span></a>
-                    <a href="progresspic/#support" class="support-link">Support</a>
-                </div>
-            </div>
-            -->
-
-            <!-- Boycottr — hidden until launch
-            <div class="cell cell--app cell--boycottr">
-                <div class="app-top">
-                    <img src="assets/icons/boycottr.png" alt="Boycottr" class="app-icon">
-                    <div class="app-name">Boycottr</div>
-                    <div class="app-subtitle">Ethical Shopping</div>
-                </div>
-                <p class="app-desc">Scan any barcode to see who really owns the brand. One tap, full ownership chain.</p>
-                <div class="app-links">
-                    <a href="#" class="store-link">App Store <span class="arrow">&rarr;</span></a>
-                    <a href="boycottr/#support" class="support-link">Support</a>
-                </div>
-            </div>
-            -->
-
-            <!-- Principles: bottom-left, spans 2 cols -->
-            <div class="cell cell--principles">
-                <h2>How I build</h2>
-                <div class="principles-grid">
-                    <div class="principle">
-                        <strong>Privacy by default</strong>
-                        No analytics, no tracking pixels, no data collection. Your information stays on your device.
-                    </div>
-                    <div class="principle">
-                        <strong>Honest pricing</strong>
-                        Honest pricing with no hidden fees. I would rather earn your trust than lock you into something you do not need.
-                    </div>
-                    <div class="principle">
-                        <strong>No account required</strong>
-                        iCloud handles sync. You don't need to create yet another login to use an app.
-                    </div>
-                    <div class="principle">
-                        <strong>Small and focused</strong>
-                        Each app does one thing well. No feature bloat, no social feeds, no dark patterns.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact: bottom-right -->
-            <div class="cell cell--contact">
-                <p>Edgar Pielbusch</p>
-                <a href="mailto:support@edgarpielb.com?subject=General%20Inquiry">support@edgarpielb.com</a>
-                <div class="copy">&copy; 2026</div>
-            </div>
-
+    <header class="hero-card">
+        <div>
+            <div class="byline"><img src="assets/headshot.png" alt="Edgar Pielbusch"><strong>Edgar Pielbusch</strong><span>Independent iOS developer</span></div>
+            <h1>I make iOS apps for people who want <span class="accent">less noise.</span></h1>
         </div>
-    </div>
-    <script>
-        document.querySelectorAll('.cell--app').forEach(card => {
-            const supportLink = card.querySelector('.support-link');
-            if (!supportLink) return;
-            card.addEventListener('click', (e) => {
-                if (e.target.closest('a')) return;
-                window.location.href = supportLink.href.split('#')[0];
-            });
-        });
-    </script>
+        <div class="hero-side">
+            <div class="icon-fan" aria-hidden="true">
+                <img class="fan-l" src="assets/icons/pouchless.png" alt="">
+                <img class="fan-r" src="assets/icons/bloodchart.png" alt="">
+                <img class="fan-c" src="assets/icons/ember.png" alt="">
+            </div>
+            <p>Small, focused tools. <strong>No accounts, no tracking, no data collection.</strong></p>
+            <a class="btn btn-dark" href="#apps" style="font-size:15px;padding:12px 20px">See the apps ↓</a>
+        </div>
+    </header>
+    <main id="apps" style="display:flex;flex-direction:column;gap:12px;scroll-margin-top:16px">
+        <article class="app-row app-ember">
+            <div class="app-text">
+                <div class="app-head">
+                    <a href="ember/"><img class="app-icon" src="assets/icons/ember.png" alt="Ember app icon"></a>
+                    <div><a class="app-name" href="ember/">Ember</a><div class="app-sub">Streak &amp; Habit Tracker</div></div>
+                </div>
+                <p>Visible streaks, streak shields, and milestones for the long run.</p>
+                <div class="app-actions"><a class="btn btn-dark" href="https://apps.apple.com/app/id6752352900" target="_blank" rel="noopener">App Store →</a><a class="btn btn-light" href="ember/">Learn more</a></div>
+            </div>
+            <a class="app-panel shot-fan" href="ember/" aria-label="Ember screenshots">
+<img class="shot-l" src="assets/screenshots/ember/02.webp" width="720" height="1561" alt="" aria-hidden="true" decoding="async">
+<img class="shot-r" src="assets/screenshots/ember/03.webp" width="720" height="1561" alt="" aria-hidden="true" decoding="async">
+<img class="shot-c" src="assets/screenshots/ember/01.webp" width="720" height="1561" alt="Keep the flame alive. One tap a day." decoding="async">
+            </a>
+        </article>
+        <article class="app-row app-pouchless">
+            <div class="app-text">
+                <div class="app-head">
+                    <a href="pouchless/"><img class="app-icon" src="assets/icons/pouchless.png" alt="PouchLess app icon"></a>
+                    <div><a class="app-name" href="pouchless/">PouchLess</a><div class="app-sub">Quit Nicotine Pouches</div></div>
+                </div>
+                <p>Step down, cold turkey, or hold steady. Track every pouch.</p>
+                <div class="app-actions"><a class="btn btn-dark" href="https://apps.apple.com/app/id6751212860" target="_blank" rel="noopener">App Store →</a><a class="btn btn-light" href="pouchless/">Learn more</a></div>
+            </div>
+            <a class="app-panel shot-fan" href="pouchless/" aria-label="PouchLess screenshots">
+<img class="shot-l" src="assets/screenshots/pouchless/02.webp" width="720" height="1561" alt="" aria-hidden="true" decoding="async">
+<img class="shot-r" src="assets/screenshots/pouchless/03.webp" width="720" height="1561" alt="" aria-hidden="true" decoding="async">
+<img class="shot-c" src="assets/screenshots/pouchless/01.webp" width="720" height="1561" alt="Log a pouch in one tap. Any brand, any strength." decoding="async">
+            </a>
+        </article>
+        <article class="app-row app-bloodchart">
+            <div class="app-text">
+                <div class="app-head">
+                    <a href="bloodchart/"><img class="app-icon" src="assets/icons/bloodchart.png" alt="BloodChart app icon"></a>
+                    <div><a class="app-name" href="bloodchart/">BloodChart</a><div class="app-sub">Blood Test Tracker</div></div>
+                </div>
+                <p>Every lab value over time, against its reference range.</p>
+                <div class="app-actions"><span class="btn btn-soon">Coming soon</span><a class="btn btn-light" href="bloodchart/">Learn more</a></div>
+            </div>
+            <a class="app-panel shot-fan" href="bloodchart/" aria-label="BloodChart screenshots">
+<img class="shot-l" src="assets/screenshots/bloodchart/02.webp" width="720" height="1564" alt="" aria-hidden="true" decoding="async">
+<img class="shot-r" src="assets/screenshots/bloodchart/03.webp" width="720" height="1564" alt="" aria-hidden="true" decoding="async">
+<img class="shot-c" src="assets/screenshots/bloodchart/01.webp" width="720" height="1564" alt="One place for all of it: import results from any lab." decoding="async">
+            </a>
+        </article>
+    </main>
+    <section class="home-foot" id="how">
+        <div class="dark-card principles">
+            <h2 class="label">How I build</h2>
+            <div><h3>Privacy by default</h3><p>Your data stays on your device.</p></div>
+            <div><h3>Honest pricing</h3><p>No hidden fees, ever.</p></div>
+            <div><h3>No account required</h3><p>iCloud handles sync.</p></div>
+            <div><h3>Small and focused</h3><p>One thing, done well.</p></div>
+        </div>
+        <div class="contact-card">
+            <h2>Questions, bugs, ideas?</h2>
+            <div>
+                <a class="btn btn-dark" href="mailto:support@edgarpielb.com?subject=General%20Inquiry">support@edgarpielb.com</a>
+                <small>Edgar Pielbusch · &copy; 2026</small>
+            </div>
+        </div>
+    </section>
+</div>
 </body>
 </html>

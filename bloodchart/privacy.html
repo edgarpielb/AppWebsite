@@ -3,530 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BloodChart Privacy Policy</title>
+    <title>Privacy Policy - BloodChart</title>
     <meta name="description" content="Privacy Policy for BloodChart: Blood Test Tracker. Your health data stays on your device and in your own iCloud. No tracking, no analytics, no accounts required.">
     <meta name="theme-color" content="#f5f0e8">
     <link rel="canonical" href="https://edgarpielb.com/bloodchart/privacy">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Edgar Pielbusch">
-    <meta property="og:title" content="BloodChart Privacy Policy">
+    <meta property="og:title" content="Privacy Policy - BloodChart">
     <meta property="og:description" content="Privacy Policy for BloodChart: Blood Test Tracker. Your health data stays on your device and in your own iCloud. No tracking, no analytics, no accounts required.">
     <meta property="og:url" content="https://edgarpielb.com/bloodchart/privacy">
     <meta property="og:image" content="https://edgarpielb.com/assets/icons/bloodchart.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="BloodChart Privacy Policy">
+    <meta name="twitter:title" content="Privacy Policy - BloodChart">
     <meta name="twitter:description" content="Privacy Policy for BloodChart: Blood Test Tracker. Your health data stays on your device and in your own iCloud. No tracking, no analytics, no accounts required.">
     <meta name="twitter:image" content="https://edgarpielb.com/assets/icons/bloodchart.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #f5f0e8;
-            --bg-card: #faf7f2;
-            --text: #1a1a1e;
-            --text-secondary: rgba(0,0,0,0.5);
-            --text-muted: rgba(0,0,0,0.3);
-            --border: rgba(0,0,0,0.06);
-            --accent: #c81e28;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Nav */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border);
-            background: rgba(245,240,232,0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-
-        .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            color: var(--text);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
-        /* Page header */
-        .page-header {
-            padding: 64px 0 48px;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-bottom: 32px;
-            transition: color 0.2s;
-        }
-
-        .back-link:hover {
-            color: var(--accent);
-        }
-
-        .back-link svg {
-            width: 15px;
-            height: 15px;
-            flex-shrink: 0;
-        }
-
-        .page-header h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            line-height: 1.05;
-            color: var(--accent);
-            margin-bottom: 12px;
-        }
-
-        .page-header .meta {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-        }
-
-        /* Privacy badge row */
-        .privacy-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 28px;
-        }
-
-        .privacy-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            background: rgba(200,30,40,0.07);
-            border: 1px solid rgba(200,30,40,0.15);
-            border-radius: 100px;
-            padding: 7px 14px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--accent);
-        }
-
-        .privacy-badge::before {
-            content: '✓';
-            font-weight: 700;
-        }
-
-        /* Content layout */
-        .content {
-            padding-bottom: 100px;
-        }
-
-        .content-layout {
-            display: grid;
-            grid-template-columns: 220px 1fr;
-            gap: 32px;
-            align-items: start;
-        }
-
-        /* Sidebar TOC */
-        .toc {
-            position: sticky;
-            top: 32px;
-        }
-
-        .toc-label {
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 14px;
-        }
-
-        .toc-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .toc-list a {
-            display: block;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: 6px 10px;
-            border-radius: 8px;
-            transition: all 0.2s;
-            line-height: 1.4;
-        }
-
-        .toc-list a:hover {
-            color: var(--accent);
-            background: rgba(200,30,40,0.06);
-        }
-
-        /* Policy card */
-        .policy-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .policy-section {
-            padding: 36px 40px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .policy-section:last-child {
-            border-bottom: none;
-        }
-
-        .policy-section h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .policy-section h2 .sec-icon {
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-
-        .policy-section p {
-            font-size: 0.925rem;
-            color: var(--text-secondary);
-            margin-bottom: 14px;
-            line-height: 1.75;
-        }
-
-        .policy-section p:last-child {
-            margin-bottom: 0;
-        }
-
-        .policy-section ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-bottom: 14px;
-        }
-
-        .policy-section ul li {
-            font-size: 0.925rem;
-            color: var(--text-secondary);
-            padding-left: 18px;
-            position: relative;
-            line-height: 1.65;
-        }
-
-        .policy-section ul li::before {
-            content: '–';
-            position: absolute;
-            left: 0;
-            color: var(--text-muted);
-        }
-
-        .policy-section strong {
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        .policy-section a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .policy-section a:hover {
-            text-decoration: underline;
-        }
-
-        .highlight-box {
-            background: rgba(200,30,40,0.05);
-            border: 1px solid rgba(200,30,40,0.12);
-            border-radius: 12px;
-            padding: 18px 20px;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-top: 4px;
-        }
-
-        .highlight-box strong {
-            color: var(--accent);
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 40px 0;
-        }
-
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .footer-copy {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .footer-links {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--text);
-        }
-
-        /* Responsive */
-        @media (max-width: 760px) {
-            .content-layout {
-                grid-template-columns: 1fr;
-            }
-            .toc {
-                display: none;
-            }
-            .policy-section {
-                padding: 28px 24px;
-            }
-            .nav-links { gap: 20px; }
-        }
-
-        @media (max-width: 500px) {
-            .nav-links { gap: 14px; }
-            .privacy-badges { gap: 8px; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Instrument+Serif&family=Figtree:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body>
-    <!-- Nav -->
-    <nav>
-        <div class="nav-inner">
-            <a href="./" class="nav-logo">BloodChart</a>
-            <ul class="nav-links">
-                <li><a href="../">All Apps</a></li>
-                <li><a href="./#support">Support</a></li>
-                <li><a href="privacy">Privacy</a></li>
-            </ul>
-        </div>
+<body class="app-bloodchart">
+<div class="container">
+    <nav class="nav">
+        <a class="nav-brand" href="./"><img src="../assets/icons/bloodchart.png" alt="">BloodChart</a>
+        <div class="nav-links"><a href="../">All Apps</a><a href="./#support">Support</a><a class="hide-phone is-current" href="privacy">Privacy</a></div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header">
-        <div class="container">
-            <a href="./" class="back-link">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-                Back to BloodChart
-            </a>
-            <h1>Privacy Policy</h1>
-            <p class="meta">Last updated: September 27, 2026</p>
-            <div class="privacy-badges">
-                <span class="privacy-badge">No data collection</span>
-                <span class="privacy-badge">No account required</span>
-                <span class="privacy-badge">No tracking</span>
-                <span class="privacy-badge">Your data stays with you</span>
-            </div>
+    <header class="privacy-head">
+        <div class="privacy-title">
+            <a class="back-link" href="./">← Back to BloodChart</a>
+            <h1>Privacy <span class="accent">Policy</span></h1>
+            <span class="meta">Last updated: September 27, 2026</span>
         </div>
-    </header>
-
-    <!-- Content -->
-    <main class="content">
-        <div class="container">
-            <div class="content-layout">
-
-                <!-- TOC Sidebar -->
-                <aside class="toc" aria-label="Table of contents">
-                    <p class="toc-label">On this page</p>
-                    <ul class="toc-list">
-                        <li><a href="#overview">Overview</a></li>
-                        <li><a href="#information">Information the App Handles</a></li>
-                        <li><a href="#storage">Data Storage</a></li>
-                        <li><a href="#third-party">Third-Party Services</a></li>
-                        <li><a href="#security">Data Security</a></li>
-                        <li><a href="#rights">Your Rights</a></li>
-                        <li><a href="#children">Children's Privacy</a></li>
-                        <li><a href="#changes">Changes to Policy</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </aside>
-
-                <!-- Policy card -->
-                <div class="policy-card">
-
-                    <div class="policy-section" id="overview">
-                        <h2><span class="sec-icon">📋</span> Overview</h2>
-                        <p>BloodChart is an app for tracking your blood test results. In this policy, "we" means its developer. Blood test results are health data, among the most sensitive categories of personal data there are, and this policy explains how the app is built so that they never leave your control.</p>
-                        <div class="highlight-box">
-                            <strong>The short version:</strong> BloodChart stores your results on your device and, when iCloud is on for BloodChart, in your own iCloud account. There are no servers of ours, no analytics, and no accounts. We never see your data, so we could not share it even if we wanted to.
-                        </div>
-                    </div>
-
-                    <div class="policy-section" id="information">
-                        <h2><span class="sec-icon">🗄️</span> Information the App Handles</h2>
-                        <p><strong>Blood test data:</strong> the values, units, and reference intervals from lab reports you import or enter by hand, with the sample dates, the names of the healthcare provider and the laboratory, the sampling context (fasting, time of day, recent exercise, illness) and any doctor's comment you note down. The doctor visit summary is assembled from this data when you export it, not stored separately.</p>
-                        <p><strong>Profile:</strong> your birth year and sex, if you enter them. They are used only to pick the reference interval that fits you and to compute phenotypic age.</p>
-                        <p><strong>Imported documents:</strong> lab report PDFs you choose in the app. They are read entirely on your device; the values are saved after you review them, the PDF itself is not kept, and no document is ever uploaded anywhere for processing.</p>
-                        <p><strong>Health data (optional):</strong> if you connect Apple Health, the app reads your workouts, and only to mark a sample drawn within 48 hours of a workout. Workouts are never stored or synced, and the app writes nothing to Health.</p>
-                        <p><strong>We do NOT collect:</strong></p>
-                        <ul>
-                            <li>Personal identification information (name, email address, or similar)</li>
-                            <li>Location data</li>
-                            <li>Device identifiers for tracking purposes</li>
-                            <li>Usage analytics or behavioral data</li>
-                            <li>Any data for advertising purposes</li>
-                        </ul>
-                    </div>
-
-                    <div class="policy-section" id="storage">
-                        <h2><span class="sec-icon">💾</span> Data Storage</h2>
-                        <p><strong>Local storage:</strong> all your data is stored locally on your device, encrypted by iOS.</p>
-                        <p><strong>iCloud sync:</strong> when iCloud is on for BloodChart, your data is stored in the private database of your personal iCloud account using Apple's CloudKit technology. Apple encrypts it in transit and at rest, and we have no way to read it. No health data is ever at rest on any server we operate, because we operate none.</p>
-                        <p><strong>On-device processing:</strong> PDF parsing, charting, and export generation all happen on your device. Nothing is sent out for processing.</p>
-                    </div>
-
-                    <div class="policy-section" id="third-party">
-                        <h2><span class="sec-icon">🔗</span> Third-Party Services</h2>
-                        <p>BloodChart uses the following Apple-provided services only:</p>
-                        <ul>
-                            <li><strong>iCloud / CloudKit</strong>: keeps a copy in your own iCloud account when iCloud is on for BloodChart (private database only)</li>
-                            <li><strong>HealthKit</strong>: reads your workouts, with your permission, to mark samples drawn within 48 hours of one (optional, read only)</li>
-                        </ul>
-                        <p>We do not use any third-party analytics, advertising, crash reporting, or tracking services. There are no SDKs from Facebook, Google, Mixpanel, Amplitude, or any similar provider embedded in BloodChart.</p>
-                    </div>
-
-                    <div class="policy-section" id="security">
-                        <h2><span class="sec-icon">🔒</span> Data Security</h2>
-                        <p>How your data is protected:</p>
-                        <ul>
-                            <li>All iCloud data is encrypted in transit and at rest by Apple</li>
-                            <li>Local data is encrypted by iOS</li>
-                            <li>We do not transmit your data to any external servers, because there are none to transmit to</li>
-                            <li>Exports are created only when you explicitly initiate them, and you choose where each file goes</li>
-                        </ul>
-                    </div>
-
-                    <div class="policy-section" id="rights">
-                        <h2><span class="sec-icon">⚖️</span> Your Rights</h2>
-                        <p>You have complete control over your data at all times:</p>
-                        <ul>
-                            <li><strong>Access</strong>: view all your data within the app at any time</li>
-                            <li><strong>Export</strong>: create a PDF summary for your doctor, or a full export of everything as CSV and JSON, from Settings</li>
-                            <li><strong>Delete</strong>: remove a sampling occasion, or everything at once with "Erase all data" in Settings, which removes the copy on your device and the copy in your iCloud. Deleting the app alone leaves the iCloud copy in place. iPhone backups made before an erase are not affected.</li>
-                            <li><strong>Portability</strong>: the full export uses standard formats you can open anywhere and keep indefinitely</li>
-                            <li><strong>iCloud</strong>: turn iCloud off for BloodChart in iOS Settings at any time; the copy on your device stays</li>
-                        </ul>
-                        <p>Because we collect no personal data on our end, there is nothing for us to look up, correct, or delete on your behalf. All data management happens directly through the app on your device.</p>
-                    </div>
-
-                    <div class="policy-section" id="children">
-                        <h2><span class="sec-icon">👶</span> Children's Privacy</h2>
-                        <p>BloodChart collects no information from anyone, children included. Nothing leaves your device except to your own iCloud account, when iCloud is on for the app.</p>
-                    </div>
-
-                    <div class="policy-section" id="changes">
-                        <h2><span class="sec-icon">📝</span> Changes to This Policy</h2>
-                        <p>We may update this policy from time to time, and the date at the top shows when it last changed.</p>
-                        <p>We will never introduce data collection, analytics, or advertising without making this clearly visible through an updated policy and a prominent in-app notice, and any such change would ask for your consent first.</p>
-                    </div>
-
-                    <div class="policy-section" id="contact">
-                        <h2><span class="sec-icon">✉️</span> Contact</h2>
-                        <p>If you have any questions or concerns about this Privacy Policy or how BloodChart handles data, please contact us:</p>
-                        <p><a href="mailto:support@edgarpielb.com?subject=BloodChart%20Privacy">support@edgarpielb.com</a></p>
-                        <p>We typically respond within 48 hours.</p>
-                    </div>
-
-                </div>
+        <aside class="short-card">
+            <span class="label">The short version</span>
+            <p>BloodChart stores your results on your device and, when iCloud is on for BloodChart, in your own iCloud account. There are no servers of ours, no analytics, and no accounts. We never see your data, so we could not share it even if we wanted to.</p>
+            <div class="promises">
+                    <div><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm-34.32,69.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"/></svg>No data collection</div>
+                    <div><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,76a44,44,0,1,1-44,44A44,44,0,0,1,128,76Zm48-12h48a8,8,0,0,0,0-16H176a8,8,0,0,0,0,16Zm39.87,24.46A8,8,0,0,0,211,98.67a88,88,0,0,1-17.23,87.74A79.86,79.86,0,0,0,172,165.1a4,4,0,0,0-4.84.32,59.81,59.81,0,0,1-78.27,0A4,4,0,0,0,84,165.1a79.71,79.71,0,0,0-21.79,21.31A88,88,0,0,1,128,40a88.76,88.76,0,0,1,14.68,1.22,8,8,0,0,0,2.64-15.78,103.9,103.9,0,1,0,80.76,67.89A8,8,0,0,0,215.87,88.46Z"/></svg>No account required</div>
+                    <div><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M96.68,57.87a4,4,0,0,1,2.08-6.6A130.13,130.13,0,0,1,128,48c34.88,0,66.57,13.26,91.66,38.35,18.83,18.83,27.3,37.62,27.65,38.41a8,8,0,0,1,0,6.5c-.35.79-8.82,19.57-27.65,38.4q-4.28,4.26-8.79,8.07a4,4,0,0,1-5.55-.36ZM213.92,210.62a8,8,0,1,1-11.84,10.76L180,197.13A127.21,127.21,0,0,1,128,208c-34.88,0-66.57-13.26-91.66-38.34C17.51,150.83,9,132.05,8.69,131.26a8,8,0,0,1,0-6.5C9,124,17.51,105.18,36.34,86.35a135,135,0,0,1,25-19.78L42.08,45.38A8,8,0,1,1,53.92,34.62Zm-65.49-48.25-52.69-58a40,40,0,0,0,52.69,58Z"/></svg>No third-party tracking</div>
+                    <div><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M176,16H80A24,24,0,0,0,56,40V216a24,24,0,0,0,24,24h96a24,24,0,0,0,24-24V40A24,24,0,0,0,176,16ZM80,32h96a8,8,0,0,1,8,8v8H72V40A8,8,0,0,1,80,32Zm96,192H80a8,8,0,0,1-8-8v-8H184v8A8,8,0,0,1,176,224Z"/></svg>Your data stays on-device</div>
             </div>
+        </aside>
+    </header>
+    <main class="privacy-body">
+        <nav class="toc" aria-label="On this page">
+            <span class="label">On this page</span>
+            <a href="#overview"><span class="num">01</span>Overview</a>
+            <a href="#information"><span class="num">02</span>Information the App Handles</a>
+            <a href="#storage"><span class="num">03</span>Data Storage</a>
+            <a href="#third-party"><span class="num">04</span>Third-Party Services</a>
+            <a href="#security"><span class="num">05</span>Data Security</a>
+            <a href="#rights"><span class="num">06</span>Your Rights</a>
+            <a href="#children"><span class="num">07</span>Children’s Privacy</a>
+            <a href="#changes"><span class="num">08</span>Changes to This Policy</a>
+            <a href="#contact"><span class="num">09</span>Contact</a>
+        </nav>
+        <div class="policy">
+            <section class="policy-section" id="overview">
+                <span class="num">01</span>
+                <div>
+                <h2>Overview</h2>
+                <p>BloodChart is an app for tracking your blood test results. In this policy, "we" means its developer. Blood test results are health data, among the most sensitive categories of personal data there are, and this policy explains how the app is built so that they never leave your control.</p>
+                </div>
+            </section>
+            <section class="policy-section" id="information">
+                <span class="num">02</span>
+                <div>
+                <h2>Information the App Handles</h2>
+                <p><strong>Blood test data:</strong> the values, units, and reference intervals from lab reports you import or enter by hand, with the sample dates, the names of the healthcare provider and the laboratory, the sampling context (fasting, time of day, recent exercise, illness) and any doctor’s comment you note down. The doctor visit summary is assembled from this data when you export it, not stored separately.</p>
+                <p><strong>Profile:</strong> your birth year and sex, if you enter them. They are used only to pick the reference interval that fits you and to compute phenotypic age.</p>
+                <p><strong>Imported documents:</strong> lab report PDFs you choose in the app. They are read entirely on your device; the values are saved after you review them, the PDF itself is not kept, and no document is ever uploaded anywhere for processing.</p>
+                <p><strong>Health data (optional):</strong> if you connect Apple Health, the app reads your workouts, and only to mark a sample drawn within 48 hours of a workout. Workouts are never stored or synced, and the app writes nothing to Health.</p>
+                <p><strong>We do NOT collect:</strong> </p>
+                <ul>
+                    <li><span>Personal identification information (name, email address, or similar)</span></li>
+                    <li><span>Location data</span></li>
+                    <li><span>Device identifiers for tracking purposes</span></li>
+                    <li><span>Usage analytics or behavioral data</span></li>
+                    <li><span>Any data for advertising purposes</span></li>
+                </ul>
+                </div>
+            </section>
+            <section class="policy-section" id="storage">
+                <span class="num">03</span>
+                <div>
+                <h2>Data Storage</h2>
+                <p><strong>Local storage:</strong> all your data is stored locally on your device, encrypted by iOS.</p>
+                <p><strong>iCloud sync:</strong> when iCloud is on for BloodChart, your data is stored in the private database of your personal iCloud account using Apple’s CloudKit technology. Apple encrypts it in transit and at rest, and we have no way to read it. No health data is ever at rest on any server we operate, because we operate none.</p>
+                <p><strong>On-device processing:</strong> PDF parsing, charting, and export generation all happen on your device. Nothing is sent out for processing.</p>
+                </div>
+            </section>
+            <section class="policy-section" id="third-party">
+                <span class="num">04</span>
+                <div>
+                <h2>Third-Party Services</h2>
+                <p>BloodChart uses the following Apple-provided services only:</p>
+                <ul>
+                    <li><span><strong>iCloud / CloudKit:</strong> keeps a copy in your own iCloud account when iCloud is on for BloodChart (private database only)</span></li>
+                    <li><span><strong>HealthKit:</strong> reads your workouts, with your permission, to mark samples drawn within 48 hours of one (optional, read only)</span></li>
+                </ul>
+                <p>We do not use any third-party analytics, advertising, crash reporting, or tracking services. There are no SDKs from Facebook, Google, Mixpanel, Amplitude, or any similar provider embedded in BloodChart.</p>
+                </div>
+            </section>
+            <section class="policy-section" id="security">
+                <span class="num">05</span>
+                <div>
+                <h2>Data Security</h2>
+                <p>How your data is protected:</p>
+                <ul>
+                    <li><span>All iCloud data is encrypted in transit and at rest by Apple</span></li>
+                    <li><span>Local data is encrypted by iOS</span></li>
+                    <li><span>We do not transmit your data to any external servers, because there are none to transmit to</span></li>
+                    <li><span>Exports are created only when you explicitly initiate them, and you choose where each file goes</span></li>
+                </ul>
+                </div>
+            </section>
+            <section class="policy-section" id="rights">
+                <span class="num">06</span>
+                <div>
+                <h2>Your Rights</h2>
+                <p>You have complete control over your data at all times:</p>
+                <ul>
+                    <li><span><strong>Access:</strong> view all your data within the app at any time</span></li>
+                    <li><span><strong>Export:</strong> create a PDF summary for your doctor, or a full export of everything as CSV and JSON, from Settings</span></li>
+                    <li><span><strong>Delete:</strong> remove a sampling occasion, or everything at once with "Erase all data" in Settings, which removes the copy on your device and the copy in your iCloud. Deleting the app alone leaves the iCloud copy in place. iPhone backups made before an erase are not affected.</span></li>
+                    <li><span><strong>Portability:</strong> the full export uses standard formats you can open anywhere and keep indefinitely</span></li>
+                    <li><span><strong>iCloud:</strong> turn iCloud off for BloodChart in iOS Settings at any time; the copy on your device stays</span></li>
+                </ul>
+                <p>Because we collect no personal data on our end, there is nothing for us to look up, correct, or delete on your behalf. All data management happens directly through the app on your device.</p>
+                </div>
+            </section>
+            <section class="policy-section" id="children">
+                <span class="num">07</span>
+                <div>
+                <h2>Children’s Privacy</h2>
+                <p>BloodChart collects no information from anyone, children included. Nothing leaves your device except to your own iCloud account, when iCloud is on for the app.</p>
+                </div>
+            </section>
+            <section class="policy-section" id="changes">
+                <span class="num">08</span>
+                <div>
+                <h2>Changes to This Policy</h2>
+                <p>We may update this policy from time to time, and the date at the top shows when it last changed.</p>
+                <p>We will never introduce data collection, analytics, or advertising without making this clearly visible through an updated policy and a prominent in-app notice, and any such change would ask for your consent first.</p>
+                </div>
+            </section>
+            <section class="policy-section" id="contact">
+                <span class="num">09</span>
+                <div>
+                <h2>Contact</h2>
+                <p>If you have any questions or concerns about this Privacy Policy or how BloodChart handles data, please contact us: support@edgarpielb.com. We typically respond within 48 hours.</p>
+                </div>
+            </section>
+            <a class="btn btn-dark" href="mailto:support@edgarpielb.com?subject=BloodChart%20Privacy">Email support@edgarpielb.com</a>
         </div>
     </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-inner">
-                <span class="footer-copy">&copy; 2026 BloodChart. All rights reserved.</span>
-                <div class="footer-links">
-                    <a href="./">Support</a>
-                    <a href="privacy">Privacy Policy</a>
-                    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms of Use</a>
-                </div>
-            </div>
-        </div>
+    <footer class="footer privacy-foot">
+        <span>&copy; 2026 BloodChart. All rights reserved.</span>
+        <div><a href="./#support">Support</a><a href="privacy">Privacy Policy</a><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms of Use</a></div>
     </footer>
+</div>
 </body>
 </html>
