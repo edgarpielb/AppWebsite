@@ -393,7 +393,7 @@
                 Back to PouchLess
             </a>
             <h1>Privacy Policy</h1>
-            <p class="meta">Last updated: November 2025</p>
+            <p class="meta">Last updated: September 2026</p>
             <div class="privacy-badges">
                 <span class="privacy-badge">No account required</span>
                 <span class="privacy-badge">No analytics or tracking</span>
@@ -431,7 +431,7 @@
                         <h2><span class="sec-icon">📋</span> Overview</h2>
                         <p>PouchLess is designed with your privacy as a core principle. We believe you should be able to track your nicotine consumption without sacrificing your personal data. This privacy policy explains what data we collect (very little) and how we handle it.</p>
                         <div class="highlight-box">
-                            <strong>The short version:</strong> No account required. No analytics or tracking. No advertising — your data is never sold or shared. Your data stays on your device with optional iCloud sync only if you choose to enable it.
+                            <strong>The short version:</strong> No account required. No analytics or tracking. No advertising. Your data is never sold or shared. It stays on your device and, when iCloud is on for PouchLess, in your own iCloud account.
                         </div>
                     </div>
 
@@ -441,11 +441,14 @@
                         <ul>
                             <li><strong>Consumption logs:</strong> When you log a pouch, the app records the date, time, pouch type, and nicotine amount.</li>
                             <li><strong>Pouch types:</strong> Custom pouch brands, strengths, and colors you create.</li>
-                            <li><strong>Goals and plan:</strong> Your chosen goal (quit, cut down, or keep stable), baseline consumption, and target dates.</li>
+                            <li><strong>Goals and plan:</strong> Your chosen goal (quit smart, cold turkey, cut down, or keep stable), baseline consumption, target dates, plan history, and the reasons you gave for quitting, including any free text you typed.</li>
+                            <li><strong>Craving check-ins and trigger diary:</strong> How strong a craving was, what set it off, what you tried, how it felt afterwards, optional notes, and the time.</li>
                             <li><strong>Cost tracking data:</strong> Box prices and pouch counts you enter for savings calculations.</li>
+                            <li><strong>Pacing and reminders:</strong> Whether pacing and its reminder notifications are turned on.</li>
+                            <li><strong>Subscription status:</strong> Whether Premium is active, as reported by the App Store. Never any payment details.</li>
                             <li><strong>App preferences:</strong> Settings like language, appearance mode, and currency.</li>
                         </ul>
-                        <p>All of this data is stored locally on your device and is not transmitted to us or any third party unless you enable iCloud sync.</p>
+                        <p>All of this data is stored locally on your device and is not transmitted to us or any third party. When iCloud is on for PouchLess, it is also stored in your own iCloud account, as described under Data Storage.</p>
                     </div>
 
                     <div class="policy-section" id="not-collected">
@@ -463,24 +466,31 @@
                     <div class="policy-section" id="storage">
                         <h2><span class="sec-icon">💾</span> Data Storage</h2>
                         <p><strong>Local Storage:</strong> By default, all your data is stored locally on your device using iOS's secure storage mechanisms. This data is protected by your device's passcode and biometric security.</p>
-                        <p><strong>iCloud Sync (Optional):</strong> If you enable iCloud sync in Settings, your data will be stored in your private iCloud account using Apple's CloudKit service. This data is:</p>
+                        <p><strong>iCloud Sync:</strong> PouchLess syncs whenever iCloud is turned on for PouchLess in the iOS Settings app. There is no separate switch inside the app. Your data is then stored in your private iCloud account using Apple's CloudKit service. This data is:</p>
                         <ul>
                             <li>Encrypted in transit and at rest</li>
                             <li>Stored in your personal iCloud container</li>
                             <li>Not accessible to us or any third party</li>
-                            <li>Synced only to devices signed into your Apple ID</li>
+                            <li>Synced only to devices signed in with your Apple ID</li>
                         </ul>
+                        <p>To stop syncing, turn off iCloud for PouchLess in the iOS Settings app. To remove what is already stored, use Delete iCloud Data, described under Your Rights.</p>
+                        <p><strong>Apple Watch:</strong> The Watch app receives your data from the paired iPhone through Apple's Watch Connectivity and keeps a copy on the watch. Nothing leaves your own devices.</p>
                     </div>
 
                     <div class="policy-section" id="third-party">
                         <h2><span class="sec-icon">🔗</span> Third-Party Services</h2>
                         <p>PouchLess uses the following Apple services:</p>
                         <ul>
-                            <li><strong>iCloud (CloudKit):</strong> Optional sync across your devices. Your data remains in your private iCloud storage.</li>
+                            <li><strong>iCloud (CloudKit):</strong> Sync across your devices when iCloud is on for PouchLess. Your data remains in your private iCloud storage.</li>
                             <li><strong>StoreKit:</strong> For processing in-app purchases. Payment information is handled entirely by Apple; we never see your payment details.</li>
-                            <li><strong>Push Notifications:</strong> Optional reminders. Notification tokens are managed by Apple.</li>
-                            <li><strong>WidgetKit:</strong> For home screen widgets. Widget data stays on your device.</li>
+                            <li><strong>Notifications:</strong> Reminders (when your next paced pouch is due, and two days before a free trial ends) are scheduled on your device as local notifications. The app also registers for silent push notifications, which iCloud uses only to tell the app that new data is ready to sync. The push token is handled by Apple.</li>
+                            <li><strong>WidgetKit and Watch Connectivity:</strong> For home screen widgets and the Apple Watch app. This data stays on your devices.</li>
                         </ul>
+                        <p>One service outside Apple is involved:</p>
+                        <ul>
+                            <li><strong>YouTube (Google):</strong> The Learn section lists educational videos hosted on YouTube. When you open a video's page in the app, its thumbnail is loaded from YouTube's servers, so Google receives your IP address and the standard connection details of that request. Tapping play opens the video in the YouTube app or your browser, where Google's privacy policy applies. PouchLess never sends any of your app data to YouTube.</li>
+                        </ul>
+                        <p>Some screens link to outside websites, such as the sources behind the health information, the App Store, and this site. Opening a link takes you to that site, with its own privacy policy.</p>
                         <p>We do not use any third-party analytics, advertising networks, or data collection services.</p>
                     </div>
 
@@ -489,9 +499,9 @@
                         <p>You have complete control over your data:</p>
                         <ul>
                             <li><strong>Access:</strong> All your data is visible within the app at any time.</li>
-                            <li><strong>Export:</strong> Export your complete data as JSON or CSV from Settings &rarr; Data &rarr; Export.</li>
-                            <li><strong>Delete:</strong> Delete all local data from Settings &rarr; Data &rarr; Reset All Data.</li>
-                            <li><strong>iCloud deletion:</strong> If using iCloud sync, you can delete cloud data from Settings &rarr; Data &rarr; iCloud Sync &rarr; Delete iCloud Data.</li>
+                            <li><strong>Export:</strong> Export your complete data as a JSON backup, or your entries or statistics as CSV, from Settings &rarr; Data &amp; Sync &rarr; Export Data. A JSON backup can be brought back with Import Data on the same screen.</li>
+                            <li><strong>Delete:</strong> Delete all local data from Settings &rarr; Data &amp; Sync &rarr; Reset All Data. The app offers an export first.</li>
+                            <li><strong>iCloud deletion:</strong> Remove everything stored in iCloud from Settings &rarr; Data &amp; Sync &rarr; Delete iCloud Data. Your data on the device is kept, and sync stays on, so the device uploads again unless you first turn off iCloud for PouchLess in the iOS Settings app.</li>
                         </ul>
                     </div>
 
@@ -521,7 +531,7 @@
     <footer>
         <div class="container">
             <div class="footer-inner">
-                <span class="footer-copy">&copy; 2025 PouchLess. All rights reserved.</span>
+                <span class="footer-copy">&copy; 2026 PouchLess. All rights reserved.</span>
                 <div class="footer-links">
                     <a href="./">Support</a>
                     <a href="privacy">Privacy Policy</a>
