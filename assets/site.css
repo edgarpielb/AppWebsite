@@ -36,8 +36,8 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; font-size: 16px; }
-/* Wide screens: the whole layout scales with the viewport (everything is in rem), capped at 1.625x. */
-@media (min-width: 1440px) { html { font-size: clamp(16px, 1.15vw, 26px); } }
+/* Wide screens: the whole layout scales with the viewport (everything is in rem), capped at about 1.47x. */
+@media (min-width: 1440px) { html { font-size: clamp(16px, 1.04vw, 23.5px); } }
 body {
     font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg);
