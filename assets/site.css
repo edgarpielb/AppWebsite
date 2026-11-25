@@ -129,6 +129,12 @@ h1, h2, h3 { font-family: var(--heading); font-weight: 700; }
 .page-hero h1 { font-size: 5.5rem; line-height: 1; letter-spacing: -.05em; text-wrap: balance; }
 .page-hero p { font-size: 1.125rem; line-height: 1.6; color: var(--ink-2); max-width: 28.75rem; }
 .page-hero .btn-lg { margin-top: 0.5rem; }
+/* A headline with one long line (Ember: "No subscription." / "Ever.") shrinks with the
+   viewport so that line always fits its column. Not a container query: container-type
+   on the hero text turned its App Store button grey in Chrome. */
+.page-hero h1.fit-long { font-size: min(4.6rem, 4.5vw); }
+@media (max-width: 1000px) { .page-hero h1.fit-long { font-size: min(4.5rem, 11vw); } }
+@media (max-width: 700px) { .page-hero h1.fit-long { font-size: min(3.375rem, 11vw); } }
 .hero-fan { position: relative; height: 37.5rem; }
 .hero-fan img { position: absolute; border-radius: 1.625rem; box-shadow: 0 1.5rem 3.125rem rgba(0,0,0,.22); }
 .hero-fan .shot-l { left: 1.875rem; top: 4.375rem; width: 13.75rem; transform: rotate(-7deg); }
