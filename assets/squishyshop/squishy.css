@@ -1,0 +1,192 @@
+/* Squishy Shop: the game's skin over site.css. Fredoka for what a child reads, the system
+   face for what a parent reads (the app's own rule). The pastel dots, the ink and the paper
+   are the store screenshots' colours. Fredoka is self-hosted: these pages load nothing
+   from another site. */
+@font-face { font-family: 'Fredoka'; src: url('../fonts/Fredoka-SemiBold.ttf') format('truetype'); font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Fredoka'; src: url('../fonts/Fredoka-Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+
+.app-squishy {
+    --bg: #fff8ee;
+    --card: #fffdf9;
+    --ink: #3d2e21;
+    --ink-2: #5b4838;
+    --ink-3: #75604e;
+    --nav: #5b4838;
+    --hairline: rgba(61,46,33,.14);
+    --border: rgba(61,46,33,.08);
+    --dark: #3d2e21;
+    --accent: #d9487a;
+    --deep: #b23461;
+    --tint: #fae2be;
+    --soft: #fff0cc;
+    --tint-ink: #3d2e21;
+    --tint-ink-2: #6b4f36;
+    --tint-line: rgba(61,46,33,.18);
+    --heading: 'Fredoka', ui-rounded, system-ui, sans-serif;
+    --name-font: 'Fredoka', ui-rounded, sans-serif;
+    --name-weight: 700;
+    --sys: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --pink: #fad9e0;  --pink-dot: #ffe7ee;
+    --mint: #c7ebd9;  --mint-dot: #d5f9e7;
+    --lilac: #d9c7ed; --lilac-dot: #e7d5fb;
+    --peach: #fae2be; --peach-dot: #fff0cc;
+    --sky: #c4e2f5;   --sky-dot: #d2f0ff;
+    font-family: var(--sys);
+}
+.app-squishy h1, .app-squishy h2, .app-squishy h3 { letter-spacing: 0; }
+.app-squishy .nav-brand, .app-squishy .nav-links, .app-squishy .btn, .app-squishy .kicker,
+.app-squishy .label, .app-squishy .faq-q, .app-squishy .back-link { font-family: var(--heading); font-weight: 600; letter-spacing: 0; }
+.app-squishy .nav-brand { font-size: 1.25rem; font-weight: 700; }
+.app-squishy .nav-brand img { width: 2.25rem; height: 2.25rem; border-radius: 0.55rem; }
+.app-squishy .nav-links { font-size: 1rem; }
+
+/* Polka dots, staggered, as on the store frames. */
+.dots { background-color: var(--c); background-image: radial-gradient(circle, var(--d) 0.42rem, transparent 0.45rem), radial-gradient(circle, var(--d) 0.42rem, transparent 0.45rem); background-size: 2.2rem 2.2rem; background-position: 0 0, 1.1rem 1.1rem; }
+.c-pink  { --c: var(--pink);  --d: var(--pink-dot); }
+.c-mint  { --c: var(--mint);  --d: var(--mint-dot); }
+.c-lilac { --c: var(--lilac); --d: var(--lilac-dot); }
+.c-peach { --c: var(--peach); --d: var(--peach-dot); }
+.c-sky   { --c: var(--sky);   --d: var(--sky-dot); }
+
+/* Chunky game buttons: an ink outline and a drop that the press pushes down. */
+.app-squishy .btn { border: 0.1875rem solid var(--ink); box-shadow: 0 0.25rem 0 var(--ink); font-size: 1rem; padding: 0.7rem 1.3rem; transition: transform .12s ease, box-shadow .12s ease, background .2s ease; }
+.app-squishy .btn:active { transform: translateY(0.1875rem); box-shadow: 0 0.0625rem 0 var(--ink); }
+.app-squishy .btn-dark { background: var(--ink); color: #fff8ee; }
+.app-squishy .btn-dark:hover { background: var(--deep); color: #fff; }
+.app-squishy .btn-light { background: #fffdf9; }
+.app-squishy .btn-soon { background: #fffdf9; border-style: solid; color: var(--ink); box-shadow: none; cursor: default; }
+.app-squishy .btn-soon:active { transform: none; box-shadow: none; }
+.app-squishy .btn-soon svg { width: 1.2rem; height: 1.2rem; }
+.app-squishy :focus-visible { outline: 0.1875rem solid var(--accent); outline-offset: 0.25rem; }
+
+/* --- Hero --- */
+.sq-hero { position: relative; border-radius: 2rem; padding: 3.5rem 3.25rem 3.75rem; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 2.5rem; align-items: center; }
+.sq-hero-text { display: flex; flex-direction: column; align-items: flex-start; gap: 1.25rem; position: relative; z-index: 2; }
+.sq-chip { font-family: var(--heading); font-weight: 600; font-size: 0.9375rem; background: #fffdf9; border: 0.125rem solid var(--ink); border-radius: 999px; padding: 0.3rem 0.85rem; }
+.sq-hero h1 { font-size: 5rem; line-height: .95; text-wrap: balance; }
+.sq-hero p { font-size: 1.1875rem; line-height: 1.55; color: var(--ink-2); max-width: 28rem; text-wrap: pretty; }
+.sq-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; margin-top: 0.5rem; }
+.sq-link { font-family: var(--heading); font-weight: 600; font-size: 1.0625rem; text-decoration: underline; text-decoration-thickness: 0.125rem; text-underline-offset: 0.25rem; }
+.sq-link:hover { color: var(--deep); }
+
+.sq-stage { position: relative; aspect-ratio: 1400 / 644; margin: 0 0 3rem 2rem; }
+.sq-screen { display: block; width: 100%; height: auto; border: 0.1875rem solid var(--ink); border-radius: 1.25rem; box-shadow: 0 1rem 2.5rem rgba(61,46,33,.18); background: #fff; }
+.sq-stage .sq-screen { transform: rotate(1.5deg); }
+.sq-stage .hero-squishy { position: absolute; left: -2.5rem; bottom: -4.5rem; width: 44%; z-index: 3; }
+.sq-stage .s-boba { position: absolute; right: -1.5rem; top: -2.5rem; width: 15%; z-index: 3; transform: rotate(10deg); }
+.sq-stage .s-sushi { position: absolute; right: 8%; bottom: -3rem; width: 18%; z-index: 3; }
+
+.press-cue { position: absolute; left: 34%; bottom: -3.5rem; z-index: 4; display: flex; align-items: center; gap: 0.25rem; pointer-events: none; transition: opacity .4s ease; }
+.press-cue img { width: 3.75rem; height: auto; transform: rotate(-20deg); animation: cue-poke 1.6s ease-in-out infinite; }
+.press-cue span { font-family: var(--heading); font-weight: 700; font-size: 1.125rem; background: #fffdf9; border: 0.125rem solid var(--ink); border-radius: 999px; padding: 0.2rem 0.75rem; white-space: nowrap; }
+.press-cue.is-done { opacity: 0; }
+@keyframes cue-poke { 0%, 100% { translate: 0 0; } 50% { translate: -0.6rem -0.2rem; } }
+
+/* --- A squishy you can squish --- */
+.squishy { all: unset; display: block; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; }
+.squishy > span { display: block; transform-origin: 50% 92%; }
+.squishy img { display: block; width: 100%; height: auto; pointer-events: none; -webkit-user-drag: none; filter: drop-shadow(0 0.5rem 0.75rem rgba(61,46,33,.18)); }
+.squishy.is-pressed > span { transform: scale(1.16, 0.8); transition: transform .09s cubic-bezier(.3,.7,.4,1); }
+.squishy.is-released > span { animation: squish-back .75s cubic-bezier(.25,.9,.3,1); }
+.squishy:focus-visible { outline: none; }
+.squishy:focus-visible img { filter: drop-shadow(0 0 0.25rem var(--accent)) drop-shadow(0 0 0.25rem var(--accent)); }
+@keyframes squish-back {
+    0%   { transform: scale(1.16, 0.8); }
+    30%  { transform: scale(0.92, 1.1); }
+    55%  { transform: scale(1.05, 0.96); }
+    78%  { transform: scale(0.98, 1.02); }
+    100% { transform: scale(1, 1); }
+}
+.bob > span > img { animation: bob 4.5s ease-in-out infinite; }
+.bob.b2 > span > img { animation-delay: -1.5s; }
+.bob.b3 > span > img { animation-delay: -3s; }
+@keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -0.4rem; } }
+
+/* --- What's inside --- */
+.sq-section-head { padding: 4rem 0 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.sq-section-head h2 { font-size: 3rem; line-height: 1; }
+.sq-features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.sq-card { position: relative; border-radius: 1.75rem; padding: 2.25rem 2.25rem 2.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.sq-card h3 { font-size: 2rem; line-height: 1.05; }
+.sq-card p { font-size: 1.0625rem; line-height: 1.55; color: var(--ink-2); max-width: 30rem; margin-right: 4.5rem; text-wrap: pretty; }
+.sq-card .sq-screen { margin-top: 1.25rem; }
+.sq-card .squishy { position: absolute; top: -1.5rem; right: -0.75rem; width: 6.5rem; z-index: 2; }
+.sq-card .squishy.tilt-l { transform: rotate(-10deg); }
+.sq-card .squishy.tilt-r { transform: rotate(10deg); }
+.sq-card-wide { grid-column: 1 / -1; }
+.sq-games { list-style: none; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
+.sq-games li { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; text-align: center; font-family: var(--heading); font-weight: 600; font-size: 1rem; line-height: 1.15; }
+.sq-games img { width: 100%; height: auto; aspect-ratio: 1; border-radius: 50%; border: 0.1875rem solid var(--ink); box-shadow: 0 0.5rem 1.25rem rgba(61,46,33,.15); background: #fff; }
+
+/* --- For grown-ups --- */
+.sq-grownups { margin-top: 4rem; background: var(--card); border: 0.1875rem solid var(--ink); border-radius: 2rem; padding: 3rem 3.25rem; display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 3rem; align-items: center; scroll-margin-top: 1rem; }
+.sq-grownups .bao { width: 100%; height: auto; }
+.sq-grownups h2 { font-size: 3rem; line-height: 1; }
+.sq-grownups .lead { font-size: 1.125rem; line-height: 1.55; color: var(--ink-2); margin-top: 0.75rem; }
+.sq-promises { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.125rem 2.25rem; margin-top: 1.75rem; }
+.sq-promises li { display: flex; gap: 0.75rem; font-size: 1rem; line-height: 1.5; color: var(--ink-2); }
+.sq-promises strong { color: var(--ink); font-weight: 600; }
+.sq-promises svg { flex: none; width: 1.5rem; height: 1.5rem; margin-top: 0.0625rem; color: #2f9468; }
+.sq-promises a { text-decoration: underline; text-underline-offset: 0.15rem; }
+
+/* --- Help, FAQ, privacy: site.css components in the game's colours --- */
+/* The game's gear button, inline in help text: the lilac disc on its charcoal lip. */
+.sq-gear { display: inline-block; width: 1.5em; height: 1.5625em; vertical-align: -0.5em; margin: 0 0.1em; }
+.app-squishy .support { margin-top: 4rem; }
+.app-squishy .help-card { border-radius: 1.75rem; }
+.app-squishy .help-card h2 { font-size: 3rem; }
+.app-squishy .faq { border-radius: 1.75rem; border: 0.1875rem solid var(--ink); }
+.app-squishy .faq-q { font-size: 1.125rem; }
+.app-squishy .faq-a p { font-size: 1rem; }
+.app-squishy .faq-item:last-child { border-bottom: 0; }
+.app-squishy .short-card { border-radius: 1.75rem; }
+.app-squishy .privacy-title h1 { font-size: 5.5rem; }
+.app-squishy .policy-section h2 { font-size: 1.875rem; }
+.app-squishy .num { color: var(--ink-3); }
+.app-squishy .policy-section .num { color: var(--deep); }
+.app-squishy .privacy-body { border-top: 0.1875rem solid var(--ink); }
+.app-squishy .footer { font-size: 0.875rem; }
+
+/* --- Responsive --- */
+@media (max-width: 1100px) {
+    .sq-hero h1 { font-size: 4rem; }
+    .sq-games { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 1000px) {
+    .sq-hero { grid-template-columns: 1fr; gap: 2rem; padding: 2.75rem 2.25rem 5rem; }
+    .sq-stage { margin: 0 1rem 0 2rem; }
+    .sq-grownups { grid-template-columns: 10rem minmax(0, 1fr); gap: 2rem; padding: 2.5rem 2.25rem; }
+    .sq-promises { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+    .sq-hero { border-radius: 1.5rem; padding: 1.75rem 1.375rem 4.5rem; gap: 1.5rem; }
+    .sq-hero h1 { font-size: 3.25rem; }
+    .sq-hero p { font-size: 1.0625rem; }
+    .sq-stage { margin: 0.5rem 0.5rem 0 1rem; }
+    .sq-stage .hero-squishy { left: -1.75rem; bottom: -3.75rem; width: 46%; }
+    .sq-stage .s-boba { right: -1rem; top: -1.75rem; }
+    .sq-stage .s-sushi { bottom: -2rem; }
+    .press-cue { left: 38%; bottom: -3.25rem; }
+    .press-cue img { width: 2.75rem; }
+    .press-cue span { font-size: 1rem; }
+    .sq-section-head { padding: 3rem 0 0.75rem; }
+    .sq-section-head h2, .sq-grownups h2, .app-squishy .help-card h2 { font-size: 2.25rem; }
+    .sq-features { grid-template-columns: 1fr; gap: 1rem; }
+    .sq-card { padding: 1.75rem 1.375rem 1.75rem; border-radius: 1.5rem; }
+    .sq-card h3 { font-size: 1.625rem; }
+    .sq-card p { font-size: 1rem; margin-right: 3rem; }
+    .sq-card .squishy { width: 5rem; top: -1.25rem; right: -0.25rem; }
+    .sq-card-wide p { margin-right: 0; }
+    .sq-games { gap: 1rem 0.75rem; }
+    .sq-games li { font-size: 0.875rem; }
+    .sq-grownups { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 1.375rem; border-radius: 1.5rem; margin-top: 3rem; }
+    .sq-grownups .bao { width: 9rem; }
+    .app-squishy .support { margin-top: 3rem; }
+    .app-squishy .privacy-title h1 { font-size: 3.5rem; }
+    .app-squishy .policy-section h2 { font-size: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .bob > span > img, .press-cue img { animation: none; }
+    /* The squish is the user's own action, so it stays; only its wobble goes. */
+    .squishy.is-released > span { animation: none; }
+}
